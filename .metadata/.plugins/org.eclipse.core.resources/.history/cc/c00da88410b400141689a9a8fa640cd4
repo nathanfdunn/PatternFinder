@@ -1,0 +1,16 @@
+package rTest;
+
+import org.rosuda.JRI.RVector;
+import org.rosuda.JRI.Rengine;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Rengine re=new Rengine(args, false, new TextConsole());
+
+		RVector vector = (re.eval("data.frame(c(1:3),c(2:4))").asVector());
+		System.out.println(vector);
+		System.out.println(vector.at(0));
+	}
+
+}

@@ -15,7 +15,7 @@ public class Main {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		for (int i=0; i<100; i++){
+	/*	for (int i=0; i<100; i++){
 			String vals = "";
 			TokenStream ts = randData();
 			ArrayList<Clause> allClauses = PatternExtractor.allClauses(ts);
@@ -36,9 +36,9 @@ public class Main {
 			writer.println(vals);
 			writer.close();
 		}
+		*/
 		
-		
-		/*
+		//*
 		TokenStream ts = randData();
 		ArrayList<EvaluationObject> patterns = PatternExtractor.bruteForce(ts, 100);
 		
@@ -47,7 +47,7 @@ public class Main {
 		}
 		
 		System.out.println("\n\n" + ts);
-		*/
+		//*/
 	}
 	
 	

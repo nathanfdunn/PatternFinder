@@ -91,8 +91,76 @@ splitter = function( dat, time=1:length(dat), chunkWidth = NA, numChunks = NA){
 }
 
 
+#TODO tweak significance level
+#Returns 1 if a spike, -1 if a dip, 0 otherwise
+defSignif=0.001
+spikeDetZ = function( chunk, time=1:length(chunk), signif = defSignif){
+	zAlpha = abs(qnorm(signif))
+	scaledDat = scale(chunk)
+	spikes = sum(scaledDat > zAlpha)
+	dips = sum(scaledDat < -zAlpha)
+	
+		#plot(1:length(chunk),chunk); print(spikes); print(dips)		#Sanity Check
+		
+	return(sign(spikes - dips))
+}
+
+#Returns 1 if increasing trend, -1 if decreasing trend, 0 otherwise
+defTrendSig=0.0001
+trendDetZ = function(chunk, time=1:length(chunk), signif = defTrendSig){
+	zAlpha = abs(qnorm(signif))
+	r = cor(chunk, time)
+	w = atanh(r) 					#w = 0.5*log((1+r)/(1-r))
+	se = 1/sqrt(length(chunk)-3)
+	
+	if (abs(w/se) > zAlpha){
+		return(sign(w))
+	} else {
+		return(0)
+	}
+}
+
+
+spikeDetEmp = function( chunk, time=1:length(chunk), bound=5){
+	med = median(chunk)
+	spikeHere = sum( chunk > med*bound)
+	dipHere = sum( chunk < med/bound)
+	if (spikeHere > 0 || dipHere > 0){
+	cat("Spikes:", spikeHere)
+	cat("\nDips:", dipHere)
+	cat("\n")
+	}
+	return(sign(spikeHere - dipHere))
+}
+
+trendDetEmp = function(chunk, time=1:length(chunk), bound = 8/4){
+	#med = median(chunk)
+	fit = lm(chunk~time)
+	endPoints = fit[[1]][2]*c(time[1],time[length(time)]) + fit[[1]][1]
+	growth = endPoints[2]/endPoints[1]
+	if (growth > bound)
+		return(1)
+	growth = 1/growth
+	if (growth > bound)
+		return(-1)
+	return(0)
+}
+
 #Classifies a chunk as 
-classifier = function( chunk, time=1:length(chunk) ){
+classifier = function( chunk, time=1:length(chunk), mode="new" ){
+	if (length(chunk) < 5){
+		return(NULL_)
+	}
+	
+	spikeDet = trendDet = NA
+	if (mode == "old"){
+		spikeDet = spikeDetZ
+		trendDet = trendDetZ
+	}else{
+		spikeDet = spikeDetEmp
+		trendDet = trendDetEmp	
+	}
+
 	if (length(chunk) < 5 || NA %in% chunk){
 		return(NULL_)
 	}
@@ -111,34 +179,7 @@ classifier = function( chunk, time=1:length(chunk) ){
 
 
 
-#TODO tweak significance level
-#Returns 1 if a spike, -1 if a dip, 0 otherwise
-defSignif=0.001
-spikeDet = function( chunk, time=1:length(chunk), signif = defSignif){ 	# radius = 20,){
-	zAlpha = abs(qnorm(signif))
-	scaledDat = scale(chunk)
-	spikes = sum(scaledDat > zAlpha)
-	dips = sum(scaledDat < -zAlpha)
-	
-		#plot(1:length(chunk),chunk); print(spikes); print(dips)		#Sanity Check
-		
-	return(sign(spikes - dips))
-}
 
-#Returns 1 if increasing trend, -1 if decreasing trend, 0 otherwise
-defTrendSig=0.0001
-trendDet = function(chunk, time=1:length(chunk), signif = defTrendSig){
-	zAlpha = abs(qnorm(signif))
-	r = cor(chunk, time)
-	w = atanh(r) 					#w = 0.5*log((1+r)/(1-r))
-	se = 1/sqrt(length(chunk)-3)
-	
-	if (abs(w/se) > zAlpha){
-		return(sign(w))
-	} else {
-		return(0)
-	}
-}
 
 
 

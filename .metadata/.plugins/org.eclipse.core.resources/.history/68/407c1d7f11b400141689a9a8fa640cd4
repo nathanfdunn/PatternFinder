@@ -1,0 +1,5 @@
+package rTest;
+
+public enum Test {
+
+}

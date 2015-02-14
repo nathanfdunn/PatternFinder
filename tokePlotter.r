@@ -76,7 +76,7 @@ scaleConst=.358
 xScaleConst = 100
 
 
-myPlot2 = function( dat, times=1:length(dat), startTime=1, color='blue', chunkWidth = NA, numChunks = NA){
+myPlot = function( dat, times=1:length(dat), startTime=1, color='blue', chunkWidth = NA, numChunks = NA){
 	
 	
 	if (!is.na(chunkWidth) && !is.na(numChunks))

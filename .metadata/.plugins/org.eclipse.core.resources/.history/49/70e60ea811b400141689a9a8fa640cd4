@@ -1,0 +1,13 @@
+package rTest;
+
+public enum Test {
+	HEHE,
+	FUCK;
+	
+	
+	public Test translate(int i){
+		
+	}
+}
+
+
