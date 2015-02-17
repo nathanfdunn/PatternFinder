@@ -1,0 +1,21 @@
+package patternDetection;
+
+import org.rosuda.JRI.Rengine;
+
+
+public class Tokenizer {
+	
+	public static Rengine re;
+	
+	public static void initialize(){
+		re = new Rengine(new String[0], false, new TextConsole());
+		
+	}
+
+	
+//	public static void tokenize(){
+//
+//	}
+
+
+}

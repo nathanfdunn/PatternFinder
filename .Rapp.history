@@ -1,0 +1,250 @@
+read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")->vals
+length(vals)
+vals
+colnames(vals)
+vals[[1]]
+blah = vals[[1]]
+hist(blah)
+blah = which(blah > -1)
+hist(blah)
+blah
+vals
+vals[[1]]
+myblah=vals[[1]]
+myblah
+vals
+blah = vals[[1]][which(vals[[1]]>-1)]
+hist(blah)
+max(blah)
+min(blah)
+qqplot(blah)
+example(qqplot)
+qqnorm(blah)
+qqplot(blah)
+q=function(n){out = 0; for (i in 2:n){out = out + 1/(i*log(i)^2)} return(out)}
+q=function(n){out = 0; for (i in 2:n){out = out + 1/(i*log(i)^2)}; return(out)}
+q(10)
+q(100)
+q(10000)
+q(100000)
+plot(runif(1000), runif(1000), type = 'l')
+x = c(rep(-1, 500), rep(1, 500))
+y=c(rep(-1, 500), rep(1, 500))
+cor(x,y)
+scale(x)
+x1 = 1:1000
+y1=1:1000
+cor(x1,y1)
+scale(x1)
+sqrt(3)
+sum(scale(rexp(1000))>4)
+hist(scale(rexp(1000)))
+dat=rexp(1000)
+mean(dat)
+std(dat)
+sd(dat)
+sum(scale(rnorm(1000))>4)
+sum(scale(rnorm(100000))>4)
+hist(rnorm(100000))
+dat=rnorm(100000)
+mean(dat)
+sd(dat)
+qSolve = function(n=20, qYear=ifelse(is.na(qInd),0.8,NA), qInd=NA)
+{if (is.na(qYear)){return(qInd^n)}; if(is.na(qInd)){return(qYear^(1/n))}   }
+qSolve()
+0.8^0.05
+0.98^20
+0.99^20
+qSolve(100, 0.95)
+1/(1-qSolve(100, 0.95)
+)
+qSolve(100, 1-0.05*0.05)
+odds=function(q){return 1/(1-q)}
+odds=function(q){return() 1/(1-q))}
+odds=function(q){return(1/(1-q))}
+odds(qSolve(100, 1-0.05*0.05))
+odds(qSolve(200, 1-0.05*0.05))
+odds(qSolve(200, .95))
+qSolve()
+odd(qSolve())
+odds(qSolve())
+odds(qSolve(n=100))
+odds(qSolve(qYear=0.15))
+ef2=function(...)#Effective effectiveness
+{}
+ef2(4,6,7)
+ef2=function(...)#Effective effectiveness
+{for (i in ...){print(i)}}
+ef2()
+ef2=function(...)#Effective effectiveness
+{for (i in list(...)){print(i)}}
+ef2()
+ef2(4,56,7)
+ef2=function(...)#Effective effectiveness
+{out=1;for (i in list(...)){out=out*(1-i)}; return(1-out)}
+ef2(1,1,1)
+ef2(1,0.9)
+ef2(0.9,0.9)
+ef2(0.8,0.8)
+qSolve(qYear=ef2(0.8,0.8))
+qSolve(n=50,qYear=ef2(0.8,0.8))
+qSolve(n=50,qYear=ef2(0.8,0.9))
+odds(qSolve(n=50,qYear=ef2(0.8,0.9)))
+odds(qSolve(n=100,qYear=ef2(0.8,0.9)))
+odds(qSolve(n=1000,qYear=ef2(0.8,0.9)))
+odds(qSolve(n=100,qYear=ef2(0.9,0.95)))
+odds(qSolve(n=100,qInd=ef2(0.9,0.95)))
+qSolve(n=100,qInd=ef2(0.9,0.95))
+qSolve(n=800,qInd=ef2(0.9,0.95))
+qSolve(n=800,qYear=ef2(0.9,0.95))
+runif(1)<1/2000
+x=F
+while(!x){x=runif(1)<1000;readline()}
+while(!x){x=(runif(1)<1000);readline()}
+x=F
+while(!x){x=(runif(1)<1000);readline()}
+x=F; i=0; while(!x){x=(runif(1)<1000){readline(i)}}
+x=F; i=0; while(!x){x=(runif(1)<1000);readline(i)}
+x
+x=F; i=0; while(!x){x=(runif(1)<1/1000);readline(i)}
+x=F; i=0; while(!x){x=(runif(1)<1/1000);readline(i);i=i+1}
+x=F; i=0; while(!x){x=(runif(1)<1/1000);i=i+1}
+i
+x=F; i=0; while(!x){x=(runif(1)<1/1000);i=i+1};i
+rgeom(1,1/1000)
+hist(rgeom(1000,1/1000))
+min(rgeom(1000,1/1000))
+min(rgeom(1000,1))
+regoem(100,0.5)
+rgoem(100,0.5)
+rgeom(100,0.5)
+rgeom(100,1/1000)
+setwd("~/Programming/PatternFinder")
+read.table("../DataSets_R/nfdunn_GISP2.csv")
+csv.read("../DataSets_R/nfdunn_GISP2.csv")
+read.cs("../DataSets_R/nfdunn_GISP2.csv")
+read.csv("../DataSets_R/nfdunn_GISP2.csv")
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+spikeDetZ
+x=spikeDetZ
+x()
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+traceback()
+mode="old"
+spikeDet = ifelse(mode=="old", spikeDetZ, NA)
+spikeDet = ifelse(mode=="old", NULL, NA)
+spikeDet = ifelse(mode=="old", spikeDetZ, rep(0,10))
+spikeDet = ifelse(mode=="old", c(spikeDetZ), rep(0,10))
+spikeDet
+spikeDet[[1]]
+ifelse(T, 100, 90)
+ifelse(T, 100, spikeDet)
+ifelse(F, 100, spikeDet)
+ifelse(F, 100, spikeDetZ)
+ifelse(T, 100, spikeDetZ)
+x=y=8
+x
+y
+qnorm(0.001)
+median(c(4,6,7,3))
+x=rnorm(100)
+x=x^2
+hist(x)
+med(x)
+median(x)
+x/median(x)
+plot(1:length(x),x)
+plot(1:length(x),x,type='l')
+x=rgamma(100, 5)
+plot(1:length(x),x,type='l')
+lines(1:100, x/median(x)>4)
+lines(1:100,10*( x/median(x)>4), col="red",type="l")
+median(x)
+lines(1:100,10*( x/median(x)>2), col="red",type="l")
+x=rgamma(100,3)
+plot(1:100, x, type='l');lines(1:100,10*( x/median(x)>2), col="red",type="l")
+plot(1:100, x, type='l');lines(1:100,max(x)*( x/median(x)>2), col="red",type="l")
+x=x+2
+plot(1:100, x, type='l');lines(1:100,max(x)*( x/median(x)>2), col="red",type="l")
+x=x+2
+plot(1:100, x, type='l');lines(1:100,max(x)*( x/median(x)>2), col="red",type="l")
+print(4,6,2)
+cat(3,5,6)
+cat(3,5,6); cat(4,6,2)
+t=1:100
+x=t+sqrt(t)*runif(100)
+plot(t,x)
+plot(t,x)
+x = x+t*runif(100)
+plot(t,x)
+fit = lm(x~t)
+fit
+fit = lm(t~x)
+fit
+rownames(fit)
+colnames(fit)
+fit$x
+fit$Coefficients
+typeof(fit)
+length(fit)
+fit[[1]]
+fit[[2]]
+typeof(fit[[1]])
+fit[[1]]
+fit[[1]][1]
+fit[[1]][2]
+fit[[1]][2]*9
+fit[[1]][2]*9+5
+fit=lm(1:100~runif(100))
+fit
+x=runif(100)
+t=1:100
+fit=lm(x~t)
+fit
+lm(t~x)
+example(lm)
+abline
+example(abline)
+abline(fit)
+plot(t,x)
+fit=lm(t~x)
+fit
+abline(fit)
+fit=lm(x~t)
+abline(fit)
+fit.correlation
+fit(4)
+with
+example(with)
+lm.d
+lm.d=6
+lm.d
+fit
+fit[[1]]
+fit[[1]][1]
+c(left,right)=c(67,7)
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+traceback()
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+data.frame(c(1,2,3),c(4,6,7),col.names=c("a","b"))
+data.frame(c(1,2,3),c(1,4,6))
+data.frame(c(1,2,3),c(1,4,6))->k
+col.names(k)
+colnames(k)
+colnames(k)=c("b","c")
+k
+data.frame(c(1,2,3),c(1,4,6),row.names=c("a","b"))->k
+data.frame(c(1,2,3),c(1,4,6),row.names=c("a","b","c"))->k
+k
+example(data.frame)
+dt.frm
+x=list(c(-1,5,-9),runif(3)-0.5)
+x
+lapply(x,abs)

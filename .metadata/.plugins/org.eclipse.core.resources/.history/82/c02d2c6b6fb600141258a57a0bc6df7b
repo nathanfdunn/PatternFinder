@@ -1,0 +1,12 @@
+package patternDetection;
+
+import org.rosuda.REngine.REngine;
+
+
+public class Tokenizer {
+	
+	public static REngine re;
+	public static void Tokenize(){
+
+	}
+}
