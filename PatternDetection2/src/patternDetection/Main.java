@@ -39,15 +39,20 @@ public class Main {
 		*/
 		
 		//*
-		TokenStream ts = randData();
+		//TokenStream ts = randData();
+		TokenStream ts = Tokenizer.tokenize("GISP_Tokens.txt");
 		ArrayList<EvaluationObject> patterns = PatternExtractor.bruteForce(ts, 100);
+		printPatterns(patterns);
+
 		
+		//System.out.println("\n\n" + ts);
+		//*/
+	}
+	
+	private static void printPatterns(ArrayList<EvaluationObject> patterns){
 		for (int i=0; i<patterns.size(); i++){
 			System.out.println(patterns.get(i));
 		}
-		
-		System.out.println("\n\n" + ts);
-		//*/
 	}
 	
 	

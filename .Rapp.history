@@ -1,3 +1,14 @@
+plot(f)
+read.table(~/Programming/PatternFinder/PatternDetection/Eval0.txt)
+read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")
+read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")->vals
+hist(vals[[1]])
+read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")[[1]]->vals
+vals = which(vals > -1)
+hist(vals)
+vals
+read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")[[2]]->vals
+vals
 read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")->vals
 length(vals)
 vals
@@ -119,132 +130,121 @@ regoem(100,0.5)
 rgoem(100,0.5)
 rgeom(100,0.5)
 rgeom(100,1/1000)
+version()
+license()
+install.packages(c("rj", "rj.gd"), repos="http://download.walware.de/rj-2.0")
+sessionInfo()
+getRversion()
+getRVersion()
+packinfo = installed.packages()
+packinfo
+rjava
+trial=function(){suc=0; consec=0; while(consec<3){if(runif(1)<0.6){suc=suc+1;consec=consec+1}else{consec=0}}return(suc)}
+trial=function(){  suc=0; consec=0; while(consec<3) { if(runif(1)<0.6) {suc=suc+1;consec=consec+1}else{consec=0}  }return(suc)   }
+trial=function(){
+suc=0;
+consec=0;
+while(consec<3){
+if(runif(1)<0.6){
+suc=suc+1;
+consec=consec+1
+}else{
+consec=0
+}
+return(suc)
+}
+trial()
+out=rep(0,1000)
+for(i in 1:1000){out[i]=trial()}
+out
+hist(out)
+sum(out==8)
+sum(out==8)/1000
+plot
+plot(c(1,5,3,8,5),type='l')
+factorize(5)
+primes(5)
+3721/3
+for (i in 1:sqrt(3721)){print(i)}
+for (i in 1:sqrt(3721)){if (3721%%i==0){print(i)}}
+61*61
+5[1]
+5[1][1[1[1[1[1]]]]]
+5[1][1[1[1[1[1]]]]][1][1][1][1][1][1][1][1][1][1][1]
+read.table("~/Programming/DataSets_R/ITASE/ITASEEdit.txt")->i
+i
+colnames(i)
+read.table("~/Programming/DataSets_R/ITASE/ITASEEdit.txt",T)->i
+colnames(i)
+T, F
+T
+T[1][1]
+x=list()
+x[["hello"]]=c(1,2,3,5)
+x[["bye"]]=c(5,3,6)
+x
+x$hello
+x[["hello"]]
+x["hello"]
+"hello"[1]
+"hello"[2]
+NULL[1]
+NULL[2]
+NULL[0]
+NA[0]
+logical(2)
+logical(0)
+logical
+c(3,4,5,"hll")
+c(3,4,5,"hll")[1]
+c(3,4,5,"hll")[1]
+x=list()
+x[["time"]]=849
+x[["blah"]]=48
+x
+x[[1]]
+x[[2]]
+paste(c("hello", "bye", "hahaahahah", "sqrt"), sep="\t")
+paste(c("hello", "bye", "hahaahahah", "sqrt"), sep="\t", collapse=T)
+paste(c("hello", "bye", "hahaahahah", "sqrt"), collapse="\t")
+paste(c("hello", "bye", "hahaahahah", "sqrt"), collapse="\t")->strings
+write(strings,file="test.txt")
+`[[]]`
+x=rep(10)
+x
+x[[6]]
+x[[1]]
+x[[2]]
+x[[2]]=6
+x
+x[["hellO"]]
+x[["hellO"]]=7
+x
+source("TokenizeScript.r")
 setwd("~/Programming/PatternFinder")
-read.table("../DataSets_R/nfdunn_GISP2.csv")
-csv.read("../DataSets_R/nfdunn_GISP2.csv")
-read.cs("../DataSets_R/nfdunn_GISP2.csv")
-read.csv("../DataSets_R/nfdunn_GISP2.csv")
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
-spikeDetZ
-x=spikeDetZ
-x()
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+source("TokenizeScript.r")
+parallelTokenize("ndunn_GISP2", 14, outFileName="GISP2_Test")
+source("TokenizeScript.r")
+parallelTokenize("ndunn_GISP2", 14, outFileName="GISP2_Test")
+write("blah", "../superBlah.txt")
+parallelTokenize("nfdunn_GISP2", 14, outFileName="GISP2_Test")
 traceback()
-mode="old"
-spikeDet = ifelse(mode=="old", spikeDetZ, NA)
-spikeDet = ifelse(mode=="old", NULL, NA)
-spikeDet = ifelse(mode=="old", spikeDetZ, rep(0,10))
-spikeDet = ifelse(mode=="old", c(spikeDetZ), rep(0,10))
-spikeDet
-spikeDet[[1]]
-ifelse(T, 100, 90)
-ifelse(T, 100, spikeDet)
-ifelse(F, 100, spikeDet)
-ifelse(F, 100, spikeDetZ)
-ifelse(T, 100, spikeDetZ)
-x=y=8
-x
-y
-qnorm(0.001)
-median(c(4,6,7,3))
-x=rnorm(100)
-x=x^2
-hist(x)
-med(x)
-median(x)
-x/median(x)
-plot(1:length(x),x)
-plot(1:length(x),x,type='l')
-x=rgamma(100, 5)
-plot(1:length(x),x,type='l')
-lines(1:100, x/median(x)>4)
-lines(1:100,10*( x/median(x)>4), col="red",type="l")
-median(x)
-lines(1:100,10*( x/median(x)>2), col="red",type="l")
-x=rgamma(100,3)
-plot(1:100, x, type='l');lines(1:100,10*( x/median(x)>2), col="red",type="l")
-plot(1:100, x, type='l');lines(1:100,max(x)*( x/median(x)>2), col="red",type="l")
-x=x+2
-plot(1:100, x, type='l');lines(1:100,max(x)*( x/median(x)>2), col="red",type="l")
-x=x+2
-plot(1:100, x, type='l');lines(1:100,max(x)*( x/median(x)>2), col="red",type="l")
-print(4,6,2)
-cat(3,5,6)
-cat(3,5,6); cat(4,6,2)
-t=1:100
-x=t+sqrt(t)*runif(100)
-plot(t,x)
-plot(t,x)
-x = x+t*runif(100)
-plot(t,x)
-fit = lm(x~t)
-fit
-fit = lm(t~x)
-fit
-rownames(fit)
-colnames(fit)
-fit$x
-fit$Coefficients
-typeof(fit)
-length(fit)
-fit[[1]]
-fit[[2]]
-typeof(fit[[1]])
-fit[[1]]
-fit[[1]][1]
-fit[[1]][2]
-fit[[1]][2]*9
-fit[[1]][2]*9+5
-fit=lm(1:100~runif(100))
-fit
-x=runif(100)
-t=1:100
-fit=lm(x~t)
-fit
-lm(t~x)
-example(lm)
-abline
-example(abline)
-abline(fit)
-plot(t,x)
-fit=lm(t~x)
-fit
-abline(fit)
-fit=lm(x~t)
-abline(fit)
-fit.correlation
-fit(4)
-with
-example(with)
-lm.d
-lm.d=6
-lm.d
-fit
-fit[[1]]
-fit[[1]][1]
-c(left,right)=c(67,7)
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
+source("TokenizeScript.r");parallelTokenize("nfdunn_GISP2", 14, outFileName="GISP2_Test")
+source("TokenizeScript.r");parallelTokenize("nfdunn_GISP2", 14, outFileName="GISP2_Test")
 traceback()
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
-source('~/Programming/PatternFinder/TokenizerTester.r', chdir = TRUE)
-data.frame(c(1,2,3),c(4,6,7),col.names=c("a","b"))
-data.frame(c(1,2,3),c(1,4,6))
-data.frame(c(1,2,3),c(1,4,6))->k
-col.names(k)
-colnames(k)
-colnames(k)=c("b","c")
-k
-data.frame(c(1,2,3),c(1,4,6),row.names=c("a","b"))->k
-data.frame(c(1,2,3),c(1,4,6),row.names=c("a","b","c"))->k
-k
-example(data.frame)
-dt.frm
-x=list(c(-1,5,-9),runif(3)-0.5)
-x
-lapply(x,abs)
+source("TokenizeScript.r");parallelTokenize("nfdunn_GISP2", 14, outFileName="GISP2_Test")
+median(NULL)
+length(NULL)
+source("TokenizeScript.r");parallelTokenize("nfdunn_GISP2", 14, outFileName="GISP2_Test")
+traceback()
+source("TokenizerTester.r")
+source("TokenizerTester.r")
+source("TokenizerTester.r")
+source("TokenizerTester.r")
+source("TokenizerTester.r")
+source("TokenizerTester.r")
+source("TokenizerTester.r")
+source("TokenizerTester.r")
+source("TokenizerTester.r")
+source("TokenizerTester.r")
+source("TokenizerTester.r")

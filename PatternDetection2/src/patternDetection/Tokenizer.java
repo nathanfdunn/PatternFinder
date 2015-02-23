@@ -22,7 +22,7 @@ public class Tokenizer {
 	
 	//Uses pre-tokenized files
 	public static TokenStream tokenize(String fileName){
-		
+		return FileTranslator.translateFile(fileName);
 	}
 	
 	
@@ -30,5 +30,7 @@ public class Tokenizer {
 //
 //	}
 
+	//public static TokenStream tokenize
+	
 
 }

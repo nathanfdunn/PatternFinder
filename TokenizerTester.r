@@ -1,6 +1,6 @@
 
 
-source("Tokenizer.r")
+source("Tokenizer2.r")
 
 source("FakeVals.R")
 #source("tokePlotter2.r")
@@ -30,7 +30,14 @@ csvtoplot = function(fileName, timeInd, quantIDInd, flipTimes = T, numTokens=100
 
 # csvtoplot("nfdunn_LawDome.csv",13,9, numTokens = 20)
 # readline()
- csvtoplot("nfdunn_GISP2.csv",14, 6, F, numTokens = 20)
+ #csvtoplot("nfdunn_GISP2.csv",14, 6, F, numTokens = 20)
+#csvtoplot("nfdunn_GISP2.csv",14, 10, F, numTokens = 20)
+
+#csvtoplot("nfdunn_LawDome.csv",13, 5, F, numTokens = 20 )
+#csvtoplot("nfdunn_LawDome.csv",13, 8, F, numTokens = 20 )
+
+csvtoplot("nfdunn_GISP2.csv",14, 2, F, numTokens = 20)
+
 # readline()
 #csvtoplot("nfdunn_Belukha_Ions_Annual.csv", 8, 2, F, 10)
 #csvtoplot("nfdunn_Moulton1.csv", 10, 8, numTokens = 15)
