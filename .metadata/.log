@@ -2773,3 +2773,1181 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+!SESSION 2015-02-25 15:06:43.085 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/nathandunn/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/nathandunn/.eclipse_keyring -showlocation
+
+!ENTRY de.walware.3rdparty-org.apache.commons.pool 4 0 2015-02-25 15:06:44.225
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.3rdparty-org.apache.commons.pool [430]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.3rdparty-org.apache.derby.core 4 0 2015-02-25 15:06:44.229
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.3rdparty-org.apache.derby.core [431]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.3rdparty.lucene.extra 4 0 2015-02-25 15:06:44.236
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.3rdparty.lucene.extra [432]
+  Unresolved requirement: Require-Bundle: org.apache.lucene.core; bundle-version="[4.7.2,4.8.0)"
+    -> Bundle-SymbolicName: org.apache.lucene.core; bundle-version="4.7.2.b201407011730sw"
+       org.apache.lucene.core [472]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.docmlet.tex.core 4 0 2015-02-25 15:06:44.243
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.docmlet.tex.core [433]
+  Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+    -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+       de.walware.ecommons.ltk.core [439]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.docmlet.tex.ui 4 0 2015-02-25 15:06:44.260
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.docmlet.tex.ui [434]
+  Unresolved requirement: Require-Bundle: de.walware.docmlet.tex.core; bundle-version="[1.0.0,1.1.0)"
+    -> Bundle-SymbolicName: de.walware.docmlet.tex.core; bundle-version="1.0.5.b201407171807E43sw"; singleton:="true"
+       de.walware.docmlet.tex.core [433]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.ecommons.edb 4 0 2015-02-25 15:06:44.271
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.ecommons.edb [436]
+  Unresolved requirement: Require-Bundle: de.walware.3rdparty-org.apache.commons.pool; bundle-version="[2.2.0,2.3.0)"
+    -> Bundle-SymbolicName: de.walware.3rdparty-org.apache.commons.pool; bundle-version="2.2.0.b201407171807E43sw"
+       de.walware.3rdparty-org.apache.commons.pool [430]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.ecommons.ltk.core 4 0 2015-02-25 15:06:44.282
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.ecommons.ltk.core [439]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.ecommons.ltk.ui 4 0 2015-02-25 15:06:44.282
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.ecommons.ltk.ui [440]
+  Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+       de.walware.ecommons.ltk.core [439]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.base.core 4 0 2015-02-25 15:06:44.293
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.base.core [448]
+  Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+    -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+       de.walware.ecommons.ltk.core [439]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.base.ui 4 0 2015-02-25 15:06:44.294
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.base.ui [449]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.core [448]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.nico.core 4 0 2015-02-25 15:06:44.306
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.nico.core [450]
+  Unresolved requirement: Import-Package: de.walware.ecommons.net.resourcemapping; version="1.0.0"
+    -> Export-Package: de.walware.ecommons.net.resourcemapping; bundle-version="3.4.0.b201407171807E43sw"; bundle-symbolic-name="de.walware.statet.base.core"; version="1.0.0"
+       de.walware.statet.base.core [448]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.nico.ui 4 0 2015-02-25 15:06:44.306
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.nico.ui [451]
+  Unresolved requirement: Import-Package: de.walware.ecommons.debug.core
+    -> Export-Package: de.walware.ecommons.debug.core; bundle-version="3.4.0.b201407171807E43sw"; bundle-symbolic-name="de.walware.statet.base.core"; version="0.0.0"
+       de.walware.statet.base.core [448]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.console.core 4 0 2015-02-25 15:06:44.318
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.console.core [453]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"
+    -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.core [448]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.console.ui 4 0 2015-02-25 15:06:44.319
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.console.ui [454]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.ui; bundle-version="[3.4.0,3.5.0)"
+    -> Bundle-SymbolicName: de.walware.statet.base.ui; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.ui [449]
+         Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.base.core [448]
+                Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+                  -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+                     de.walware.ecommons.ltk.core [439]
+                       Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.core 4 0 2015-02-25 15:06:44.329
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.core [455]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"
+    -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.core [448]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.debug.core 4 0 2015-02-25 15:06:44.330
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.debug.core [456]
+  Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core
+    -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+       de.walware.ecommons.ltk.core [439]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.debug.ui 4 0 2015-02-25 15:06:44.342
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.debug.ui [457]
+  Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.ui; bundle-version="0.10.0"
+    -> Bundle-SymbolicName: de.walware.ecommons.ltk.ui; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+       de.walware.ecommons.ltk.ui [440]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.sweave 4 0 2015-02-25 15:06:44.343
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.sweave [459]
+  Unresolved requirement: Import-Package: net.sourceforge.texlipse
+    -> Export-Package: net.sourceforge.texlipse; bundle-version="10500.0.2.b201407171807E43sw"; bundle-symbolic-name="net.sourceforge.texlipse"; version="0.0.0"
+       net.sourceforge.texlipse [470]
+         Unresolved requirement: Import-Package: de.walware.ecommons.debug.ui
+           -> Export-Package: de.walware.ecommons.debug.ui; bundle-version="3.4.0.b201407171807E43sw"; bundle-symbolic-name="de.walware.statet.base.ui"; version="0.0.0"
+              de.walware.statet.base.ui [449]
+                Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+                  -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+                     de.walware.statet.base.core [448]
+                       Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+                         -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+                            de.walware.ecommons.ltk.core [439]
+                              Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.sweave.debug 4 0 2015-02-25 15:06:44.347
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.sweave.debug [460]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.ui; bundle-version="[3.4.0,3.5.0)"
+    -> Bundle-SymbolicName: de.walware.statet.base.ui; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.ui [449]
+         Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.base.core [448]
+                Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+                  -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+                     de.walware.ecommons.ltk.core [439]
+                       Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.ui 4 0 2015-02-25 15:06:44.352
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.ui [462]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.ui; bundle-version="[3.4.0,3.5.0)"
+    -> Bundle-SymbolicName: de.walware.statet.base.ui; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.ui [449]
+         Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.base.core [448]
+                Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+                  -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+                     de.walware.ecommons.ltk.core [439]
+                       Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.base.core 4 0 2015-02-25 15:06:44.356
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.base.core [463]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.base.ui 4 0 2015-02-25 15:06:44.363
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.base.ui [464]
+  Unresolved requirement: Require-Bundle: de.walware.statet.rtm.base.core; bundle-version="1.0.0"
+    -> Bundle-SymbolicName: de.walware.statet.rtm.base.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.rtm.base.core [463]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.ftable.core 4 0 2015-02-25 15:06:44.368
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.ftable.core [465]
+  Unresolved requirement: Require-Bundle: de.walware.statet.rtm.base.core; visibility:="reexport"
+    -> Bundle-SymbolicName: de.walware.statet.rtm.base.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.rtm.base.core [463]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.ftable.ui 4 0 2015-02-25 15:06:44.375
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.ftable.ui [466]
+  Unresolved requirement: Require-Bundle: de.walware.statet.rtm.ftable.core
+    -> Bundle-SymbolicName: de.walware.statet.rtm.ftable.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.rtm.ftable.core [465]
+         Unresolved requirement: Require-Bundle: de.walware.statet.rtm.base.core; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.rtm.base.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.rtm.base.core [463]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.ggplot.core 4 0 2015-02-25 15:06:44.381
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.ggplot.core [467]
+  Unresolved requirement: Require-Bundle: de.walware.statet.rtm.base.core; visibility:="reexport"
+    -> Bundle-SymbolicName: de.walware.statet.rtm.base.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.rtm.base.core [463]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.ggplot.ui 4 0 2015-02-25 15:06:44.388
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.ggplot.ui [468]
+  Unresolved requirement: Require-Bundle: de.walware.statet.rtm.ggplot.core
+    -> Bundle-SymbolicName: de.walware.statet.rtm.ggplot.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.rtm.ggplot.core [467]
+         Unresolved requirement: Require-Bundle: de.walware.statet.rtm.base.core; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.rtm.base.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.rtm.base.core [463]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY net.sourceforge.texlipse 4 0 2015-02-25 15:06:44.403
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: net.sourceforge.texlipse [470]
+  Unresolved requirement: Import-Package: de.walware.ecommons.debug.ui
+    -> Export-Package: de.walware.ecommons.debug.ui; bundle-version="3.4.0.b201407171807E43sw"; bundle-symbolic-name="de.walware.statet.base.ui"; version="0.0.0"
+       de.walware.statet.base.ui [449]
+         Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.base.core [448]
+                Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+                  -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+                     de.walware.ecommons.ltk.core [439]
+                       Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.apache.lucene.analysis 4 0 2015-02-25 15:06:44.414
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.apache.lucene.analysis [471]
+  Unresolved requirement: Require-Bundle: org.apache.lucene.core; bundle-version="[4.7.2,4.8.0)"
+    -> Bundle-SymbolicName: org.apache.lucene.core; bundle-version="4.7.2.b201407011730sw"
+       org.apache.lucene.core [472]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.apache.lucene.core 4 0 2015-02-25 15:06:44.419
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.apache.lucene.core [472]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.m2e.logback.configuration 2 0 2015-02-25 15:06:48.969
+!MESSAGE Exception while setting up logging:org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+!STACK 0
+java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+	at org.eclipse.m2e.logback.configuration.LogHelper.logJavaProperties(LogHelper.java:26)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.loadConfiguration(LogPlugin.java:189)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.configureLogback(LogPlugin.java:144)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.access$2(LogPlugin.java:107)
+	at org.eclipse.m2e.logback.configuration.LogPlugin$1.run(LogPlugin.java:62)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+
+!ENTRY org.eclipse.core.net 1 0 2015-02-25 15:06:51.613
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-03-02 11:32:12.890 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -keyring /Users/nathandunn/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -data /Users/nathandunn/Programming/PatternFinder -product org.eclipse.epp.package.java.product -keyring /Users/nathandunn/.eclipse_keyring -showlocation
+
+!ENTRY de.walware.3rdparty-org.apache.commons.pool 4 0 2015-03-02 11:32:13.975
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.3rdparty-org.apache.commons.pool [430]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.3rdparty-org.apache.derby.core 4 0 2015-03-02 11:32:13.979
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.3rdparty-org.apache.derby.core [431]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.3rdparty.lucene.extra 4 0 2015-03-02 11:32:13.987
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.3rdparty.lucene.extra [432]
+  Unresolved requirement: Require-Bundle: org.apache.lucene.core; bundle-version="[4.7.2,4.8.0)"
+    -> Bundle-SymbolicName: org.apache.lucene.core; bundle-version="4.7.2.b201407011730sw"
+       org.apache.lucene.core [472]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.docmlet.tex.core 4 0 2015-03-02 11:32:13.994
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.docmlet.tex.core [433]
+  Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+    -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+       de.walware.ecommons.ltk.core [439]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.docmlet.tex.ui 4 0 2015-03-02 11:32:14.003
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.docmlet.tex.ui [434]
+  Unresolved requirement: Require-Bundle: de.walware.docmlet.tex.core; bundle-version="[1.0.0,1.1.0)"
+    -> Bundle-SymbolicName: de.walware.docmlet.tex.core; bundle-version="1.0.5.b201407171807E43sw"; singleton:="true"
+       de.walware.docmlet.tex.core [433]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.ecommons.edb 4 0 2015-03-02 11:32:14.011
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.ecommons.edb [436]
+  Unresolved requirement: Require-Bundle: de.walware.3rdparty-org.apache.commons.pool; bundle-version="[2.2.0,2.3.0)"
+    -> Bundle-SymbolicName: de.walware.3rdparty-org.apache.commons.pool; bundle-version="2.2.0.b201407171807E43sw"
+       de.walware.3rdparty-org.apache.commons.pool [430]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.ecommons.ltk.core 4 0 2015-03-02 11:32:14.021
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.ecommons.ltk.core [439]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.ecommons.ltk.ui 4 0 2015-03-02 11:32:14.032
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.ecommons.ltk.ui [440]
+  Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+       de.walware.ecommons.ltk.core [439]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.base.core 4 0 2015-03-02 11:32:14.038
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.base.core [448]
+  Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+    -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+       de.walware.ecommons.ltk.core [439]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.base.ui 4 0 2015-03-02 11:32:14.044
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.base.ui [449]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+    -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.core [448]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.nico.core 4 0 2015-03-02 11:32:14.051
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.nico.core [450]
+  Unresolved requirement: Import-Package: de.walware.ecommons.net.resourcemapping; version="1.0.0"
+    -> Export-Package: de.walware.ecommons.net.resourcemapping; bundle-version="3.4.0.b201407171807E43sw"; bundle-symbolic-name="de.walware.statet.base.core"; version="1.0.0"
+       de.walware.statet.base.core [448]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.nico.ui 4 0 2015-03-02 11:32:14.054
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.nico.ui [451]
+  Unresolved requirement: Import-Package: de.walware.ecommons.debug.core
+    -> Export-Package: de.walware.ecommons.debug.core; bundle-version="3.4.0.b201407171807E43sw"; bundle-symbolic-name="de.walware.statet.base.core"; version="0.0.0"
+       de.walware.statet.base.core [448]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.console.core 4 0 2015-03-02 11:32:14.059
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.console.core [453]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"
+    -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.core [448]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.console.ui 4 0 2015-03-02 11:32:14.065
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.console.ui [454]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.ui; bundle-version="[3.4.0,3.5.0)"
+    -> Bundle-SymbolicName: de.walware.statet.base.ui; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.ui [449]
+         Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.base.core [448]
+                Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+                  -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+                     de.walware.ecommons.ltk.core [439]
+                       Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.core 4 0 2015-03-02 11:32:14.071
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.core [455]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"
+    -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.core [448]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.debug.core 4 0 2015-03-02 11:32:14.075
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.debug.core [456]
+  Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core
+    -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+       de.walware.ecommons.ltk.core [439]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.debug.ui 4 0 2015-03-02 11:32:14.081
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.debug.ui [457]
+  Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.ui; bundle-version="0.10.0"
+    -> Bundle-SymbolicName: de.walware.ecommons.ltk.ui; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+       de.walware.ecommons.ltk.ui [440]
+         Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+              de.walware.ecommons.ltk.core [439]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.sweave 4 0 2015-03-02 11:32:14.085
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.sweave [459]
+  Unresolved requirement: Import-Package: net.sourceforge.texlipse
+    -> Export-Package: net.sourceforge.texlipse; bundle-version="10500.0.2.b201407171807E43sw"; bundle-symbolic-name="net.sourceforge.texlipse"; version="0.0.0"
+       net.sourceforge.texlipse [470]
+         Unresolved requirement: Import-Package: de.walware.ecommons.debug.ui
+           -> Export-Package: de.walware.ecommons.debug.ui; bundle-version="3.4.0.b201407171807E43sw"; bundle-symbolic-name="de.walware.statet.base.ui"; version="0.0.0"
+              de.walware.statet.base.ui [449]
+                Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+                  -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+                     de.walware.statet.base.core [448]
+                       Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+                         -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+                            de.walware.ecommons.ltk.core [439]
+                              Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.sweave.debug 4 0 2015-03-02 11:32:14.091
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.sweave.debug [460]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.ui; bundle-version="[3.4.0,3.5.0)"
+    -> Bundle-SymbolicName: de.walware.statet.base.ui; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.ui [449]
+         Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.base.core [448]
+                Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+                  -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+                     de.walware.ecommons.ltk.core [439]
+                       Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.r.ui 4 0 2015-03-02 11:32:14.096
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.r.ui [462]
+  Unresolved requirement: Require-Bundle: de.walware.statet.base.ui; bundle-version="[3.4.0,3.5.0)"
+    -> Bundle-SymbolicName: de.walware.statet.base.ui; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.base.ui [449]
+         Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.base.core [448]
+                Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+                  -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+                     de.walware.ecommons.ltk.core [439]
+                       Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.base.core 4 0 2015-03-02 11:32:14.101
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.base.core [463]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.base.ui 4 0 2015-03-02 11:32:14.106
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.base.ui [464]
+  Unresolved requirement: Require-Bundle: de.walware.statet.rtm.base.core; bundle-version="1.0.0"
+    -> Bundle-SymbolicName: de.walware.statet.rtm.base.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.rtm.base.core [463]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.ftable.core 4 0 2015-03-02 11:32:14.112
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.ftable.core [465]
+  Unresolved requirement: Require-Bundle: de.walware.statet.rtm.base.core; visibility:="reexport"
+    -> Bundle-SymbolicName: de.walware.statet.rtm.base.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.rtm.base.core [463]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.ftable.ui 4 0 2015-03-02 11:32:14.121
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.ftable.ui [466]
+  Unresolved requirement: Require-Bundle: de.walware.statet.rtm.ftable.core
+    -> Bundle-SymbolicName: de.walware.statet.rtm.ftable.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.rtm.ftable.core [465]
+         Unresolved requirement: Require-Bundle: de.walware.statet.rtm.base.core; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.rtm.base.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.rtm.base.core [463]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.ggplot.core 4 0 2015-03-02 11:32:14.130
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.ggplot.core [467]
+  Unresolved requirement: Require-Bundle: de.walware.statet.rtm.base.core; visibility:="reexport"
+    -> Bundle-SymbolicName: de.walware.statet.rtm.base.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.rtm.base.core [463]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY de.walware.statet.rtm.ggplot.ui 4 0 2015-03-02 11:32:14.139
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: de.walware.statet.rtm.ggplot.ui [468]
+  Unresolved requirement: Require-Bundle: de.walware.statet.rtm.ggplot.core
+    -> Bundle-SymbolicName: de.walware.statet.rtm.ggplot.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+       de.walware.statet.rtm.ggplot.core [467]
+         Unresolved requirement: Require-Bundle: de.walware.statet.rtm.base.core; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.rtm.base.core; bundle-version="1.0.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.rtm.base.core [463]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY net.sourceforge.texlipse 4 0 2015-03-02 11:32:14.151
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: net.sourceforge.texlipse [470]
+  Unresolved requirement: Import-Package: de.walware.ecommons.debug.ui
+    -> Export-Package: de.walware.ecommons.debug.ui; bundle-version="3.4.0.b201407171807E43sw"; bundle-symbolic-name="de.walware.statet.base.ui"; version="0.0.0"
+       de.walware.statet.base.ui [449]
+         Unresolved requirement: Require-Bundle: de.walware.statet.base.core; bundle-version="[3.4.0,3.5.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: de.walware.statet.base.core; bundle-version="3.4.0.b201407171807E43sw"; singleton:="true"
+              de.walware.statet.base.core [448]
+                Unresolved requirement: Require-Bundle: de.walware.ecommons.ltk.core; bundle-version="[2.3.0,2.4.0)"
+                  -> Bundle-SymbolicName: de.walware.ecommons.ltk.core; bundle-version="2.3.0.b201407171807E43sw"; singleton:="true"
+                     de.walware.ecommons.ltk.core [439]
+                       Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.apache.lucene.analysis 4 0 2015-03-02 11:32:14.172
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.apache.lucene.analysis [471]
+  Unresolved requirement: Require-Bundle: org.apache.lucene.core; bundle-version="[4.7.2,4.8.0)"
+    -> Bundle-SymbolicName: org.apache.lucene.core; bundle-version="4.7.2.b201407011730sw"
+       org.apache.lucene.core [472]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.apache.lucene.core 4 0 2015-03-02 11:32:14.172
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.apache.lucene.core [472]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.m2e.logback.configuration 2 0 2015-03-02 11:32:15.208
+!MESSAGE Exception while setting up logging:org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+!STACK 0
+java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+	at org.eclipse.m2e.logback.configuration.LogHelper.logJavaProperties(LogHelper.java:26)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.loadConfiguration(LogPlugin.java:189)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.configureLogback(LogPlugin.java:144)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.access$2(LogPlugin.java:107)
+	at org.eclipse.m2e.logback.configuration.LogPlugin$1.run(LogPlugin.java:62)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-02 11:32:17.137
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

@@ -1,250 +1,250 @@
-plot(f)
-read.table(~/Programming/PatternFinder/PatternDetection/Eval0.txt)
-read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")
-read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")->vals
-hist(vals[[1]])
-read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")[[1]]->vals
-vals = which(vals > -1)
-hist(vals)
-vals
-read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")[[2]]->vals
-vals
-read.table("~/Programming/PatternFinder/PatternDetection/Eval0.txt")->vals
-length(vals)
-vals
-colnames(vals)
-vals[[1]]
-blah = vals[[1]]
-hist(blah)
-blah = which(blah > -1)
-hist(blah)
+s2=function(){source('~/Programming/PatternFinder/Classifier.r', chdir = TRUE)
+}
+s2()
+buildModel(blah2)
+traceback()
+s2();buildModel(blah2)
+NULL
+skewness(NULL)
+s2();buildModel(blah2)
+mychunk
+typeof(mychunk)
+typeof(mychunk$rawValues)
+s2();buildModel(blah2)
+features
+s2();buildModel(blah2)
+features
+s2();buildModel(blah2)
+myfeat
+typeof(myfeat)
+s2();buildModel(blah2)
+features
+x=list()
+x = c(x, 8)
+x
+x=list()
+x = c(x, runif(10))
+x
+x = c(x, list(runif(10)))
+x
+s2();buildModel(blah2)
+frame
+frame$sk
+typeof(frame$sk)
+typeof(frame$type)
+s2();buildModel(blah2)
+s2();buildModel(blah2)->k
+summary(k)
+blah2
+s()
+s2();buildModel(blah2)->k
+k
+length(frame)
+frame
+s2();buildModel(blah2)->k
+featureExtractor
+featureExtractor(runif(100))
+featureExtractor(runif(100))->k
+as.list(k)
+data.frame(as.list(k))
+data.frame(as.list(k))->l
+l
+pairs(l)
+s2();buildModel(blah2)->k
+e
+e = featureExtractor(runif(100))
+predict(k, e)
+s2();buildModel(blah2)->k
+predict(k, e)
+s2();buildModel(blah2)->k
+s2()
+blah2
+s2();buildModel(blah2)->k
+traceback()
+s2();buildModel(blah2)->k
+library(e1071)
+s2();buildModel(blah2)->k
+traceback()
+s2();buildModel(blah2)->k
+traceback()
+s2()
+s2
+buildModel(blah2)
+source('~/Programming/PatternFinder/Classifier.r', chdir = TRUE)
+s2
+predict
+s2
+ls()
+rm(list=ls())
+ls()
+predict
+source('~/Programming/PatternFinder/Classifier.r', chdir = TRUE)
+source('~/Programming/PatternFinder/Classifier.r', chdir = TRUE)
+source('~/Programming/PatternFinder/Classifier.r', chdir = TRUE)
+s2 = function(){source('~/Programming/PatternFinder/Classifier.r', chdir = TRUE)}
+s2()
+source('~/Programming/PatternFinder/Chunker.r', chdir = TRUE)
+frame
+source('~/Programming/PatternFinder/Chunker.r', chdir = TRUE)
+s=function(){source('~/Programming/PatternFinder/Chunker.r', chdir = TRUE)}
+s()
+s()
+s()
+classifyTest
+buildMOdel(classifyTest)
+buildModel(classifyTest)
+s()
+s()
+buildModel(classifyTest)
+buildModel(classifyTest)->l
+myPredict(l, runif(100), 1:100)
+myPredict(l, runif(100), 1:100)
+myPredict(l, runif(100), 1:100)
+myPredict(l, runif(100), 1:100)->p
+typeof(p)
+print(p)
+s()
+s()
+s()
+s()
+buildModel(classifyTest)
+buildModel(classifyTest)
+s2
+s2()
+buildModel(classifyTest)
+save(classifyTest, "ClassificationTest")
+save(classifyTest, file="ClassificationTest")
+blah = load("ClassificationTest")
 blah
-vals
-vals[[1]]
-myblah=vals[[1]]
-myblah
-vals
-blah = vals[[1]][which(vals[[1]]>-1)]
-hist(blah)
-max(blah)
-min(blah)
-qqplot(blah)
-example(qqplot)
-qqnorm(blah)
-qqplot(blah)
-q=function(n){out = 0; for (i in 2:n){out = out + 1/(i*log(i)^2)} return(out)}
-q=function(n){out = 0; for (i in 2:n){out = out + 1/(i*log(i)^2)}; return(out)}
-q(10)
-q(100)
-q(10000)
-q(100000)
-plot(runif(1000), runif(1000), type = 'l')
-x = c(rep(-1, 500), rep(1, 500))
-y=c(rep(-1, 500), rep(1, 500))
-cor(x,y)
-scale(x)
-x1 = 1:1000
-y1=1:1000
-cor(x1,y1)
-scale(x1)
-sqrt(3)
-sum(scale(rexp(1000))>4)
-hist(scale(rexp(1000)))
-dat=rexp(1000)
-mean(dat)
-std(dat)
-sd(dat)
-sum(scale(rnorm(1000))>4)
-sum(scale(rnorm(100000))>4)
-hist(rnorm(100000))
-dat=rnorm(100000)
-mean(dat)
-sd(dat)
-qSolve = function(n=20, qYear=ifelse(is.na(qInd),0.8,NA), qInd=NA)
-{if (is.na(qYear)){return(qInd^n)}; if(is.na(qInd)){return(qYear^(1/n))}   }
-qSolve()
-0.8^0.05
-0.98^20
-0.99^20
-qSolve(100, 0.95)
-1/(1-qSolve(100, 0.95)
-)
-qSolve(100, 1-0.05*0.05)
-odds=function(q){return 1/(1-q)}
-odds=function(q){return() 1/(1-q))}
-odds=function(q){return(1/(1-q))}
-odds(qSolve(100, 1-0.05*0.05))
-odds(qSolve(200, 1-0.05*0.05))
-odds(qSolve(200, .95))
-qSolve()
-odd(qSolve())
-odds(qSolve())
-odds(qSolve(n=100))
-odds(qSolve(qYear=0.15))
-ef2=function(...)#Effective effectiveness
-{}
-ef2(4,6,7)
-ef2=function(...)#Effective effectiveness
-{for (i in ...){print(i)}}
-ef2()
-ef2=function(...)#Effective effectiveness
-{for (i in list(...)){print(i)}}
-ef2()
-ef2(4,56,7)
-ef2=function(...)#Effective effectiveness
-{out=1;for (i in list(...)){out=out*(1-i)}; return(1-out)}
-ef2(1,1,1)
-ef2(1,0.9)
-ef2(0.9,0.9)
-ef2(0.8,0.8)
-qSolve(qYear=ef2(0.8,0.8))
-qSolve(n=50,qYear=ef2(0.8,0.8))
-qSolve(n=50,qYear=ef2(0.8,0.9))
-odds(qSolve(n=50,qYear=ef2(0.8,0.9)))
-odds(qSolve(n=100,qYear=ef2(0.8,0.9)))
-odds(qSolve(n=1000,qYear=ef2(0.8,0.9)))
-odds(qSolve(n=100,qYear=ef2(0.9,0.95)))
-odds(qSolve(n=100,qInd=ef2(0.9,0.95)))
-qSolve(n=100,qInd=ef2(0.9,0.95))
-qSolve(n=800,qInd=ef2(0.9,0.95))
-qSolve(n=800,qYear=ef2(0.9,0.95))
-runif(1)<1/2000
-x=F
-while(!x){x=runif(1)<1000;readline()}
-while(!x){x=(runif(1)<1000);readline()}
-x=F
-while(!x){x=(runif(1)<1000);readline()}
-x=F; i=0; while(!x){x=(runif(1)<1000){readline(i)}}
-x=F; i=0; while(!x){x=(runif(1)<1000);readline(i)}
-x
-x=F; i=0; while(!x){x=(runif(1)<1/1000);readline(i)}
-x=F; i=0; while(!x){x=(runif(1)<1/1000);readline(i);i=i+1}
-x=F; i=0; while(!x){x=(runif(1)<1/1000);i=i+1}
-i
-x=F; i=0; while(!x){x=(runif(1)<1/1000);i=i+1};i
-rgeom(1,1/1000)
-hist(rgeom(1000,1/1000))
-min(rgeom(1000,1/1000))
-min(rgeom(1000,1))
-regoem(100,0.5)
-rgoem(100,0.5)
-rgeom(100,0.5)
-rgeom(100,1/1000)
-version()
-license()
-install.packages(c("rj", "rj.gd"), repos="http://download.walware.de/rj-2.0")
-sessionInfo()
-getRversion()
-getRVersion()
-packinfo = installed.packages()
-packinfo
-rjava
-trial=function(){suc=0; consec=0; while(consec<3){if(runif(1)<0.6){suc=suc+1;consec=consec+1}else{consec=0}}return(suc)}
-trial=function(){  suc=0; consec=0; while(consec<3) { if(runif(1)<0.6) {suc=suc+1;consec=consec+1}else{consec=0}  }return(suc)   }
-trial=function(){
-suc=0;
-consec=0;
-while(consec<3){
-if(runif(1)<0.6){
-suc=suc+1;
-consec=consec+1
-}else{
-consec=0
-}
-return(suc)
-}
-trial()
-out=rep(0,1000)
-for(i in 1:1000){out[i]=trial()}
+blah
+saveRDS
+saveRDS(classifyTest, "MyTest")
+blah = readRDS("MyTEst")
+blah = readRDS("MyTest")
+blah
+saveRDS(classifyTest, "MyTest.rds")
+blah = readRDS("MyTest.rds")
+blah
+s2()
+classifyTest
+test2 = classifyTest
+names(test2)
+for (i in 1:length(test2[["Ca..ug.L."]])){test2[["Ca..ug.L."]] [[i]] [["rawTimes"]] = test2[["TimeChunks"]] [[i]] }
+test2
+train = test2[["Ca..ug.L."]]
+train
+train = train[1:20]
+test = test2[21:80]
+test = test2[21:100]
+test
+train
+test2
+test = test2[["Ca..ug.L."]][21:100]
+length(test)
+length(train)
+verify(train,test)
+traceback()
+features
+test = test2
+test2[["Ca..ug.L."]][1:20] = NULL
+length(test2[["Ca..ug.L."]])
+verify(train,test2)
+features
+names(test2)
+train = classifyTest
+train[["Ca..ug.L."]][21:100] = NULL
+verify(train, test2)
+train[["NumChunks"]] = 20
+verify(train, test2)
 out
-hist(out)
-sum(out==8)
-sum(out==8)/1000
-plot
-plot(c(1,5,3,8,5),type='l')
-factorize(5)
-primes(5)
-3721/3
-for (i in 1:sqrt(3721)){print(i)}
-for (i in 1:sqrt(3721)){if (3721%%i==0){print(i)}}
-61*61
-5[1]
-5[1][1[1[1[1[1]]]]]
-5[1][1[1[1[1[1]]]]][1][1][1][1][1][1][1][1][1][1][1]
-read.table("~/Programming/DataSets_R/ITASE/ITASEEdit.txt")->i
-i
-colnames(i)
-read.table("~/Programming/DataSets_R/ITASE/ITASEEdit.txt",T)->i
-colnames(i)
-T, F
-T
-T[1][1]
-x=list()
-x[["hello"]]=c(1,2,3,5)
-x[["bye"]]=c(5,3,6)
-x
-x$hello
-x[["hello"]]
-x["hello"]
-"hello"[1]
-"hello"[2]
-NULL[1]
-NULL[2]
-NULL[0]
-NA[0]
-logical(2)
-logical(0)
-logical
-c(3,4,5,"hll")
-c(3,4,5,"hll")[1]
-c(3,4,5,"hll")[1]
-x=list()
-x[["time"]]=849
-x[["blah"]]=48
-x
-x[[1]]
-x[[2]]
-paste(c("hello", "bye", "hahaahahah", "sqrt"), sep="\t")
-paste(c("hello", "bye", "hahaahahah", "sqrt"), sep="\t", collapse=T)
-paste(c("hello", "bye", "hahaahahah", "sqrt"), collapse="\t")
-paste(c("hello", "bye", "hahaahahah", "sqrt"), collapse="\t")->strings
-write(strings,file="test.txt")
-`[[]]`
-x=rep(10)
-x
-x[[6]]
-x[[1]]
-x[[2]]
-x[[2]]=6
-x
-x[["hellO"]]
-x[["hellO"]]=7
-x
-source("TokenizeScript.r")
-setwd("~/Programming/PatternFinder")
-source("TokenizeScript.r")
-parallelTokenize("ndunn_GISP2", 14, outFileName="GISP2_Test")
-source("TokenizeScript.r")
-parallelTokenize("ndunn_GISP2", 14, outFileName="GISP2_Test")
-write("blah", "../superBlah.txt")
-parallelTokenize("nfdunn_GISP2", 14, outFileName="GISP2_Test")
+res=verify(train, test2)
+res
+s2(); res = verify(train, test2)
+s2(); res = verify(train, test2)
+pred
+verify
+s2(); res = verify(train, test2)
 traceback()
-source("TokenizeScript.r");parallelTokenize("nfdunn_GISP2", 14, outFileName="GISP2_Test")
-source("TokenizeScript.r");parallelTokenize("nfdunn_GISP2", 14, outFileName="GISP2_Test")
+s2(); res = verify(train, test2)
 traceback()
-source("TokenizeScript.r");parallelTokenize("nfdunn_GISP2", 14, outFileName="GISP2_Test")
-median(NULL)
-length(NULL)
-source("TokenizeScript.r");parallelTokenize("nfdunn_GISP2", 14, outFileName="GISP2_Test")
-traceback()
-source("TokenizerTester.r")
-source("TokenizerTester.r")
-source("TokenizerTester.r")
-source("TokenizerTester.r")
-source("TokenizerTester.r")
-source("TokenizerTester.r")
-source("TokenizerTester.r")
-source("TokenizerTester.r")
-source("TokenizerTester.r")
-source("TokenizerTester.r")
-source("TokenizerTester.r")
+s2(); res = verify(train, test2)
+s2(); res = verify(train, test2)
+s2(); res = verify(train, test2)
+mychunk
+mytimes
+s2(); res = verify(train, test2)
+features
+s2(); res = verify(train, test2)
+s2()
+s()
+s()
+s()
+s()
+s()
+s()
+s()
+cc
+mychunk
+names(mychunk)
+s()
+s()
+s()
+plot(0)
+dev.new()
+dev.next(which = dev.cur())
+plot(0)
+dev.next(which = dev.cur())
+plot(1)
+dev.prev(which = dev.cur())
+plot(1)
+dev.list()
+typeof(dev.list())
+dev.next()
+dev.next()
+dev.next()
+dev.prev()
+dev.prev()
+dev.cur()
+dev.cur()
+dev.cur()
+dev.set(which=dev.next())
+dev.set(which=dev.next())
+dev.set(which=dev.next())
+dev.set(which=dev.next())
+dev.set(which=dev.next())
+dev.set(which=dev.next())
+plot(0)
+dev.set(which=dev.next())
+plot(1)
+s()
+S()
+s()
+classifyTest
+buildModel(classifyTest)
+spline
+?spline
+example(spline)
+warnings()
+buildModel(classifyTest)
+.jinit()
+library(rJava)
+.jinit()
+.new
+.jnew
+.jnew("java/lang/String", "Hello")
+.jnew("java/lang/String", "Hello")->k
+k$length()
+pairs2
+s2()
+featureClassifier
+featureExtractor
+s()
+featureExtractor
+buildModel(classifyTest)
+myframe
+pairs(myframe)
+myframe
+buildModel(classifyTest)
+s2()
+s()
+s()
