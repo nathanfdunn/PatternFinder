@@ -25,6 +25,7 @@ public class Main {
 		System.out.println(re.eval("k=c(T,F)"));
 		System.out.println(re.eval("k"));
 		System.out.println(re.eval("k").asString());
+		System.out.println(re.eval("source('hello.r')"));
 		//System.out.println(re.eval("k").asVector().at("col1"));
 		
 		

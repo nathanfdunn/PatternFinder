@@ -1,0 +1,18 @@
+package behaviorClassification;
+
+public class RawDataTable extends DataTable{
+
+	public RawDataTable(double[][] entries) {
+		super(entries);
+	}
+
+	public RawDataTable(double[][] entries, String[] headers) {
+		super(entries, headers);
+	}
+
+	
+	
+	
+	
+	
+}

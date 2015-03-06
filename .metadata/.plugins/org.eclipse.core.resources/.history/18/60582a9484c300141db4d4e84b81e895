@@ -1,0 +1,48 @@
+package behaviorClassification;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class CompositeChunkList {
+	
+	private HashMap<String, ArrayList<Chunk>> chunkList;
+	
+//	private ArrayList<Chunk> createChunkList(double[] vals, double[] time, double chunkWidth){
+//		
+//	}
+	
+	
+	private static double[][] createPartition(double[] times, int numChunks){
+		double[] partition = seq(times[0], times[times.length-1], chunkWidth);
+
+	}
+	
+	private static double[][] createPartition(double[] times, double chunkWidth){
+		double[] partition = seq(times[0], times[times.length-1], chunkWidth);
+		
+	}
+	
+	private static double[][] partitionTimes(double[] times, double[] partition){
+		
+	}
+	
+	
+	//Named after the R function
+	private static double[] seq(double start, double end, double chunkWidth){
+		final double eps = 0.0001;
+		int numChunks = (int)Math.floor((end-start)/chunkWidth);
+		double[] out = new double[numChunks+1];
+		out[0] = start - eps;
+		for (int i=1; i<numChunks; i++){
+			out[i] = out[i-1] + chunkWidth;
+		}
+		out[numChunks] = end + eps;			//TODO: test
+		return out;
+	}
+	
+	private static double[] seq(double start, double end, int numChunks){
+		double chunkWidth = (end-start)/numChunks;
+		return seq(start, end, chunkWidth);
+	}
+
+}

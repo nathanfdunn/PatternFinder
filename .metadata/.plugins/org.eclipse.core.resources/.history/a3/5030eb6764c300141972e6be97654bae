@@ -1,0 +1,15 @@
+package tests;
+
+import behaviorClassification.KnnModel;
+
+public class KnnTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		KnnModel model = new KnnModel();
+		
+		String[] headers = new String[]{"V1","V2","V2"};
+		//double[][]
+	}
+
+}

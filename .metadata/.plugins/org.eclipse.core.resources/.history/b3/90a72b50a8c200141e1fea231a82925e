@@ -1,0 +1,49 @@
+package behaviorClassification;
+
+public class DataTable implements IDataTable {
+
+	
+	private String[] colHeaders;
+	private double[][] entries;
+	private int numCols;
+	private int numRows;
+	
+	@Override
+	public String[] getColNames() {
+		return colHeaders;
+	}
+	
+	@Override
+	public double[] getCol(String colHeader) {
+		int colInd = headerInd(colHeader);
+		if (colInd == -1)
+			throw new Error("Not a valid column header");
+		return getCol( colInd );
+	}
+	
+	@Override
+	public double[] getCol(int colInd) {
+		return entries[colInd];
+	}
+	
+	@Override
+	public double[] getRow(int rowInd) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double[][] getAllData() {
+		return entries;
+	}
+	
+	private int headerInd(String header){
+		for (int i=0; i<colHeaders.length; i++){
+			if (header.equals(colHeaders[i]))
+				return i;
+		}
+		return -1;
+	}
+	
+	
+}

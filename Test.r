@@ -1,5 +1,5 @@
-library(moments)
-
+#library(moments)
+library(e1071)
 
 types =(c("FLA", "SPI", "DIP", "INC", "DEC"))
 
@@ -118,10 +118,10 @@ frame2 = frame2[[1]]
 #pairs(frame2[names(frame2)!="type"], col=cols2)
 pairs(frame2, col=cols2)
 #readline()
-#res = predict(model, newdata=frame2)
+res = predict(model, newdata=frame2)
 #res = predict(model, newdata=featureExtractor(randFeature()[1]))
 
-# print(table(res, frame2$type))
+print(table(res, frame2$type))
 
 
 # classify = function(chunk){

@@ -1,0 +1,9 @@
+package behaviorClassification;
+
+public class DataTable {
+
+	private double[][] entries;
+	private String[] headers;
+	
+	
+}

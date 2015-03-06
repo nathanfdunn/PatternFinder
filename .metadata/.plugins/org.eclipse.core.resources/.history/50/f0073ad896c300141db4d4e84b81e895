@@ -1,0 +1,13 @@
+package behaviorClassification;
+
+public class Chunk {
+
+	private double[] vals;
+	private double[] times;
+	
+	private double start;
+	private double end;
+	
+	
+	
+}

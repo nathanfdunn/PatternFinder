@@ -1,0 +1,62 @@
+package behaviorClassification;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class CompositeChunkList {
+	
+	private HashMap<String, ArrayList<Chunk>> chunkList;
+	
+//	private ArrayList<Chunk> createChunkList(double[] vals, double[] time, double chunkWidth){
+//		
+//	}
+	
+	
+	public//private 
+	static int[][] createPartition(double[] times, int numChunks){
+		double[] partition = seq(times[0], times[times.length-1], numChunks);
+		return partitionTimes(times, partition);
+	}
+	
+	public //private 
+	static int[][] createPartition(double[] times, double chunkWidth){
+		double[] partition = seq(times[0], times[times.length-1], chunkWidth);
+		return partitionTimes(times, partition);
+	}
+	
+	//TODO: could be made more efficient
+	public //private 
+	static int[][] partitionTimes(double[] times, double[] partition){
+		int[][] out = new int[partition.length+1][];
+		for (int i=0; i<partition.length-1; i++){
+			ArrayList<Integer> chunkInds = new ArrayList<Integer>();
+			double low = partition[i];
+			double high = partition[i+1];
+			for ()
+			//int[] chunkInds = 
+		}		
+		return out;		
+	}
+	
+	
+	//Named after the R function
+	public //private 
+	static double[] seq(double start, double end, double chunkWidth){
+		final double eps = 0.0001;
+		int numChunks = (int)Math.floor((end-start)/chunkWidth);
+		double[] out = new double[numChunks+1];
+		out[0] = start - eps;
+		for (int i=1; i<numChunks; i++){
+			out[i] = out[i-1] + chunkWidth;
+		}
+		out[numChunks] = end + eps;			//TODO: test
+		return out;
+	}
+	
+	public //private 
+	static double[] seq(double start, double end, int numChunks){
+		double chunkWidth = (end-start)/numChunks;
+		return seq(start, end, chunkWidth);
+	}
+
+}

@@ -1,0 +1,11 @@
+package tests;
+
+public class MyMathTest {
+
+	
+	
+	public static boolean doubEq(double d1, double d2){
+		final double epsilon = 0.00000001;
+		return Math.abs(d1-d2) < epsilon;
+	}
+}

@@ -1,0 +1,9 @@
+package behaviorClassification;
+
+public class FeatureExtractor {
+
+	
+	public double[] extractFeatures(double[] values, double[] times){
+		
+	}
+}

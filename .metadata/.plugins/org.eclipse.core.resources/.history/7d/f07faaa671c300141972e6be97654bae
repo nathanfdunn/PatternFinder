@@ -1,0 +1,9 @@
+package behaviorClassification;
+
+public class CompositeChunkList {
+	
+	private HashMap<String, ArrayList<Chunk>> chunkList;
+	
+	
+
+}

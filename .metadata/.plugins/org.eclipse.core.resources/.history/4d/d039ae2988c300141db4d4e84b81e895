@@ -1,0 +1,17 @@
+package tests;
+
+import behaviorClassification.CompositeChunkList;
+
+public class PartitioningTest {
+
+	public static void main(String[] args) {
+		double[] vals = CompositeChunkList.seq(0, 10, 1.0);
+		Pnt.pntArr(vals);
+		vals = CompositeChunkList.seq(0, 10, 10);
+		Pnt.pntArr(vals);
+
+		//double[] times = new double[100];
+	
+	}
+
+}

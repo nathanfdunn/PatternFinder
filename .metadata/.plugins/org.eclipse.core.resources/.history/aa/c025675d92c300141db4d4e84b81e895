@@ -1,0 +1,16 @@
+package behaviorClassification;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class CompositeChunkList {
+
+	private HashMap<String, ArrayList<Chunk>> chunkList;
+
+	
+	//public CompositeChunkList
+	
+	
+	
+	
+}

@@ -1,0 +1,23 @@
+package behaviorClassification;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class CompositeChunkList {
+	
+	private HashMap<String, ArrayList<Chunk>> chunkList;
+	
+//	private ArrayList<Chunk> createChunkList(double[] vals, double[] time, double chunkWidth){
+//		
+//	}
+	
+	
+	private double[][] createPartition(double times, double chunkWidth){
+		
+	}
+	
+	private double[] seq(double start, double end, double chunkWidth){
+		
+	}
+
+}

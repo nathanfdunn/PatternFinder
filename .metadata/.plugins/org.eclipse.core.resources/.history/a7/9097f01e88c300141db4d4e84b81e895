@@ -1,0 +1,11 @@
+package tests;
+
+public class PartitioningTest {
+
+	public static void main(String[] args) {
+		
+		double[] times = new double[100];
+	
+	}
+
+}

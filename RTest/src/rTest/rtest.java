@@ -231,6 +231,8 @@ public class rtest {
 		if (true) {
 			// so far we used R as a computational slave without REPL
 			// now we start the loop, so the user can use the console
+			
+			//re.eval("install.packages('moments')");
 			System.out.println("Now the console is yours ... have fun");
 			re.startMainLoop();
 		} else {

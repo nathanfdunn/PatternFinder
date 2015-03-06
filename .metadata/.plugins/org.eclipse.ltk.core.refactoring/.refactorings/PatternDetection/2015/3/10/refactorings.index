@@ -1,0 +1,22 @@
+1425498118329	Rename type 'KNearestNeighbors'
+1425498152823	Rename type 'DataTable'
+1425498577069	Rename method 'getHeaders'
+1425568710002	Rename type 'My'
+1425569273651	Rename type 'TableLoader'
+1425569290441	Move compilation units
+1425570501200	Rename type 'KNN'
+1425574850897	Rename method 'getEntry'
+1425576305277	Rename type 'MyStats'
+1425579012677	Rename local variable 'keyOfLow'
+1425583468102	Move compilation unit
+1425583479707	Move compilation unit
+1425584607260	Rename type 'DataTable'
+1425584748637	Delete element
+1425593990697	Move compilation unit
+1425594731130	Delete element
+1425594747434	Delete element
+1425596225768	Delete element
+1425596231743	Rename type 'CompositeChunkList'
+1425596309604	Rename type 'Chunker'
+1425601136753	Rename type 'CompositeChunkList'
+1425601567635	Rename method 'getTime'

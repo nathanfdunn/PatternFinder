@@ -1,0 +1,10 @@
+package tests;
+
+public class Pnt {
+
+	public static void pnt(Object o){
+		System.out.println(o);
+	}
+	
+	
+}

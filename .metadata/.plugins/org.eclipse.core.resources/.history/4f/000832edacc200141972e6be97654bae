@@ -1,0 +1,74 @@
+package behaviorClassification;
+
+import java.util.ArrayList;
+
+public class DataTable implements IDataTable {
+
+	
+	private String[] colHeaders;
+	private ArrayList<ArrayList<Double>> entries;
+//	private double[][] entries;
+	private int numCols;
+	private int numRows;
+	private int maxRows;
+	
+	public DataTable(String[] headers){
+		this.colHeaders = headers;
+		this.numCols = headers.length;
+	}
+	
+	/*public DataTable(int numCols, int maxRows, String[] headers){
+		this.numCols = numCols;
+		this.maxRows = maxRows;
+		//this.numRows = numRows;
+		this.colHeaders = headers;
+		this.numCols = headers.length;
+	}*/
+	
+	
+	@Override
+	public String[] getColNames() {
+		return colHeaders;
+	}
+	
+	@Override
+	public double[] getCol(String colHeader) {
+		//int colInd = headerInd(colHeader);		//TODO
+		//if (colInd == -1)
+		//return getCol( colInd );
+		return getCol( headerInd(colHeader) );
+	}
+	
+	@Override
+	public double[] getCol(int colInd) {
+		
+		//entries.get(colInd).toArray();
+	//	return entries[colInd];
+	}
+	
+	@Override
+	public double[] getRow(int rowInd) {
+		double[] out = new double[numCols];
+		for (int i=0; i<numCols; i++){
+			out[i] = entries.get(i).get(rowInd);
+			//out[i] = entries[i][rowInd];
+		}
+		return out;
+	}
+
+//	@Override
+//	public double[][] getAllData() {
+//		return entries;
+//	}
+
+	private int headerInd(String header){
+		for (int i=0; i<colHeaders.length; i++){
+			if (header.equals(colHeaders[i]))
+				return i;
+		}
+		//return -1;
+		throw new Error("Not a valid column header");
+	}
+	
+	
+}

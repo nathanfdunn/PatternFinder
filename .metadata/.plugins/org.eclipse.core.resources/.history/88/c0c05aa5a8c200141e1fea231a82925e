@@ -1,0 +1,17 @@
+package behaviorClassification;
+
+public interface IDataTable {
+
+	public String[] getColNames();
+	
+	public double[] getCol(String colHeader);
+	
+	public double[] getCol(int colNum);
+	
+	public double[] getRow(int rowNum);
+	
+	//public double[][] getAllData();
+	
+	//public double[] getEntry(String colHeader, int rowNum);
+	//public double[] getEntry(int colNum, int rowNum);
+}

@@ -1,0 +1,19 @@
+package behaviorClassification;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class ChunkList {
+
+	private HashMap<String, ArrayList<Chunk>> chunkList;
+
+	
+	public ChunkList(RawDataTable table, int numChunks){
+		this(table, table.timeSpan()/numChunks);
+	}
+	
+	public ChunkList(RawDataTable table, double chunkWidth){
+		
+	}
+	
+}

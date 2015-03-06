@@ -1,0 +1,31 @@
+package tests;
+
+import behaviorClassification.CompositeChunkList;
+
+public class PartitioningTest {
+
+	public static void main(String[] args) {
+		double[] vals = CompositeChunkList.seq(0, 10, 1.0);
+		Pnt.pntArr(vals);
+		Pnt.pnt();
+		vals = CompositeChunkList.seq(0, 100, 10);
+		Pnt.pntArr(vals);
+		Pnt.pnt();
+		
+		double[] times = new double[100];
+		for (int i=0; i<times.length; i++)
+			times[i] = i;
+		int[][]chunks = CompositeChunkList.partitionTimes(times, vals);
+		Pnt.pntArr(chunks);
+		Pnt.pnt();
+		
+		vals = CompositeChunkList.seq(0.0001, 100.0001, 10);
+		Pnt.pntArr(vals);
+		Pnt.pnt();
+		
+		chunks = CompositeChunkList.partitionTimes(times, vals);
+		Pnt.pntArr(chunks);
+		
+	}
+
+}

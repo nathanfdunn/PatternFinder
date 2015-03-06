@@ -1,0 +1,26 @@
+package behaviorClassification;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class CompositeChunkList {
+
+	private HashMap<String, ArrayList<Chunk>> chunkList;
+
+	
+	public CompositeChunkList(RawDataTable table, int numChunks){
+		double[] time = table.getTime();
+		double chunkWidth = (time[time.length-1] - time[0])/numChunks;
+		initialize(table, chunkWidth);
+	}
+	
+	public CompositeChunkList(RawDataTable table, double chunkWidth){
+		initialize(table, chunkWidth);
+	}
+	
+//	private void initialize(RawDataTable table, double chunkWidth){
+//		
+//	}
+	
+	
+}

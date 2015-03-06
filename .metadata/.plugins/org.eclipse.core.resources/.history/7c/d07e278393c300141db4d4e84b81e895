@@ -1,0 +1,25 @@
+package behaviorClassification;
+
+/**
+ * Holds data representing a table of raw time-series values
+ * @author nathandunn
+ *
+ */
+public class RawDataTable extends DataTable{
+
+	private int timeInd;			//Index of the time data
+	
+	public RawDataTable(double[][] entries) {
+		super(entries);
+	}
+
+	public RawDataTable(double[][] entries, String[] headers) {
+		super(entries, headers);
+	}
+
+	
+	
+	
+	
+	
+}
