@@ -14,7 +14,7 @@ public class ChunkList {
 	private HashMap<String, ArrayList<Chunk>> chunkList;
 	private String[] quantities;
 	private int numChunks;			
-
+	private double[] times;			//TODO remove?
 
 	public ChunkList(RawDataTable table, int numChunks){
 		this(table, table.timeSpan()/numChunks);
@@ -29,8 +29,9 @@ public class ChunkList {
 		int[][] inds = Partitioner.partitionTimes(times, partition);
 		double[][] timeChunks = Partitioner.indexVals(inds, times);
 		numChunks = inds.length;
+		this.times = table.getTimes();
 		
-		quantities = table.getHeaders();
+		quantities = table.getNonTimeHeaders();
 		for (String s : quantities){
 			ArrayList<Chunk> chunks = new ArrayList<Chunk>();
 			double[][] vals = Partitioner.indexVals(inds, table.getCol(s));

@@ -1,0 +1,28 @@
+package behaviorClassification;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+/**
+ * 
+ * @author nathandunn
+ * Fills a table with the raw information from a CSV.
+ */
+public class CsvToTable {
+
+	public static RawDataTable readCsv(String fileName){
+		//TODO
+		return null;
+	}
+	
+	private static String[][] readAll(String fileName){
+		try{
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
+
+			br.close();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+}

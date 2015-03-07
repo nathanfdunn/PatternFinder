@@ -20,3 +20,7 @@
 1425596309604	Rename type 'Chunker'
 1425601136753	Rename type 'CompositeChunkList'
 1425601567635	Rename method 'getTime'
+1425658747512	Rename local variable 'header'
+1425665527694	Rename type 'Classifier'
+1425665553239	Delete elements
+1425680862586	Delete element

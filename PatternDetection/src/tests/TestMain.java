@@ -9,7 +9,8 @@ public class TestMain {
 		double[][] test = new double[10][];
 		Pnt.pnt(test.length);
 		Pnt.pnt(test[0]);
-		
+		double d = Double.NaN + 0;
+		System.out.println(d);
 	}
 
 }

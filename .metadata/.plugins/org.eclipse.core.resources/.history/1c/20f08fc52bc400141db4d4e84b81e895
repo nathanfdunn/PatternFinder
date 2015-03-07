@@ -1,0 +1,9 @@
+package behaviorClassification;
+
+public class ClassifiedChunk {
+	private Chunk rawChunk;
+	private String classification;
+	
+	
+	
+}

@@ -12,6 +12,18 @@ public class MyMathTest {
 		Pnt.pnt(MyMath.distance(MyMath.add(vec, vec), vec));
 		Pnt.pnt(MyMath.distance(MyMath.mult(vec, 2), vec));
 		Pnt.pnt(MyMath.distance(MyMath.mult(vec, 3), zero));
+		
+		
+		double[][] arr = new double[][]{
+				new double[] {1,2,3,4},
+				new double[] {5,6,7,8}
+		};
+		
+		Pnt.pntArr(arr);
+		Pnt.pnt();
+		Pnt.pntArr(MyMath.transpose(arr));
+		
+		
 	}
 	
 	

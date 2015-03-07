@@ -6,9 +6,13 @@
 <fullyQualifiedTypeName name="org.rosuda.JRI.Rengine"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="behaviorClassification.KnnModel"/>
 <fullyQualifiedTypeName name="behaviorClassification.DataTable"/>
 <fullyQualifiedTypeName name="tests.KnnTest"/>
+<fullyQualifiedTypeName name="behaviorClassification.CompositeChunkList"/>
+<fullyQualifiedTypeName name="tests.Pnt"/>
+<fullyQualifiedTypeName name="behaviorClassification.MyMath"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="behaviorClassification.CsvToTable"/>
 </qualifiedTypeNameHistroy>

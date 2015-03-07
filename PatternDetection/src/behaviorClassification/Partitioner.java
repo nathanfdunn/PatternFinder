@@ -50,10 +50,7 @@ public class Partitioner {
 			double[] chunk = new double[ indChunks[i].length ];
 			for (int j=0; j<chunk.length; j++){
 				chunk[j] = vals[ indChunks[i][j] ];
-				//Pnt.pnt(indChunks[i][j]);				//TODO
-				//Pnt.pnt(vals[indChunks[i][j]]);
 			}
-			//Pnt.pntArr(chunk);
 			out[i] = chunk;
 		}
 		return out;

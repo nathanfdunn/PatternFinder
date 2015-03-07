@@ -158,6 +158,22 @@ public class MyMath {
 		return -getMin(neg(vals));
 	}
 	
+	//Can be replaced with P301 operation
+	public static double[][] transpose(double[][] arr){
+		//TODO test that it is a square array;
+		//@require that array is at least 1xm (or is it mx1?), m >= 0
+		int rows = arr.length;
+		int cols = arr[0].length;
+		double[][] out = new double[cols][rows];
+		
+		for (int i=0; i<cols; i++)
+			for (int j=0; j<rows; j++)
+				out[i][j] = arr[j][i];
+
+		return out;
+
+	}
+	
 
 /*	public static Pair<Double, Integer> getMin(double[] vals){
 		int lowInd = -1;

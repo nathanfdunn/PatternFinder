@@ -71,5 +71,19 @@ public class DataTable {
 		return entries[colInd];
 	}
 	
+	public String toString(){
+		String out = "";
+		for (String s : headers)
+			out += s + "	";
+		out += "\n";
+		for (int i=0; i<getNumRows(); i++){
+			double[] row = this.getRow(i);
+			for (int j=0; j<row.length; j++)
+				out += row[j] +"	";
+			out += "\n";
+		}
+		return out;
+	}
+	
 	
 }

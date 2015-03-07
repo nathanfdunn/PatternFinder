@@ -1,5 +1,7 @@
 package behaviorClassification;
 
+import java.util.ArrayList;
+
 /**
  * Holds data representing a table of raw time-series values
  * @author nathandunn
@@ -32,6 +34,23 @@ public class RawDataTable extends DataTable{
 		return entries[timeInd];
 	}
 	
+	public int getTimeInd(){
+		return timeInd;
+	}
+	
+	public String getTimeHeader(){
+		return this.headers[timeInd];
+	}
+	
+	public String[] getNonTimeHeaders(){
+		String timeHeader = getTimeHeader();
+		ArrayList<String> out = new ArrayList<String>();
+		for (String s : this.headers)
+			if ( !s.equals(timeHeader) )
+				out.add(s);
+
+		return out.toArray(new String[out.size()]);
+	}
 	
 	
 	
