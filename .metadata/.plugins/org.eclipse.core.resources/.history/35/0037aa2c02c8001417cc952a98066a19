@@ -1,0 +1,56 @@
+package behaviorClassification;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+
+
+public class UserClassifier {
+
+	
+	public static ClassifiedChunkList classify(ChunkList chunkList){
+		//TODO control which quantities to classify?
+		ClassifiedChunkList out = new ClassifiedChunkList();
+		
+		for (String quantity : chunkList.getQuantities()){
+			ArrayList<ClassifiedChunk> list = 
+					classify(chunkList.getChunks(quantity));
+			out.addList(quantity, list);
+		}
+		
+		return out;
+	}
+	
+	
+	public static ArrayList<ClassifiedChunk> classify(ArrayList<Chunk> chunks){
+		ArrayList<ClassifiedChunk> list = new ArrayList<ClassifiedChunk>();
+		
+		
+		
+//		boolean go = true;
+//		while (go){
+//			
+//		}
+		System.out.println("Not implemented yet");
+		int crash = 1/0;
+		return list;
+	}
+	
+	
+	
+//	private ClassifiedChunk classify( Chunk chunk ){
+//		String classification = getClassification(chunk);
+//		return new ClassifiedChunk(chunk, classification);
+//	}
+//	
+//	
+	private String getClassification(Chunk chunk){
+		return "None";
+	}
+	
+	private static String[] temp = new String[]{
+		"q", "back",
+	};
+	private static ArrayList<String> controlSequences = 
+			new ArrayList<String>( Arrays.asList(temp) );
+}

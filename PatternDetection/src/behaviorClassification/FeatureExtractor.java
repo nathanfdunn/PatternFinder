@@ -1,21 +1,23 @@
 package behaviorClassification;
 
-public class FeatureExtractor {
+public abstract class FeatureExtractor {
 
-//	
-	public static double[] extractFeatures(double[] values, double[] times){
-		return null;		//TODO
-	}
-//	
-//	public static String[] featureNames(){
-//		
-//	}
-//	
+	public abstract double[] extractFeatures(double[] values, double[] times);
 	
-	public static double[] extractFeatures(Chunk chunk){
+	public double[] extractFeatures(Chunk chunk){
 		return extractFeatures(chunk.getVals(), chunk.getTimes());
 	}
 	
+	//TODO: make abstract?
+	public int numFeatures(){
+		return featureNames().length;
+	}
+
+	public abstract String[] featureNames();
 	
+	public final static boolean isFeaturizable(Chunk c){
+		final int minLength = 5;
+		return c.getLength() >= minLength;
+	}
 	
 }

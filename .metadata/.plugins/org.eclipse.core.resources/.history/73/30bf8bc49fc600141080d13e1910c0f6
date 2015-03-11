@@ -1,0 +1,31 @@
+package behaviorClassification;
+
+public class StandardFeatureExtractor extends FeatureExtractor {
+
+	@Override
+	public double[] extractFeatures(double[] values, double[] times) {
+		return new double[]{
+				MyMath.minZ(values),
+				MyMath.maxZ(values),
+				MyMath.coefVar(values),
+				MyMath.corrCoef(values, times),
+				MyMath.skewness(values)				
+		};
+	}
+
+	@Override
+	public int numFeatures() {
+		return 5;
+	}
+
+	@Override
+	public String[] featureNames() {
+		return new String[]{
+				"MaxZ",
+				"MinZ",
+				"CV",
+				"r",
+				"skew"
+		};
+	}	
+}

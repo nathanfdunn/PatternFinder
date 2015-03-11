@@ -1,0 +1,31 @@
+package behaviorClassification;
+
+public abstract class FeatureExtractor {
+
+	//TODO
+//	
+	public double[] extractFeatures(double[] values, double[] times);
+//	{
+//		return null;		//TODO
+//	}
+//	
+//	public static String[] featureNames(){
+//		
+//	}
+//	
+	
+	public double[] extractFeatures(Chunk chunk){
+		return extractFeatures(chunk.getVals(), chunk.getTimes());
+	}
+	
+	public int numFeatures(){
+		return 0;
+	}
+	
+	public String[] featureNames(){
+		return null;
+	}
+	
+	
+	
+}

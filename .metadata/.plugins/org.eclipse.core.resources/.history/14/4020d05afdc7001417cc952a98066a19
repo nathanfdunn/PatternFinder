@@ -1,0 +1,13 @@
+package tests;
+
+public class Parent {
+
+	
+	public void call(){
+		blah();
+	}
+	
+	public void blah(){
+		System.out.println("Hello");
+	}
+}

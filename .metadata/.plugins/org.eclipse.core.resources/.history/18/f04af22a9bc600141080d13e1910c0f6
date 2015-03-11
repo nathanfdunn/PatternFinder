@@ -1,0 +1,15 @@
+package mainFeatures;
+
+public class Util {
+
+	public Pattern parsePattern(String p){
+		
+	}
+	
+	public TokenStream tokenize(ChunkList chunkList){
+		
+	}
+	
+	
+	
+}

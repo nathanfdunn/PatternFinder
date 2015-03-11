@@ -1,0 +1,14 @@
+package tests;
+
+import behaviorClassification.CsvToTable;
+import behaviorClassification.RawDataTable;
+
+public class SerializationTest {
+
+	public static void main(String[] args) {
+		RawDataTable rdt = CsvToTable.readCsv("../../DataSets_R/nfdunn_Moulton1.csv");
+		
+		
+	}
+
+}

@@ -3,9 +3,6 @@ package behaviorClassification;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import tests.KnnTest;
-
-
 public class KnnModel {
 	
 //	private DataTable trainingData;
@@ -16,16 +13,17 @@ public class KnnModel {
 //	private String[] classes;
 //	private int k = 10;
 //	private double gamma = 0;
+//	private double maxWeight = 10;
 	
 	public FeatureTable trainingData;
-	public String[] trainingClassifications;
+	//public String[] trainingClassifications;
 	public double[] meanVec;
 	public double[] stdVec;
 	
 	public String[] classes;
 	public int k = 10;
-	public double gamma = 0;
-	public double maxWeight = 10;
+	public double gamma = 1;		//Distance weight exponent
+	public double maxWeight = 100;
 	
 	public void setK(int k) {
 		this.k = k;
@@ -39,16 +37,25 @@ public class KnnModel {
 		this.maxWeight = maxWeight;
 	}
 
-	public void train(FeatureTable trainingData, String[] classifications){
+//	public KnnModel(FeatureTable trainingData, String[] classifications){
+//		train(trainingData, classifications);
+//	}
+	
+	public KnnModel(FeatureTable trainingData){
+		train(trainingData);
+	}
+	
+	
+	public void train(FeatureTable trainingData){//, String[] classifications){
 		if (trainingData.isEmpty())
 			throw new Error("Empty Training Data");
-		if (trainingData.getNumRows() != classifications.length)
-			throw new Error("Incorrect number of classifications");
+//		if (trainingData.getNumRows() != classifications.length)
+//			throw new Error("Incorrect number of classifications");
 		
 		this.meanVec = trainingData.getMeanVec();
 		this.stdVec = trainingData.getStdVec();
-		this.trainingClassifications = classifications;
-		this.classes = extractClasses(classifications);
+		//this.trainingClassifications = classifications;
+		this.classes = extractClasses( trainingData.getClassifications() );
 		this.trainingData = trainingData.getScaledTable();
 	}
 	
@@ -98,7 +105,7 @@ public class KnnModel {
 			double distance = MyMath.distance(featureVec, trainingData.getRow(i));
 			double weight = Math.pow(distance, -this.gamma);
 			weight = Math.min(weight, this.maxWeight);
-			String key = trainingClassifications[i];
+			String key = trainingData.getClassifications()[i];
 			votes.put(key, votes.get(key) + weight);
 		}
 		//System.out.println(votes);		//TODO
@@ -114,7 +121,6 @@ public class KnnModel {
 		return keyOfHigh;
 	}
 
-	
 	
 	private double[] scaleFeatureVec(double[] featureVec){
 		return MyMath.scale(featureVec, meanVec, stdVec);

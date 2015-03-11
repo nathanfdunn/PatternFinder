@@ -1,0 +1,67 @@
+package patternDetection;
+
+import java.util.ArrayList;
+
+public enum Behavior {
+	SPI,				//Spike
+	INC,				//Increasing Trend
+	FLA,				//Flat (no trend)
+	DEC,				//Decreasing Trend
+	DIP,				//Dip
+	UNK;				//Unknown
+	
+	
+	//TODO: toString converts to "SPI", etc.
+	public String toSmallString(){ //int crash = 1/0;
+		switch(this){
+		case SPI: return "^";
+		case INC: return "/";
+		case FLA: return "-";
+		case DEC: return "\\";
+		case DIP: return "v";
+		case UNK: return "?";
+		//default: return null;
+		}
+		throw new Error("Unrecognized enum value");	//This shouldn't happen
+	}
+
+	
+	public static Behavior translate(String s){
+		if (s.equals("SPI"))
+			return SPI;
+		if (s.equals("INC"))
+			return INC;
+		if (s.equals("FLA"))
+			return FLA;
+		if (s.equals("DEC"))
+			return DEC;
+		if (s.equals("DIP"))
+			return DIP;
+		if (s.equals("UNK"))
+			return UNK;
+		throw new Error("Unrecognized token");
+	}
+	
+	
+//	public Behavior translate(int i){
+//		switch(i){
+//		case 2: return SPI;
+//		case 1: return INC;
+//		case 0: return FLA;
+//		case -1: return DEC;
+//		case -2: return DIP;
+//		case -10: return UNK;
+//		default: return null;
+//		}
+//	}
+	
+	//public static ArrayList<String> getValid
+}
+
+
+
+
+
+
+
+

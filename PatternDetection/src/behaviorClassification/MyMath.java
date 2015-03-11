@@ -34,7 +34,7 @@ public class MyMath {
 	public static double[] scale(double[] data){
 		double mean = mean(data);
 		double std = std(data);
-		return mult(add(data, -mean), 1/std);
+		return mult( add(data, -mean), 1/std);
 	}
 
 	//TODO explain
@@ -98,7 +98,7 @@ public class MyMath {
 		return Math.sqrt(sum);
 	}
 	
-	private static void checkDim(double[] vec1, double[] vec2){
+	public static void checkDim(double[] vec1, double[] vec2){
 		if (vec1.length != vec2.length)
 			throw new Error("Vectors must be of same length");
 	}
@@ -110,7 +110,7 @@ public class MyMath {
 	
 	public static int[] indsOfLowest(double[] values, int k){
 		//TODO handle this better
-		if (values.length == 0) throw new Error("You shouldn't do this");
+		//if (values.length == 0) throw new Error("You shouldn't do this");
 		if (k >= values.length){
 			int[] out = new int[values.length];
 			for (int i=0; i<values.length; i++) out[i]=i;
@@ -172,6 +172,88 @@ public class MyMath {
 
 		return out;
 
+	}
+	
+	//Calculates the skewness of the sample (3rd standardized moment)
+	public static double skewness(double[] data){
+		double mean = mean(data);
+		double std = std(data);
+		double sum = 0;
+		for (int i=0; i<data.length; i++)
+			sum += Math.pow( data[i] - mean, 3);
+		
+		return (sum/data.length) / Math.pow(std, 3);
+	}
+	
+	/**
+	 * Calculates the maximum z-score of the data
+	 * @param data
+	 * @return
+	 */
+	public static double maxZ(double[] data){
+		data = scale(data);
+		return getMax(data);
+	}
+	
+	/**
+	 * Calculates the minimum z-score of the data
+	 * @param data
+	 * @return
+	 */
+	public static double minZ(double[] data){
+		data = scale(data);
+		return getMin(data);
+	}
+	
+	/**
+	 * Calculates the coefficient of variation
+	 * @param data
+	 * @return
+	 */
+	public static double coefVar(double[] data){
+		double mean = mean(data);
+		double std = std(data);
+		if (mean == 0)
+			throw new Error("Coefficient of Variation undefined");
+		return std/mean;
+	}
+	
+	/**
+	 * Calculates the Pearson product-moment correlation coefficient
+	 * @param dataX
+	 * @param dataY
+	 * @return
+	 */
+	public static double corrCoef(double[] dataX, double[] dataY){
+		checkDim(dataX, dataY);
+		double xBar = mean(dataX);
+		double yBar = mean(dataY);
+		
+		double xySum = 0;
+		double xxSum = 0;
+		double yySum = 0;
+		
+		for (int i=0; i<dataX.length; i++){
+			xySum += (dataX[i] - xBar) * (dataY[i] -yBar);
+			xxSum += Math.pow(dataX[i] - xBar, 2);
+			yySum += Math.pow(dataY[i] - yBar, 2);
+		}
+		
+		return xySum / Math.sqrt( xxSum * yySum );
+	}
+	
+	/**
+	 * Returns the Fisher Transformation of the correlation coefficient
+	 * @param r
+	 * @return
+	 */
+	public static double fisherTrans(double r){
+		return 0.5 * Math.log( (1+r)/(1-r) );
+	}
+	
+	public static double invFisherTrans(double w){
+		double exp2w = Math.exp( 2*w );
+		return ( exp2w - 1 )/( exp2w + 1 );
 	}
 	
 

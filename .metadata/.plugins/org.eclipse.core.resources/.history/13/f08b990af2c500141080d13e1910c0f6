@@ -1,0 +1,16 @@
+package behaviorClassification;
+
+import java.util.ArrayList;
+
+public class UserClassifier {
+
+	
+	public ArrayList<ClassifiedChunk> classify(ArrayList<Chunk> chunks){
+		
+	}
+	
+	private ClassifiedChunk classify(Chunk chunk){
+		
+	}
+	
+}

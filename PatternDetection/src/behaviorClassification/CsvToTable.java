@@ -18,7 +18,7 @@ public class CsvToTable {
 	//TODO Note: restrictions on how the time data is organized (earliest to latest, etc.)
 	
 	//TODO Note CSV must have a header line
-	public static RawDataTable readCsv(String fileName){
+	public static RawDataTable readCsv( String fileName ){
 		return readCsv(fileName, -1);		//will use the findTimeInd function
 	}
 	
@@ -41,7 +41,7 @@ public class CsvToTable {
 	}
 	
 	private static int findTimeInd(double[][] entries){
-		//Find which column is "most" sorted
+		//TODO: Find which column is "most" sorted
 		return entries.length-1;		//Assume it's the last column
 	}
 	

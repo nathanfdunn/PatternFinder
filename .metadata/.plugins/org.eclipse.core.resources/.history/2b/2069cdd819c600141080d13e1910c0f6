@@ -1,0 +1,85 @@
+package behaviorClassification;
+
+import java.util.ArrayList;
+
+
+public class FeatureTable extends DataTable {
+	
+	private String[] classifications;
+	
+	public FeatureTable(double[][] entries, String[] headers, String[] classifications){
+		super(entries, headers);
+		this.classifications = classifications;
+	}
+	
+	public FeatureTable(double[][] entries, String[] headers){
+		this(entries, headers, null);
+	}
+	
+	
+	
+	
+//	public FeatureTable(double[][] entries) {
+//		this(entries, null);
+//	}
+	
+
+
+	public FeatureTable(ClassifiedChunkList list, FeatureExtractor fe){
+		super( new double[ fe.numFeatures() ][ list.getNumChunks() ],
+				fe.featureNames() );
+		
+//		String[] classifications = new String[list.getNumChunks()];
+//		for (int i=0; i<list.getNumChunks(); i++){
+//			
+//		}
+		ArrayList<String> classifications = new ArrayList<String>();
+		int ind = 0;
+		for (String s : list.getQuantities()){
+			for (ClassifiedChunk cc : list.getList(s)){
+				this.setRow( fe.extractFeatures(cc.getRawChunk()), ind);
+				classifications.add( cc.getClassification() );
+			}
+		}
+		
+		//double[][] entries = new double[fe.numFeatures()][list.getNumChunks()];
+	}
+	
+	
+//	public FeatureTable appendTables(FeatureTable ft1, FeatureTable ft2){
+//		//check headers are equal
+//	}
+	
+	
+	public void setClassifications(String[] classifications) {
+		this.classifications = classifications;
+	}
+
+	//Returns a vector of means for each data column
+	public double[] getMeanVec(){
+		double[] out = new double[super.getNumCols()];
+		for (int i=0; i<out.length; i++)
+			out[i] = MyMath.mean(entries[i]);
+		return out;
+	}
+	
+	//Returns a vector of standard deviations for each data column
+	public double[] getStdVec(){
+		double[] out = new double[getNumCols()];
+		for (int i=0; i<out.length; i++)
+			out[i] = MyMath.std(entries[i]);
+		return out;
+	}
+	
+	//Creates a version of this table where each column is normalized
+	public FeatureTable getScaledTable(){
+		double[][] newEntries = new double[getNumCols()][getNumRows()];
+		for (int i=0; i<getNumCols(); i++)
+			newEntries[i] = MyMath.scale(this.entries[i]);
+		
+		return new FeatureTable(newEntries, this.getHeaders(), this.classifications);
+	}
+	
+
+	
+}

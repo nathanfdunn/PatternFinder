@@ -12,7 +12,15 @@
 <fullyQualifiedTypeName name="tests.KnnTest"/>
 <fullyQualifiedTypeName name="behaviorClassification.CompositeChunkList"/>
 <fullyQualifiedTypeName name="tests.Pnt"/>
-<fullyQualifiedTypeName name="behaviorClassification.MyMath"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="behaviorClassification.CsvToTable"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="behaviorClassification.ModelClassifier"/>
+<fullyQualifiedTypeName name="patternDetection.TokenStream"/>
+<fullyQualifiedTypeName name="java.util.regex.Pattern"/>
+<fullyQualifiedTypeName name="patternDetection.Pattern"/>
+<fullyQualifiedTypeName name="behaviorClassification.MyMath"/>
+<fullyQualifiedTypeName name="behaviorClassification.RawDataTable"/>
+<fullyQualifiedTypeName name="behaviorClassification.ChunkList"/>
+<fullyQualifiedTypeName name="behaviorClassification.ClassifiedChunkList"/>
 </qualifiedTypeNameHistroy>

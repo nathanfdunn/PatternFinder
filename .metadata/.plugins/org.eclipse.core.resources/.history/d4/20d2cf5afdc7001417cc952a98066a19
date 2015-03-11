@@ -1,0 +1,7 @@
+package tests;
+
+public class Child extends Parent {
+	public void blah(){
+		System.out.println("Goodbye");
+	}
+}

@@ -1,0 +1,10 @@
+package behaviorClassification;
+
+public class UserClassifier {
+
+	
+	public ArrayList<ClassifiedChunk> classify(ArrayList<Chunk> chunks){
+		
+	}
+	
+}

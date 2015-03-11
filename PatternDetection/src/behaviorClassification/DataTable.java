@@ -25,6 +25,11 @@ public class DataTable {
 		return out;
 	}
 	
+	public void setRow(double[] row, int rowInd){
+		for (int i=0; i<getNumCols(); i++)
+			entries[i][rowInd] = row[i];
+	}
+	
 	public double[][] getEntries() {
 		return entries;
 	}
@@ -56,10 +61,10 @@ public class DataTable {
 	private int headerInd(String header){
 		if (headers == null)
 			throw new Error("Table doesn't have headers");
-		for (int i=0; i<headers.length; i++){
+		for (int i=0; i<headers.length; i++)
 			if (header.equals(headers[i]))
 				return i;
-		}
+		
 		throw new Error("Not a valid column header");
 	}
 	
@@ -83,6 +88,30 @@ public class DataTable {
 			out += "\n";
 		}
 		return out;
+	}
+	
+
+	/**
+	 * 
+	 * @param colInd
+	 * @param increasing
+	 */
+	public void sort(int colInd, boolean increasing){
+		
+	}
+	
+	/**
+	 * Sorts based on the column entries with the specified index
+	 * @param colInd
+	 */
+	public void sort(int colInd){
+		this.sort(colInd, true);
+	}
+	
+	protected void swapRows( int ind1, int ind2 ){
+		double[] temp = this.getRow(ind1);
+		this.setRow( this.getRow(ind2), ind1);
+		this.setRow( temp, ind2);
 	}
 	
 	

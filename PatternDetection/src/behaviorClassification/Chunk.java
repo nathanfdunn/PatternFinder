@@ -1,7 +1,11 @@
 package behaviorClassification;
 
-public class Chunk {
+import java.io.Serializable;
 
+public class Chunk implements Serializable {
+
+	private static final long serialVersionUID = 3L;
+	
 	private double[] vals;
 	private double[] times;
 	
@@ -10,7 +14,7 @@ public class Chunk {
 	
 	
 	public Chunk(double[] vals, double[] times, double start, double end) {
-		super();
+		MyMath.checkDim(vals, times);
 		this.vals = vals;
 		this.times = times;
 		this.start = start;
@@ -29,6 +33,20 @@ public class Chunk {
 	}
 	public double getEnd() {
 		return end;
+	}
+	
+	/**
+	 * @return number of time-value pairs in this chunk
+	 */
+	public int getLength() {
+		return vals.length;
+	}
+	
+	public String toString(){
+		String out = String.format("(%f, %f)\n", start, end);
+		for (int i=0; i<vals.length; i++)
+			out += String.format("%f,	%f\n", vals[i],times[i]);
+		return out;
 	}
 
 }
