@@ -186,6 +186,21 @@ public class KnnModel {
 		return matches / (double)n;
 	}
 	
+	public double[][] accuracyParameterSweep(double[] gammas, int[] ks){
+		double[][] out = new double[gammas.length][ks.length];
+		KnnModel testModel = new KnnModel(this.trainingData);
+		for (int i=0; i<gammas.length; i++){
+			for (int j=0; j<ks.length; j++){
+				testModel.setGamma(gammas[i]);
+				testModel.setK(ks[j]);
+				out[i][j] = testModel.evaluateAccuracy();
+			}
+		}
+		return out;
+	}
+	
+	
+	
 	/**
 	 * Returns an array containing values 0,1,..,i-1,i+1,..,n-1
 	 * That is, it contains the natural numbers less than n, excluding i
@@ -210,6 +225,8 @@ public class KnnModel {
 //		
 //	}
 
+	
+	
 	
 	
 }

@@ -77,8 +77,10 @@ public class DataTable {
 	
 	public String toString(){
 		String out = "";
-		for (String s : headers)
-			out += s + "	";
+		if (headers != null)
+			for (String s : headers)
+				out += s + "	";
+		
 		out += "\n";
 		for (int i=0; i<getNumRows(); i++){
 			double[] row = this.getRow(i);

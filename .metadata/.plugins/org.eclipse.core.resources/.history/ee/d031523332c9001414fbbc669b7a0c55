@@ -1,0 +1,22 @@
+package behaviorClassification;
+
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class Serializer {
+
+	public static void serialize(Serializable obj, String fileName){
+		try{
+			FileOutputStream fileOut = new FileOutputStream("../../SerializedObjects/ccl.ser");
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			out.writeObject(obj);
+			out.close();
+			fileOut.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+}

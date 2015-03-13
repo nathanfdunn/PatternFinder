@@ -17,7 +17,7 @@ import behaviorClassification.RawDataTable;
 import behaviorClassification.UserClassifier;
 
 public class SerializationTest {
-
+	//TODO actually test the Serializer class
 	public static void main(String[] args) {
 		RawDataTable rdt = CsvToTable.readCsv("../../DataSets_R/nfdunn_Moulton1.csv");
 		ChunkList cl = new ChunkList(rdt, 30);

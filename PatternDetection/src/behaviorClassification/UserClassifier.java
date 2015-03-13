@@ -32,7 +32,7 @@ public class UserClassifier {
 	}
 	
 	public UserClassifier(){
-		this.inputReader = new ManualInputReader();
+		this(new ManualInputReader());
 	}
 
 	public ClassifiedChunkList classify(ChunkList chunkList){
