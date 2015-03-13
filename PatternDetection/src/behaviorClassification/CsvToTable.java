@@ -30,10 +30,11 @@ public class CsvToTable {
 		
 		double[][] transposedEntries = new double[contents.length-1][];
 		for (int i=1; i<contents.length; i++){
+			//if (i%100==0) System.out.println(i);	//TODO
 			transposedEntries[i-1] = parseLine(contents[i]);
 		}
 		double[][] entries = MyMath.transpose(transposedEntries);
-		
+
 		if (timeInd == -1)
 			timeInd = findTimeInd(entries);
 		
@@ -75,9 +76,15 @@ public class CsvToTable {
 				
 				if ( line[i].equals(NaValue) )
 					out[i] = Double.NaN;
-				else
-					out[i] = Double.parseDouble(line[i]);
-				
+				else{
+					double val;
+					try{
+						val = Double.parseDouble(line[i]);
+					}catch(NumberFormatException e){
+						val = Double.NaN;
+					}
+					out[i] = val;
+				}				
 			}
 		} catch (Exception e){
 			e.printStackTrace();

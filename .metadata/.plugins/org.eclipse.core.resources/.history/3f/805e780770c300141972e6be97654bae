@@ -1,7 +1,0 @@
-package behaviorClassification;
-
-
-public class FeatureTable extends DataTable {
-
-	
-}

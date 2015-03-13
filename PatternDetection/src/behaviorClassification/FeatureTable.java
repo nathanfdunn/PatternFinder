@@ -14,6 +14,57 @@ public class FeatureTable extends DataTable {
 			throw new Error("Incorrect number of classifications");
 	}
 	
+	
+	public String toString(){
+		String[] lines = super.toString().split("\n");
+		lines[0] += "	Classification";
+		for (int i=0; i<classifications.length; i++)
+			lines[i+1] += classifications[i];
+
+		String out = "";
+		for (int i=0; i<lines.length; i++)
+			out += lines[i] + "\n";
+		return out;
+	}
+	
+	
+	public FeatureTable subTable(int[] rowInds){
+		double[][] transPosedEntries = new double[rowInds.length][];
+		String[] classifications = new String[rowInds.length];
+		for (int i=0; i<rowInds.length; i++){
+			transPosedEntries[i] = this.getRow(rowInds[i]);
+			classifications[i] = this.classifications[ rowInds[i] ];
+		}
+		double[][] entries = MyMath.transpose(transPosedEntries);
+		return new FeatureTable(entries, this.headers, classifications);
+	}
+	
+	
+	public FeatureTable copy(){
+		int[] inds = new int[this.getNumRows()];
+		for (int i=0; i<inds.length; i++)
+			inds[i] = i;
+		return subTable(inds);
+//		int rows = this.getNumRows();
+//		int cols = this.getNumCols();
+//		double[][] entries = new double[cols][rows];
+//		String[] headers = new String[this.headers.length];
+//		String[] classifications = new String[this.classifications.length];
+//		
+//		for (int i=0; i<rows; i++)
+//			for (int j=0; i<cols; j++)
+//				entries[j][i] = this.entries[j][i];
+//		
+//		for (int i=0; i<headers.length; i++) 
+//			headers[i] = this.headers[i];
+//		
+//		for (int i=0; i<classifications.length; i++) 
+//			classifications[i] = this.classifications[i];
+//		
+//		return new FeatureTable(entries, headers, classifications);
+	}
+	
+	
 //	//TODO: remove?
 //	public FeatureTable(double[][] entries, String[] headers){
 //		this(entries, headers, null);
@@ -91,18 +142,29 @@ public class FeatureTable extends DataTable {
 		super.swapRows(ind1, ind2);
 	}
 	
+	
 	/**
 	 * Randomly shuffles the rows in the table 
 	 *  (all permutations equally likely)
 	 */
+//	public void shuffle(){
+//		Random rng = new Random();
+//		int n = this.getNumRows();
+//		for (int i=0; i<n; i++){
+//			int j = i + rng.nextInt(n-i + 1);
+//			System.out.println(j);
+//
+//			this.swapRows(i, j);
+//		}
+//	}
+	
 	public void shuffle(){
 		Random rng = new Random();
 		int n = this.getNumRows();
-		for (int i=0; i<n; i++){
-			int j = i + rng.nextInt(n-i + 1);
-			this.swapRows(i, j);
+		while (n > 1){
+			int k = rng.nextInt(n--);
+			this.swapRows(k,n);
 		}
 	}
-
 	
 }

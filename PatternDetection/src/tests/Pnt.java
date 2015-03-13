@@ -25,7 +25,7 @@ public class Pnt {
 		}
 	}
 	
-	public static<T extends Object> void pntArr(int[][] arg){
+	public static void pntArr(int[][] arg){
 		for (int i=0; i<arg.length; i++){
 			String line = "";
 			for (int j=0; j<arg[i].length; j++){
@@ -35,7 +35,13 @@ public class Pnt {
 		}
 	}
 	
-	public static<T extends Object> void pntArr(double[][] arg){
+	public static void pntArr(int[] arg){
+		for (int i=0; i<arg.length; i++)
+			System.out.println(arg[i]);
+	}
+	
+	
+	public static void pntArr(double[][] arg){
 		for (int i=0; i<arg.length; i++){
 			String line = "";
 			for (int j=0; j<arg[i].length; j++){

@@ -21,8 +21,8 @@ public class StandardFeatureExtractor extends FeatureExtractor {
 	@Override
 	public String[] featureNames() {
 		return new String[]{
-				"MaxZ",
 				"MinZ",
+				"MaxZ",
 				"CV",
 				"FisherZ",
 				"skew"

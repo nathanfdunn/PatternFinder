@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="/Users/nathandunn/Desktop" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="/Users/nathandunn/Desktop/jfreechart-1.0.19/lib" key="org.eclipse.jdt.ui.lastextjar"/>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
 	</section>
@@ -101,7 +101,7 @@
 		<item value="517" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 		<item value="618" key="DIALOG_HEIGHT"/>
-		<item value="264" key="DIALOG_X_ORIGIN"/>
+		<item value="392" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>

@@ -5,12 +5,18 @@
 		<item value="472" key="DIALOG_HEIGHT"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
+	<section name="RefactoringWizard.Extract Superclass">
+		<item value="400" key="height"/>
+		<item value="600" key="width"/>
+	</section>
 	<section name="RefactoringWizard.preview">
 		<item value="400" key="height"/>
 		<item value="600" key="width"/>
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item value="true" key="CREATE_TOPLEVEL"/>
 		<item value="*" key="patterns"/>
+		<item value="false" key="CREATE_GETTER_SETTER"/>
 		<item value="false" key="moveWizard.updateQualifiedNames"/>
 	</section>
 </section>

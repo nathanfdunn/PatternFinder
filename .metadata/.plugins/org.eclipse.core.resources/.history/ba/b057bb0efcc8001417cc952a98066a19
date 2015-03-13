@@ -1,0 +1,93 @@
+package gui;
+
+import javax.swing.JPanel;
+
+
+
+
+//import org.jfree.chart.*;
+import org.jfree.chart.*;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.DefaultXYDataset;
+
+import behaviorClassification.Chunk;
+
+
+public class ChunkDisplayer extends JPanel{
+	
+	
+	
+	private JFreeChart chart;
+	private ChartPanel chartPanel;
+	
+	
+	public void displayChunk(Chunk chunk, String quantity){
+		displayChunk(chunk.getTimes(), chunk.getVals(), quantity);
+	}
+	
+	public void displayChunk(double[] time, double[] vals, 
+			String quantity){
+
+		DefaultXYDataset dataSet = new DefaultXYDataset();
+		dataSet.addSeries(quantity, new double[][]{
+				time,
+				vals
+		});
+		
+		chart = ChartFactory.createXYLineChart(
+				"Serial Data", // chart title
+				"Domain", // domain axis label
+				"Range", // range axis label
+				dataSet,  // initial series
+				PlotOrientation.VERTICAL, // orientation
+				true, // include legend
+				true, // tooltips?
+				false // URLs?
+				);
+		if (chartPanel != null)
+			this.remove(chartPanel);
+		
+		chartPanel = new ChartPanel(chart, false);
+        chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
+        
+        this.add(chartPanel);
+		
+	}
+	//private JFrame win;
+	
+	
+	
+	
+	
+	
+	
+	public static ChartPanel cp;
+	
+	public static ChartPanel getDisplay(double[] time, double[] vals){
+		DefaultXYDataset dataSet = new DefaultXYDataset();
+		dataSet.addSeries("Values", new double[][]{
+				time,
+				vals
+		});
+		
+		JFreeChart chart = ChartFactory.createXYLineChart(
+				"Serial Data", // chart title
+				"Domain", // domain axis label
+				"Range", // range axis label
+				dataSet,  // initial series
+				PlotOrientation.VERTICAL, // orientation
+				true, // include legend
+				true, // tooltips?
+				false // URLs?
+				);
+
+		ChartPanel out = new ChartPanel(chart, false);
+        out.setPreferredSize(new java.awt.Dimension(500, 270));
+        
+        return out;
+	}
+	
+	
+
+
+}

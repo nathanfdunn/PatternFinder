@@ -1,0 +1,15 @@
+package tests;
+
+import javax.swing.JFrame;
+
+public class GuiTest {
+
+	public static void main(String[] args) {
+		JFrame win = new JFrame();
+		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		
+	}
+
+}

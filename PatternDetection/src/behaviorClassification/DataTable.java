@@ -6,7 +6,6 @@ public class DataTable {
 	
 	
 	public DataTable(double[][] entries, String[] headers) {
-		super();
 		this.entries = entries;
 		this.headers = headers;
 	}

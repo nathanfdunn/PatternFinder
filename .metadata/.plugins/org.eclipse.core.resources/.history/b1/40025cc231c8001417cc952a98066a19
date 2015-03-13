@@ -1,0 +1,36 @@
+package tests;
+
+import behaviorClassification.ChunkList;
+import behaviorClassification.ClassifiedChunkList;
+import behaviorClassification.CsvToTable;
+import behaviorClassification.FeatureTable;
+import behaviorClassification.InputSimulator;
+import behaviorClassification.KnnModel;
+import behaviorClassification.RawDataTable;
+import behaviorClassification.StandardFeatureExtractor;
+import behaviorClassification.UserClassifier;
+
+public class FullCircle {
+
+	public static void main(String[] args) {
+		
+		RawDataTable rdt = CsvToTable.readCsv("../../DataSets_R/nfdunn_Moulton1.csv");
+		ChunkList cl = new ChunkList(rdt, 30);
+		ClassifiedChunkList ccl = new UserClassifier(new InputSimulator()).classify(cl);
+
+		FeatureTable table = new FeatureTable(ccl, new StandardFeatureExtractor());
+		KnnModel model = new KnnModel(table);
+		
+//		Pnt.pnt(table);
+//		Pnt.pnt(table.getScaledTable());
+//		table.shuffle();
+//		Pnt.pnt(table);
+
+		model = new KnnModel(table);
+		
+		//Pnt.pnt(model);
+		
+		
+	}
+
+}

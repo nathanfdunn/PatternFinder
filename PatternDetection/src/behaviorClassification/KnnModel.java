@@ -25,27 +25,36 @@ public class KnnModel {
 	public double gamma = 1;		//Distance weight exponent
 	public double maxWeight = 100;
 	
-	public void setK(int k) {
-		this.k = k;
-	}
-
-	public void setGamma(double gamma) {
-		this.gamma = gamma;
-	}
 	
-	public void setMaxWeight(double maxWeight) {
-		this.maxWeight = maxWeight;
-	}
+//	public String toString(){
+//		String out = "";
+//		out += "Training Data Table:\n" + trainingData;
+//		out += "Gamma: " + gamma + "\n";
+//		
+//	}
+
 
 //	public KnnModel(FeatureTable trainingData, String[] classifications){
 //		train(trainingData, classifications);
 //	}
+	
+	//public KnnModel(FeatureTable trainingData, )
 	
 	public KnnModel(FeatureTable trainingData){
 		train(trainingData);
 	}
 	
 	
+	public KnnModel(FeatureTable trainingData, int k, double gamma,
+			double maxWeight) {
+		this.trainingData = trainingData;
+		this.k = k;
+		this.gamma = gamma;
+		this.maxWeight = maxWeight;
+		train(trainingData);
+	}
+
+
 	public void train(FeatureTable trainingData){//, String[] classifications){
 		if (trainingData.isEmpty())
 			throw new Error("Empty Training Data");
@@ -57,6 +66,19 @@ public class KnnModel {
 		//this.trainingClassifications = classifications;
 		this.classes = extractClasses( trainingData.getClassifications() );
 		this.trainingData = trainingData.getScaledTable();
+	}
+	
+	
+	public void setK(int k) {
+		this.k = k;
+	}
+
+	public void setGamma(double gamma) {
+		this.gamma = gamma;
+	}
+	
+	public void setMaxWeight(double maxWeight) {
+		this.maxWeight = maxWeight;
 	}
 	
 	//Returns an array containing only the unique strings in classifications
@@ -87,14 +109,29 @@ public class KnnModel {
 	}
 	
 	public String classify(double[] featureVec){
-		double[] scaledVec = scaleFeatureVec(featureVec);
+		return classify(featureVec, false);
+//		double[] scaledVec = scaleFeatureVec(featureVec);
+//		double[] distances = new double[trainingData.getNumRows()];
+//		for (int i=0; i<distances.length; i++)
+//			distances[i] = MyMath.distance(scaledVec, trainingData.getRow(i));
+//		//KnnTest.pntArr(distances); 			//TODO
+//		int[] inds = MyMath.indsOfLowest(distances, this.k);
+//		return vote(scaledVec, inds);
+	}
+	
+	public String classify(double[] featureVec, boolean isScaled){
+		if (!isScaled)
+			featureVec = scaleFeatureVec(featureVec);
+		
 		double[] distances = new double[trainingData.getNumRows()];
 		for (int i=0; i<distances.length; i++)
-			distances[i] = MyMath.distance(scaledVec, trainingData.getRow(i));
+			distances[i] = MyMath.distance(featureVec, trainingData.getRow(i));
 		//KnnTest.pntArr(distances); 			//TODO
 		int[] inds = MyMath.indsOfLowest(distances, this.k);
-		return vote(scaledVec, inds);
+		return vote(featureVec, inds);
 	}
+	
+	
 	
 	private String vote(double[] featureVec, int[] indsOfClosest){
 		HashMap<String, Double> votes = new HashMap<String, Double>();
@@ -125,6 +162,54 @@ public class KnnModel {
 	private double[] scaleFeatureVec(double[] featureVec){
 		return MyMath.scale(featureVec, meanVec, stdVec);
 	}
+	
+	//Uses Leave-one-out cross validation (LOOCV)
+	//TODO: use k-fold cross validation?
+	public double evaluateAccuracy(){
+//		final int clusterSize = 10;
+		if (this.trainingData==null || this.trainingData.getNumRows() < 2)
+			return Double.NaN;
+//			throw new Error("Insufficient data for meaningful answer");
+		FeatureTable copy = trainingData.copy();
+//		copy.shuffle();
+		int n = copy.getNumRows();
+		int matches = 0;
+		for (int i=0; i<n; i++){
+			int[] inds = rangeExclude(i, n);
+			FeatureTable sub = copy.subTable(inds);
+			KnnModel model = 
+					new KnnModel(sub, this.k, this.gamma, this.maxWeight);
+			String prediction = model.classify( copy.getRow(i), true );
+			if (prediction.equals(copy.getClassifications()[i]))
+				matches++;
+		}
+		return matches / (double)n;
+	}
+	
+	/**
+	 * Returns an array containing values 0,1,..,i-1,i+1,..,n-1
+	 * That is, it contains the natural numbers less than n, excluding i
+	 * (Makes no claims about the order these values will appear in)
+	 * @param i		value to be excluded
+	 * @param n		max possible value + 1
+	 * @return
+	 */
+	public 
+	//private		//TODO make private
+	static int[] rangeExclude(int i, int n){
+		int[] arr = new int[n-1];
+		for (int j=0; j<n-1; j++)
+			arr[j] = j;
+		if (i!=n-1)
+			arr[i] = n-1;
+		
+		return arr;
+	}
+	
+//	private FeatureTable[] cluster(FeatureTable table, int[] inds1, int[] inds2){
+//		
+//	}
+
 	
 	
 }
