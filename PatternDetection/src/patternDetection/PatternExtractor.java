@@ -20,10 +20,10 @@ public class PatternExtractor {
 		ArrayList<Clause> clausePool = allClauses(ts);
 		
 		ArrayList<EvaluationObject> out = new ArrayList<EvaluationObject>();
-		
+		//TODO: check if pre and suc are present before doing time completion
 		for (Clause pre : clausePool)
 			for (Clause suc : clausePool){
-				if (pre != suc){
+				if (pre != suc || true){	//TODO
 					Interval t = PatternCompleter.completeTime(ts, pre, suc);
 					if (t!=null){
 						Pattern p = new Pattern(pre, suc, t);
@@ -48,7 +48,7 @@ public class PatternExtractor {
 
 	public static ArrayList<Clause> allClauses(TokenStream ts){
 		ArrayList<String> quantities = ts.quantities();
-		Behavior[] behaviors = Behavior.class.getEnumConstants();
+		Behavior[] behaviors = Behavior.getKnownBehaviors();
 		ArrayList<Clause> out = new ArrayList<Clause>();
 		
 		for (String quantID : quantities)

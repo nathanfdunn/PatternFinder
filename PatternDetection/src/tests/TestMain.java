@@ -14,6 +14,11 @@ public class TestMain {
 		Pnt.pnt(test[0]);
 		double d = Double.NaN + 0;
 		System.out.println(d);
+		
+		Pnt.pnt(Double.NaN > 5);
+		Pnt.pnt(Double.NaN >= 5);
+		Pnt.pnt(Double.NaN < 5);
+		Pnt.pnt(Double.NaN <= 5);
 	}
 
 }

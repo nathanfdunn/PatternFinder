@@ -55,7 +55,7 @@ public class UserClassifier {
 	private static ArrayList<Chunk> cleanChunks(ArrayList<Chunk> chunks){
 		ArrayList<Chunk> out = new ArrayList<Chunk>();
 		for (Chunk chunk : chunks){
-			Chunk clean = cleanChunk(chunk);
+			Chunk clean = Chunk.cleanChunk(chunk);
 			if (FeatureExtractor.isFeaturizable(clean))
 				out.add(clean);
 		}
@@ -105,34 +105,34 @@ public class UserClassifier {
 		return out2;
 	}
 	
-	/**
-	 * Strips out the NaN values
-	 * @param chunk
-	 * @return
-	 */
-	private static Chunk cleanChunk(Chunk c){
-		ArrayList<Double> outTimes = new ArrayList<Double>();
-		ArrayList<Double> outVals = new ArrayList<Double>();
-		
-		double[] times = c.getTimes();
-		double[] vals = c.getVals();
-		
-		for (int i=0; i<times.length; i++){
-			if (!Double.isNaN(times[i]) && !Double.isNaN(vals[i])){
-				outTimes.add(times[i]);
-				outVals.add(vals[i]);
-			}
-		}
-		
-		double[] outTimes2 = new double[outTimes.size()];
-		double[] outVals2 = new double[outVals.size()];
-		for (int i=0; i<outTimes2.length; i++){
-			outTimes2[i] = outTimes.get(i);
-			outVals2[i] = outVals.get(i);
-		}
-		
-		return new Chunk( outVals2, outTimes2, c.getStart(), c.getEnd() );
-	}
+//	/**
+//	 * Strips out the NaN values
+//	 * @param chunk
+//	 * @return
+//	 */
+//	private static Chunk cleanChunk(Chunk c){
+//		ArrayList<Double> outTimes = new ArrayList<Double>();
+//		ArrayList<Double> outVals = new ArrayList<Double>();
+//		
+//		double[] times = c.getTimes();
+//		double[] vals = c.getVals();
+//		
+//		for (int i=0; i<times.length; i++){
+//			if (!Double.isNaN(times[i]) && !Double.isNaN(vals[i])){
+//				outTimes.add(times[i]);
+//				outVals.add(vals[i]);
+//			}
+//		}
+//		
+//		double[] outTimes2 = new double[outTimes.size()];
+//		double[] outVals2 = new double[outVals.size()];
+//		for (int i=0; i<outTimes2.length; i++){
+//			outTimes2[i] = outTimes.get(i);
+//			outVals2[i] = outVals.get(i);
+//		}
+//		
+//		return new Chunk( outVals2, outTimes2, c.getStart(), c.getEnd() );
+//	}
 
 	
 	public void displayChunk(Chunk chunk){

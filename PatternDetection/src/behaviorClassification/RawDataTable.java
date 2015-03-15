@@ -9,7 +9,11 @@ import java.util.ArrayList;
  */
 public class RawDataTable extends DataTable{
 
+
+	private static final long serialVersionUID = 6L;
 	private int timeInd;			//Index of the time data
+	
+	//private double 
 	
 //	public RawDataTable(double[][] entries) {
 //		super(entries);
@@ -27,7 +31,12 @@ public class RawDataTable extends DataTable{
 	 */
 	public double timeSpan(){
 		double[] times = getTimes();
-		return times[ times.length-1 ] - times[0];
+		double out = times[ times.length-1 ] - times[0];
+		
+		//TODO fix this
+		if (out < 0)
+			throw new Error("Times are reversed");
+		return out;
 	}
 
 	public double[] getTimes(){

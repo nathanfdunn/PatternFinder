@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class FeatureTable extends DataTable {
 	
+	private static final long serialVersionUID = 7L;
 	private String[] classifications;
 	
 	public FeatureTable(double[][] entries, String[] headers, String[] classifications){

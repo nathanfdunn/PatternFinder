@@ -17,11 +17,12 @@ public class CsvToTable {
 	
 	//TODO Note: restrictions on how the time data is organized (earliest to latest, etc.)
 	
+	//TODO time reversal
+	
 	//TODO Note CSV must have a header line
 	public static RawDataTable readCsv( String fileName ){
 		return readCsv(fileName, -1);		//will use the findTimeInd function
 	}
-	
 	
 	public static RawDataTable readCsv(String fileName, int timeInd){
 		String[][] contents = readAll(fileName);

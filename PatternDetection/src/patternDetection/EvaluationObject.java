@@ -8,8 +8,13 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	private MatchDataObject data;
 	
 	public EvaluationObject( MatchDataObject mdo ){
-		final double alpha = 2;
-		final double beta = 0.25;
+//		final double alpha = 2;
+//		final double beta = 0.25;
+//		final int padding = 2;
+		
+		final double alpha = 1;
+		final double beta = 0.5;
+		final int padding = 4;
 		
 		this.data = mdo;
 		p = mdo.getPattern();
@@ -17,7 +22,8 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 		int numAntiMatches = mdo.getAntiMatches().size();
 		
 		//Uses Agresti-Caull method
-		this.accuracy = ((double)numMatches + 2) / (numMatches + numAntiMatches + 4);
+		this.accuracy = ((double)numMatches + padding) / 
+				(numMatches + numAntiMatches + 2*padding);
 		
 		this.rarity = mdo.getLags().calculateRarity(p.time.getWidth());
 		if (this.rarity == 0.0)

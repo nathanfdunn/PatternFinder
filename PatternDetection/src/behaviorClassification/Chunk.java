@@ -1,6 +1,7 @@
 package behaviorClassification;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Chunk implements Serializable {
 
@@ -49,4 +50,33 @@ public class Chunk implements Serializable {
 		return out;
 	}
 
+	/**
+	 * Strips out the NaN values
+	 * @param chunk
+	 * @return
+	 */
+	public static Chunk cleanChunk(Chunk c){
+		ArrayList<Double> outTimes = new ArrayList<Double>();
+		ArrayList<Double> outVals = new ArrayList<Double>();
+		
+		double[] times = c.getTimes();
+		double[] vals = c.getVals();
+		
+		for (int i=0; i<times.length; i++){
+			if (!Double.isNaN(times[i]) && !Double.isNaN(vals[i])){
+				outTimes.add(times[i]);
+				outVals.add(vals[i]);
+			}
+		}
+		
+		double[] outTimes2 = new double[outTimes.size()];
+		double[] outVals2 = new double[outVals.size()];
+		for (int i=0; i<outTimes2.length; i++){
+			outTimes2[i] = outTimes.get(i);
+			outVals2[i] = outVals.get(i);
+		}
+		
+		return new Chunk( outVals2, outTimes2, c.getStart(), c.getEnd() );
+	}
+	
 }

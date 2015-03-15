@@ -1,0 +1,32 @@
+package patternDetection;
+
+import behaviorClassification.ChunkList;
+import behaviorClassification.ModelClassifier;
+import java.util.ArrayList;
+import behaviorClassification.Chunk;
+
+public class Tokenizer {
+	
+	private ModelClassifier model;
+
+	public Tokenizer(ModelClassifier model) {
+		this.model = model;
+	}
+	
+	private ArrayList<Token> tokenize(ArrayList<Chunk> chunks){
+		ArrayList<Token> out = new ArrayList<Token>();
+		
+	}
+	
+	public TokenStream tokenize(ChunkList chunkList){
+		TokenStream out = new TokenStream();
+		
+		for (String quant : chunkList.getQuantities()){
+			
+		}
+		
+		return null;		//TODO
+	}
+	
+
+}

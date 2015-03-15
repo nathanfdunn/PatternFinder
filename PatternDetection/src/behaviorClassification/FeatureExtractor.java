@@ -15,6 +15,7 @@ public abstract class FeatureExtractor {
 
 	public abstract String[] featureNames();
 	
+	//TODO make non-static
 	public final static boolean isFeaturizable(Chunk c){
 		final int minLength = 5;
 		return c.getLength() >= minLength;

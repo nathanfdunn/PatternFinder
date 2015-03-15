@@ -10,10 +10,10 @@ import java.util.ArrayList;
 public class PatternCompleter {
 	
 	public static Interval completeTime( TokenStream ts, Clause pre, Clause suc ){
-		Interval i = null;
+		Interval out = null;
 		double maxPower = -1;
 		double curPower = -1;
-	
+		//TODO if pre==suc, don't allow [0,0]
 		for (int end = 0; end < ts.length(); end++){
 			for (int start = 0; start <= end; start++){
 				Interval temp = new Interval(start, end);
@@ -21,11 +21,11 @@ public class PatternCompleter {
 				curPower = PatternEvaluator.evaluatePower(ts, p);
 				if (curPower > maxPower){
 					maxPower = curPower;
-					i = temp;
+					out = temp;
 				}
 			}
 		}
-		return i;
+		return out;
 	}
 	
 	public static Clause completeSuccessor( TokenStream ts, Clause pre, Interval time){

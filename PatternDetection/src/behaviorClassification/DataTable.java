@@ -1,6 +1,13 @@
 package behaviorClassification;
 
-public class DataTable {
+import java.io.Serializable;
+
+public class DataTable implements Serializable {
+
+	
+	private static final long serialVersionUID = 5L;
+	
+	
 	protected double[][] entries;
 	protected String[] headers;
 	

@@ -80,6 +80,15 @@ public enum Behavior {
 			out.add(b.toString());
 		return out;
 	}
+	
+	//Returns all behaviors except UNK
+	public static Behavior[] getKnownBehaviors(){
+		ArrayList<Behavior> out = new ArrayList<Behavior>();
+		for (Behavior b : Behavior.class.getEnumConstants())
+			if (b != Behavior.UNK)
+				out.add(b);
+		return out.toArray(new Behavior[out.size()]);
+	}
 }
 
 

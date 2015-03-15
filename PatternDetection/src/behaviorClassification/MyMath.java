@@ -141,7 +141,12 @@ public class MyMath {
 		return out;
 	}
 	
-	
+	/**
+	 * Returns the lowest value in the array
+	 * (NaN's are ignored)
+	 * @param vals
+	 * @return
+	 */
 	public static double getMin(double[] vals){
 		//int lowInd = -1;
 		double lowest = Double.POSITIVE_INFINITY;

@@ -1,9 +1,10 @@
 package behaviorClassification;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class KnnModel {
+public class KnnModel implements Serializable {
 	
 //	private DataTable trainingData;
 //	private String[] trainingClassifications;
@@ -14,6 +15,8 @@ public class KnnModel {
 //	private int k = 10;
 //	private double gamma = 0;
 //	private double maxWeight = 10;
+	
+	private static final long serialVersionUID = 4L;
 	
 	public FeatureTable trainingData;
 	//public String[] trainingClassifications;
