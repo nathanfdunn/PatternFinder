@@ -4,44 +4,30 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+/**
+ * A model that uses K-Nearest Neighbor algorithm to classify feature vectors
+ * @author nathandunn
+ *
+ */
 public class KnnModel implements Serializable {
 	
-//	private DataTable trainingData;
-//	private String[] trainingClassifications;
-//	private double[] meanVec;
-//	private double[] stdVec;
-//	
-//	private String[] classes;
-//	private int k = 10;
-//	private double gamma = 0;
-//	private double maxWeight = 10;
+	public FeatureTable getTrainingData() {
+		return trainingData;
+	}
+
+
+	private FeatureTable trainingData;
+	private double[] meanVec;
+	private double[] stdVec;
+	
+	private String[] classes;
+	private int k = 10;				//number of neighbors
+	private double gamma = 1;		//exponent for weighting distances
+	private double maxWeight = 100;	//maximum weight of a single vote
 	
 	private static final long serialVersionUID = 4L;
 	
-	public FeatureTable trainingData;
-	//public String[] trainingClassifications;
-	public double[] meanVec;
-	public double[] stdVec;
-	
-	public String[] classes;
-	public int k = 10;
-	public double gamma = 1;		//Distance weight exponent
-	public double maxWeight = 100;
-	
-	
-//	public String toString(){
-//		String out = "";
-//		out += "Training Data Table:\n" + trainingData;
-//		out += "Gamma: " + gamma + "\n";
-//		
-//	}
-
-
-//	public KnnModel(FeatureTable trainingData, String[] classifications){
-//		train(trainingData, classifications);
-//	}
-	
-	//public KnnModel(FeatureTable trainingData, )
 	
 	public KnnModel(FeatureTable trainingData){
 		train(trainingData);
@@ -58,15 +44,12 @@ public class KnnModel implements Serializable {
 	}
 
 
-	public void train(FeatureTable trainingData){//, String[] classifications){
+	public void train(FeatureTable trainingData){
 		if (trainingData.isEmpty())
 			throw new Error("Empty Training Data");
-//		if (trainingData.getNumRows() != classifications.length)
-//			throw new Error("Incorrect number of classifications");
-		
+
 		this.meanVec = trainingData.getMeanVec();
 		this.stdVec = trainingData.getStdVec();
-		//this.trainingClassifications = classifications;
 		this.classes = extractClasses( trainingData.getClassifications() );
 		this.trainingData = trainingData.getScaledTable();
 	}
@@ -100,28 +83,28 @@ public class KnnModel implements Serializable {
 		return out;
 	}
 	
-	public String[] classify(FeatureTable newData){
-		if ( trainingData == null ) 
-			throw new Error("Model hasn't been trained yet");
-		//Also check that the DataTables are compatible
-		String[] out = new String[newData.getNumRows()];
-		for (int i=0; i<out.length; i++){
-			out[i] = classify(newData.getRow(i));
-		}
-		return out;
-	}
+	
+//	public String[] classify(FeatureTable newData){
+//		if ( trainingData == null ) 
+//			throw new Error("Model hasn't been trained yet");
+//		//Also check that the DataTables are compatible
+//		String[] out = new String[newData.getNumRows()];
+//		for (int i=0; i<out.length; i++){
+//			out[i] = classify(newData.getRow(i));
+//		}
+//		return out;
+//	}
+	
 	
 	public String classify(double[] featureVec){
 		return classify(featureVec, false);
-//		double[] scaledVec = scaleFeatureVec(featureVec);
-//		double[] distances = new double[trainingData.getNumRows()];
-//		for (int i=0; i<distances.length; i++)
-//			distances[i] = MyMath.distance(scaledVec, trainingData.getRow(i));
-//		//KnnTest.pntArr(distances); 			//TODO
-//		int[] inds = MyMath.indsOfLowest(distances, this.k);
-//		return vote(scaledVec, inds);
 	}
 	
+	/**
+	 * @param featureVec
+	 * @param isScaled
+	 * @return
+	 */
 	public String classify(double[] featureVec, boolean isScaled){
 		if (!isScaled)
 			featureVec = scaleFeatureVec(featureVec);
@@ -134,8 +117,14 @@ public class KnnModel implements Serializable {
 		return vote(featureVec, inds);
 	}
 	
-	
-	
+	/**
+	 * Returns the classification with the highest vote from the neighbors
+	 *  with the specified indices
+	 *  (Note: no tie-breaking device, but ties should be rare)
+	 * @param featureVec
+	 * @param indsOfClosest
+	 * @return
+	 */
 	private String vote(double[] featureVec, int[] indsOfClosest){
 		HashMap<String, Double> votes = new HashMap<String, Double>();
 		for (String s : this.classes)
@@ -148,8 +137,7 @@ public class KnnModel implements Serializable {
 			String key = trainingData.getClassifications()[i];
 			votes.put(key, votes.get(key) + weight);
 		}
-		//System.out.println(votes);		//TODO
-		//Note: no tiebreaking device
+
 		String keyOfHigh = null;
 		double highest = Double.NEGATIVE_INFINITY;
 		for (String s : this.classes){
@@ -168,13 +156,17 @@ public class KnnModel implements Serializable {
 	
 	//Uses Leave-one-out cross validation (LOOCV)
 	//TODO: use k-fold cross validation?
+	/**
+	 * Uses Leave-one-out cross validation to assess the accuracy of the
+	 *  classifier with respect to its own training data
+	 * @return proportion of correct classifications
+	 */
 	public double evaluateAccuracy(){
-//		final int clusterSize = 10;
-		if (this.trainingData==null || this.trainingData.getNumRows() < 2)
+		if (this.trainingData.getNumRows() < 2)
+			//Insufficient data for a meaningful answer
 			return Double.NaN;
-//			throw new Error("Insufficient data for meaningful answer");
+
 		FeatureTable copy = trainingData.copy();
-//		copy.shuffle();
 		int n = copy.getNumRows();
 		int matches = 0;
 		for (int i=0; i<n; i++){
@@ -189,6 +181,12 @@ public class KnnModel implements Serializable {
 		return matches / (double)n;
 	}
 	
+	/**
+	 * Evaluates the accuracy for each combination of parameter pairs
+	 * @param gammas	array of values for gamma
+	 * @param ks		array of values for k
+	 * @return a gammas.length by ks.length array of doubles
+	 */
 	public double[][] accuracyParameterSweep(double[] gammas, int[] ks){
 		double[][] out = new double[gammas.length][ks.length];
 		KnnModel testModel = new KnnModel(this.trainingData);
@@ -203,33 +201,20 @@ public class KnnModel implements Serializable {
 	}
 	
 	
-	
 	/**
 	 * Returns an array containing values 0,1,..,i-1,i+1,..,n-1
 	 * That is, it contains the natural numbers less than n, excluding i
-	 * (Makes no claims about the order these values will appear in)
+	 * (Values will likely be out of order)
 	 * @param i		value to be excluded
 	 * @param n		max possible value + 1
 	 * @return
 	 */
-	public 
-	//private		//TODO make private
-	static int[] rangeExclude(int i, int n){
-		int[] arr = new int[n-1];
+	private static int[] rangeExclude(int i, int n){
+		int[] out = new int[n-1];
 		for (int j=0; j<n-1; j++)
-			arr[j] = j;
+			out[j] = j;
 		if (i!=n-1)
-			arr[i] = n-1;
-		
-		return arr;
+			out[i] = n-1;
+		return out;
 	}
-	
-//	private FeatureTable[] cluster(FeatureTable table, int[] inds1, int[] inds2){
-//		
-//	}
-
-	
-	
-	
-	
 }

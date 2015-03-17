@@ -1,7 +1,0 @@
-package behaviorClassification;
-
-public class StandardFeatureExtractor extends FeatureExtractor {
-
-	
-	
-}

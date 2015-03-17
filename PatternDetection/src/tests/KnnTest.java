@@ -24,11 +24,11 @@ public class KnnTest {
 		FeatureTable trainingData = new FeatureTable(train, new String[2], classifications);
 		KnnModel model = new KnnModel(trainingData);
 		
-		Pnt.pnt(model.trainingData);
+		Pnt.pnt(model.getTrainingData());
 		
 		int[] inds = new int[]{1,4,3};
 		KnnModel model2 = new KnnModel(trainingData.subTable(inds));
-		Pnt.pnt(model2.trainingData);
+		Pnt.pnt(model2.getTrainingData());
 
 		
 		//model.train(trainingData, classifications);

@@ -1,0 +1,55 @@
+package behaviorClassification;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
+/**
+ * Provides a class to store Chunks of data that have been classified
+ * @author nathandunn
+ *
+ */
+public class ClassifiedChunkList implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private HashMap<String, ArrayList<ClassifiedChunk>> chunkList;
+	private ArrayList<String> quantities;
+	
+	public ClassifiedChunkList(){
+		chunkList = new HashMap<String, ArrayList<ClassifiedChunk>>();
+		quantities = new ArrayList<String>();
+	}
+	
+	public void addList(String header, ArrayList<ClassifiedChunk> list){
+		chunkList.put(header, list);
+		quantities.add(header);
+	}
+
+	public String[] getQuantities(){
+		return quantities.toArray( new String[quantities.size()] );
+	}
+	
+	public ArrayList<ClassifiedChunk> getClassifiedChunks(String header){
+		return chunkList.get(header);
+	}
+	
+	public int getNumChunks() {
+		int sum = 0;
+		for (String s : quantities){
+			sum += getClassifiedChunks(s).size();
+		}
+		return sum;
+	}
+	
+	public String toString(){
+		String out = "";
+		for (String s : quantities){
+			out += s + "\n";
+			out += this.getClassifiedChunks(s);
+			out += "\n";
+		}
+		return out;
+	}
+
+}

@@ -1,45 +1,62 @@
 package tests;
 
-import gui.ChunkDisplayer;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.EventQueue;
 
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
 
-import behaviorClassification.Chunk;
+//import java.awt.Color;
+//import java.awt.Dimension;
+//import java.awt.Graphics;
+//
+import javax.swing.JFrame;
+//import javax.swing.JPanel;
 
 public class GuiTest {
 
 	public static void main(String[] args) {
-		JFrame win = new JFrame();
-		win.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		ChunkDisplayer cd = new ChunkDisplayer();
+		EventQueue.invokeLater(new Runnable(){
+
+			@Override
+			public void run() {
+				JFrame win = new JFrame();
+				win.setVisible(true);
+			}
+			
+			
+		});
 		
-		double[] vals = new double[]{1,2,4,2,5,8,4,2,6,7,4 ,2 };
-		double[] time = new double[]{0,1,2,3,4,5,6,7,8,9,10,11};
-		
-
-		win.setContentPane(cd);
-		win.pack();
-		win.setVisible(true);		
-		
-		cd.displayChunk(time, vals);
-
-		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-		vals = new double[]{8,4,-10,7,5,8,4,2,6,7,4,2};
-		time = new double[]{0,1,2,3,4,5,6,7,8,9,10,11};
-
-		cd.displayChunk(time, vals);
-
-		win.dispose();
+//		javax.swing.JFrame win = new javax.swing.JFrame();
+//		//JFreeChart jfc = new JFreeChart(null);
+//		ChartPanel cp = new ChartPanel(null);
+//		win.add(cp);
+//		win.pack();
+////		JPanel circ = new JPanel(){
+////			public void paintComponents(Graphics g){
+////				System.out.println("drawing");
+////				g.setColor(Color.BLACK);
+////				g.drawOval(0, 0, 100, 100);
+////			}
+////		};
+////		
+////		win.setContentPane(circ);
+////		
+////		win.setPreferredSize(new Dimension(500,500));
+////		win.pack();
+////		
+//		win.setVisible(true);
+//		
+//		while (true){
+//			circ.paintComponents(circ.getGraphics());
+//			try {
+//				Thread.sleep(1000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 	}
+	
 
 }

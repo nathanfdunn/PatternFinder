@@ -1,0 +1,24 @@
+package tests;
+
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
+import patternDetection.Token;
+
+public class TokenStreamDisplayerTest {
+
+	public static void main(String[] args) {
+
+		JFrame win = new JFrame();
+		
+		
+		
+		
+	}
+	
+	private static ArrayList<Token> testList(){
+		
+	}
+
+}

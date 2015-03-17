@@ -1,17 +1,9 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
-
-
-
-
-
-
-
-
-
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -19,12 +11,14 @@ import org.jfree.chart.JFreeChart;
 //import org.jfree.chart.*;
 //import org.jfree.chart.*;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.ValueMarker;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.DefaultXYDataset;
 
 import behaviorClassification.Chunk;
 import behaviorClassification.MyMath;
 
+import org.jfree.chart.plot.XYPlot;
 
 public class ChunkDisplayer extends JPanel{
 	
@@ -45,7 +39,7 @@ public class ChunkDisplayer extends JPanel{
 	}
 	
 	public void displayChunk(double[] time, double[] vals){
-
+		
 		DefaultXYDataset dataSet = new DefaultXYDataset();
 		dataSet.addSeries("Values", new double[][]{
 				time,
@@ -62,6 +56,15 @@ public class ChunkDisplayer extends JPanel{
 				true, // tooltips?
 				false // URLs?
 				);
+		
+		
+//		/////////
+//		double x = (time[0] + time[time.length-1])/2;
+//		ValueMarker m = new ValueMarker(x);
+//		m.setPaint(Color.black);
+//		XYPlot xyp = (XYPlot)chart.getPlot();
+//		xyp.addDomainMarker(m);
+//		/////////
 		
 		if (chartPanel != null)
 			this.remove(chartPanel);
