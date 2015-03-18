@@ -7,9 +7,21 @@ import java.util.HashMap;
 
 public class TokenStream {
 	public HashMap<String, TokenList> stream;
+	private double[] partition;
 	
 	public TokenStream(){
+		this(null);
+	}
+	
+	
+	public double[] getPartition() {
+		return partition;
+	}
+
+
+	public TokenStream(double[] partition){
 		stream = new HashMap<String, TokenList>();
+		this.partition = partition;
 	}
 	
 	public void add( String quantID, ArrayList<Token> tokens ){

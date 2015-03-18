@@ -1,7 +1,11 @@
 
 package tests;
 
+import gui.TokenStreamDisplayer;
+
 import java.util.ArrayList;
+
+import javax.swing.JFrame;
 
 import patternDetection.Behavior;
 import patternDetection.Clause;
@@ -35,10 +39,34 @@ public class FullCircle {
 		Tokenizer tokenizer = new Tokenizer(new ModelClassifier(model));
 		
 		RawTimeSeriesTable itaseData = CsvToTable.
-				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered.csv");
-		
-		
+//				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered.csv");
+				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered_truncated.csv");
+				
 		TokenStream ts = tokenizer.tokenize(itaseData, 0.5);	//half a year chunk width
+		
+		
+
+		TokenStreamDisplayer tsd = new TokenStreamDisplayer(
+				ts.getQuant(ts.quantities().get(0)),
+				new double[][]{
+					itaseData.getTimes(),
+					itaseData.getCol(0)
+				},
+				"SO4", 
+				ts.getPartition()
+//				new double[0]
+				);
+
+		JFrame win = new JFrame();
+		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		win.add(tsd);
+		win.pack();
+		win.setVisible(true);
+
+//		int crash = 1/0;
+		
+		
+		
 		System.out.println(ts);
 		ArrayList<EvaluationObject> patterns = PatternExtractor.bruteForce(ts);
 		
@@ -56,6 +84,8 @@ public class FullCircle {
 		
 		
 		
+		
+		
 //		KnnModel model = (KnnModel)Serializer.deserialize("GISP2_Model");
 //		Tokenizer tokenizer = new Tokenizer(new ModelClassifier(model));
 //		
@@ -65,7 +95,7 @@ public class FullCircle {
 //		
 //		ArrayList<EvaluationObject> patterns = PatternExtractor.bruteForce(ts);
 //		
-//		for (EvaluationObject eo : patterns)
+//		for (EvaluationObject eo : patterns) 
 //			System.out.println(eo);
 		
 //		RawDataTable rdt = CsvToTable.readCsv("../../DataSets_R/nfdunn_Moulton1.csv");
@@ -102,4 +132,9 @@ public class FullCircle {
 		
 	}
 
+		
+	private static void displayTokens(){
+		
+	}
+	
 }

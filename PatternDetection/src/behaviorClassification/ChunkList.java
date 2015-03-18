@@ -15,6 +15,7 @@ public class ChunkList {
 	private HashMap<String, ArrayList<Chunk>> chunkList;
 	private String[] quantities;
 	private int numChunks;			
+	private double[] partition;
 
 	/**
 	 * Breaks the information in the table into numChunks equi-time-spaced
@@ -38,7 +39,8 @@ public class ChunkList {
 		double[] times = table.getTimes();
 		double start = table.getFirstTime();
 		double end = table.getLastTime();
-		double[] partition = Partitioner.seq(start, end, chunkWidth);
+		//double[] partition 
+		partition = Partitioner.seq(start, end, chunkWidth);
 	
 		int[][] inds = Partitioner.partitionTimes(times, partition);
 		double[][] timeChunks = Partitioner.indexVals(inds, times);
@@ -56,6 +58,10 @@ public class ChunkList {
 		}
 	}
 	
+	public double[] getPartition() {
+		return partition;
+	}
+
 	/**
 	 * Returns a list of Chunks associated with the specified quantity 
 	 *  (SO4, etc.)

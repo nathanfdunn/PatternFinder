@@ -2,6 +2,10 @@ package tests;
 
 import gui.TokenStreamDisplayer;
 
+import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -12,31 +16,27 @@ import patternDetection.Token;
 public class TokenStreamDisplayerTest {
 
 	public static void main(String[] args) {
-//		System.setProperty("com.apple.awt.CocoaComponent.CompatibilityMode", "false");
+
 		JFrame win = new JFrame();
-//		win.pack();
-//		win.setVisible(true);
-//		win.pack();
-//		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		win.setLayout(new BorderLayout());
 		
-		TokenStreamDisplayer tsd = new TokenStreamDisplayer(testList());
-		win.add(tsd);
+		TokenStreamDisplayer tsd = new TokenStreamDisplayer(testList(), testVals(),
+				"Blah", partition());
+		//win.add(tsd, BorderLayout.CENTER);
+		//win.add(tsd.getSymbolPanel(), BorderLayout.CENTER);
+		//win.setLayout(new GridBagLayout());
+//		GridBagConstraints gbc = new GridBagConstraints();
+		win.setLayout(new GridLayout(10,1)); // 0,1
+		
+		for (int i=0; i<10; i++)
+			//			win.add(new TokenStreamDisplayer(testList()));//,gbc);
+			win.add(new TokenStreamDisplayer(testList(), testVals(),
+					"Blah" + i, partition()));
+		
 		win.pack();
-//		
-//		win.setEnabled(true);
-		
 		win.setVisible(true);
-		while(true){
-			
-			tsd.paintComponents(tsd.getGraphics());
-			Pnt.pnt(tsd.getWidth());
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+
 	}
 	
 	private static ArrayList<Token> testList(){
@@ -50,5 +50,17 @@ public class TokenStreamDisplayerTest {
 		
 		return out;
 	}
+	
+	private static double[][] testVals(){
+		return new double[][]{
+			new double[]{1,2,3,4,5,6,7,8,9,10},
+			new double[]{67,43,6,8,5,3,2,2,67,32}
+		};
+	}
 
+	private static double[] partition(){
+		return new double[]{
+			3, 6, 9
+		};
+	}
 }

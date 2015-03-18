@@ -29,7 +29,7 @@ public class Tokenizer {
 	}
 	
 	public TokenStream tokenize(ChunkList chunkList){
-		TokenStream out = new TokenStream();
+		TokenStream out = new TokenStream(chunkList.getPartition());
 		for (String quant : chunkList.getQuantities())
 			out.add(quant, tokenize(chunkList.getChunks(quant), quant));
 		return out;
