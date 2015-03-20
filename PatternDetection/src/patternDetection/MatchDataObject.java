@@ -9,7 +9,7 @@ public class MatchDataObject {
 
 	private ArrayList<Token> precursors;
 	private ArrayList<Token> successors;
-	public DifferenceTable lags;
+	private MatchDataObject.DifferenceTable lags;
 	
 	private ArrayList<Match> matches;
 	private ArrayList<Match> antiMatches;
@@ -34,7 +34,7 @@ public class MatchDataObject {
 			Match match;
 			Token pre = precursors.get(i);
 			if (lags.isDeterminate(i, p.time)){
-				Token possibleSuccessor = lags.between(i, p.time);
+				Token possibleSuccessor = lags.firstBetween(i, p.time);
 				if (possibleSuccessor == null)
 					match = Match.createAntiMatch(pre);
 				else
@@ -90,4 +90,73 @@ public class MatchDataObject {
 		return indMatches;
 	}
 
+	
+
+	private static class DifferenceTable {
+
+		private ArrayList<Token> precursors;
+		private ArrayList<Token> successors;
+		private int streamLen;
+		private int[][] diff;
+
+
+		public DifferenceTable(ArrayList<Token> precursors, ArrayList<Token> successors, int length){
+			this.precursors = precursors;
+			this.successors = successors;
+			this.diff = new int[precursors.size()][successors.size()];
+			this.streamLen = length;
+			populateTable();
+
+		}
+
+		private void populateTable(){
+			for (int i = 0; i < precursors.size(); i++)
+				for (int j = 0; j < successors.size(); j++)
+					diff[i][j] = successors.get(j).time - precursors.get(i).time;
+		}
+
+
+		//TODO rename
+		/**
+		 * Returns the first Successor whose lag is within the range of the
+		 *  specified Precursor
+		 * @param precursorIndex
+		 * @param interval
+		 * @return
+		 */
+		public Token firstBetween(int precursorIndex, Interval interval){
+			int[] lags = diff[precursorIndex];
+			for (int i=0; i<lags.length; i++){
+				if (interval.contains(lags[i]))
+					return successors.get(i);
+			}
+			return null;
+		}
+
+		/**
+		 * Checks if the values are applicable, given the length of the stream
+		 * @param precursorIndex
+		 * @param interval
+		 * @return
+		 */
+		public boolean isDeterminate(int precursorIndex, Interval interval){
+			int preTime = precursors.get(precursorIndex).time;
+			return preTime + interval.high <= streamLen;
+		}
+
+
+//		public ArrayList<Token> getPrecursors() {
+//			return precursors;
+//		}
+//
+//		public ArrayList<Token> getSuccessors() {
+//			return successors;
+//		}
+//
+//		public int getStreamLen() {
+//			return streamLen;
+//		}
+	}
+
+	
 }

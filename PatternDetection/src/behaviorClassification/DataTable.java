@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author nathandunn
  *
  */
-public abstract class DataTable implements Serializable {
+public class DataTable implements Serializable {
 
 	
 	private static final long serialVersionUID = 5L;

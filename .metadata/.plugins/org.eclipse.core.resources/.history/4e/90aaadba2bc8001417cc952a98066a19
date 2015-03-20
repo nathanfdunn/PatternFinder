@@ -1,8 +1,0 @@
-package behaviorClassification;
-
-public class ManualInputReader {
-	public IInputReader inputReader;
-
-	public ManualInputReader() {
-	}
-}

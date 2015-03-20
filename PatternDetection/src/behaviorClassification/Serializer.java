@@ -45,6 +45,8 @@ public class Serializer {
 		return out;
 	}
 	
+	
+	
 	public static void writeFile(String contents, String fileName){
 		try{
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));

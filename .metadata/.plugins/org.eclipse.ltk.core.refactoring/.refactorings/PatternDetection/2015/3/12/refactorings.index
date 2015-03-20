@@ -21,3 +21,7 @@
 1426561644719	Rename type 'GuiTest'
 1426561664268	Delete element
 1426563982851	Delete element
+1426807914398	Rename local variable 'gispModel'
+1426809733088	Rename method 'between'
+1426826401847	Rename type 'TokenizationFigureCreators'
+1426827903947	Delete element

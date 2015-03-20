@@ -162,11 +162,11 @@ public class KnnModel implements Serializable {
 	 * @return proportion of correct classifications
 	 */
 	public double evaluateAccuracy(){
-		if (this.trainingData.getNumRows() < 2)
+		if (this.trainingData.getNumRows() <= 1)
 			//Insufficient data for a meaningful answer
 			return Double.NaN;
 
-		FeatureTable copy = trainingData.copy();
+		FeatureTable copy = trainingData;// trainingData.copy();
 		int n = copy.getNumRows();
 		int matches = 0;
 		for (int i=0; i<n; i++){
@@ -180,6 +180,10 @@ public class KnnModel implements Serializable {
 		}
 		return matches / (double)n;
 	}
+	
+//	public KnnModel copy(){
+//		
+//	}
 	
 	/**
 	 * Evaluates the accuracy for each combination of parameter pairs
@@ -200,7 +204,43 @@ public class KnnModel implements Serializable {
 		return out;
 	}
 	
+	/**
+	 * Returns a 4 column table of gamma, k, maxWeight, accuracy
+	 * @param gammas
+	 * @param ks
+	 * @param maxWeights
+	 * @return
+	 */
+	public DataTable accuracyParameterSweep(double[] gammas,
+			int[] ks, double[] maxWeights){
+		double[][] transposedEntries = 
+				new double[gammas.length*ks.length*maxWeights.length][];
+		KnnModel copy = this.copy();
+		int i=0;
+		for (double g : gammas){
+			System.out.println(g);
+			for (int k : ks)
+				for (double mw : maxWeights){
+					copy.setGamma(g);
+					copy.setK(k);
+					copy.setMaxWeight(maxWeight);
+					transposedEntries[i++] = new double[]{
+							g, k, mw, copy.evaluateAccuracy()
+					};
+				}
+		}
+		
+		double[][] entries = MyMath.transpose(transposedEntries);
+		String[] headers = new String[]{"Gamma", "K", "Max", "Acc"};
+		return new DataTable(entries, headers);
+	}
+
 	
+	private KnnModel copy() {
+		return new KnnModel(trainingData, k, gamma, maxWeight);
+	}
+
+
 	/**
 	 * Returns an array containing values 0,1,..,i-1,i+1,..,n-1
 	 * That is, it contains the natural numbers less than n, excluding i

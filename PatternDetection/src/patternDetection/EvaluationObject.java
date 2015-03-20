@@ -25,13 +25,20 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 		this.accuracy = ((double)numMatches + padding) / 
 				(numMatches + numAntiMatches + 2*padding);
 		
-		this.rarity = mdo.getLags().calculateRarity(p.time.getWidth());
+//		this.rarity = mdo.getLags().calculateRarity(p.time.getWidth());
+		calculateRarity();
 		if (this.rarity == 0.0)
 			this.power = -1;
 		else
 			this.power = Math.pow(accuracy, alpha) / Math.pow(rarity, beta);
 	}
 	
+	private void calculateRarity(){		
+		int streamLen = data.getTokenStream().length();
+		int intervalWidth = this.p.time.getWidth();
+		double p = (double)data.getSuccessors().size() / streamLen;
+		this.rarity = 1 - Math.pow( 1-p, intervalWidth + 1);
+	}
 	
 	@Override
 	public int compareTo(EvaluationObject arg0) {

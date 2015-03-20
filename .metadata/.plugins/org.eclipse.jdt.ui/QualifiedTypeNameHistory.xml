@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="java.util.HashSet"/>
-<fullyQualifiedTypeName name="tests.KnnTest"/>
 <fullyQualifiedTypeName name="behaviorClassification.CompositeChunkList"/>
-<fullyQualifiedTypeName name="tests.Pnt"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
@@ -22,8 +17,6 @@
 <fullyQualifiedTypeName name="behaviorClassification.FeatureExtractor"/>
 <fullyQualifiedTypeName name="org.jfree.chart.plot.PlotOrientation"/>
 <fullyQualifiedTypeName name="org.jfree.data.xy.DefaultXYDataset"/>
-<fullyQualifiedTypeName name="org.jfree.chart.JFreeChart"/>
-<fullyQualifiedTypeName name="org.jfree.chart.ChartPanel"/>
 <fullyQualifiedTypeName name="org.jfree.chart.ChartFactory"/>
 <fullyQualifiedTypeName name="org.jfree.chart.plot.XYPlot"/>
 <fullyQualifiedTypeName name="gui.ChunkDisplayer"/>
@@ -48,16 +41,23 @@
 <fullyQualifiedTypeName name="patternDetection.Clause"/>
 <fullyQualifiedTypeName name="patternDetection.Interval"/>
 <fullyQualifiedTypeName name="patternDetection.PatternEvaluator"/>
-<fullyQualifiedTypeName name="org.jfree.chart.plot.ValueMarker"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
-<fullyQualifiedTypeName name="javax.swing.JPanel"/>
-<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
 <fullyQualifiedTypeName name="patternDetection.Token"/>
-<fullyQualifiedTypeName name="java.awt.Graphics"/>
 <fullyQualifiedTypeName name="behaviorClassification.MyMath"/>
-<fullyQualifiedTypeName name="java.awt.Dimension"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="patternDetection.Behavior"/>
-<fullyQualifiedTypeName name="gui.TokenStreamDisplayer"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="java.awt.Graphics"/>
+<fullyQualifiedTypeName name="java.awt.Dimension"/>
+<fullyQualifiedTypeName name="org.jfree.chart.ChartPanel"/>
+<fullyQualifiedTypeName name="org.jfree.chart.JFreeChart"/>
+<fullyQualifiedTypeName name="java.awt.EventQueue"/>
+<fullyQualifiedTypeName name="tests.Pnt"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+<fullyQualifiedTypeName name="org.jfree.chart.plot.ValueMarker"/>
+<fullyQualifiedTypeName name="java.awt.GridBagLayout"/>
+<fullyQualifiedTypeName name="java.awt.GridBagConstraints"/>
+<fullyQualifiedTypeName name="java.awt.GridLayout"/>
+<fullyQualifiedTypeName name="gui.TokenStreamDisplayer"/>
 </qualifiedTypeNameHistroy>

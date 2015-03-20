@@ -111,7 +111,7 @@ public class FullCircle {
 ////		Pnt.pnt(table);
 ////		Pnt.pnt(table.getScaledTable());
 ////		table.shuffle();
-////		Pnt.pnt(table);
+//		Pnt.pnt(table);
 //
 //		model = new KnnModel(table);
 //		Pnt.pnt(model.evaluateAccuracy());
