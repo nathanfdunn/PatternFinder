@@ -1,6 +1,6 @@
 package gui;
 
-import java.awt.Color;
+//import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
@@ -11,16 +11,25 @@ import org.jfree.chart.JFreeChart;
 //import org.jfree.chart.*;
 //import org.jfree.chart.*;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.ValueMarker;
+//import org.jfree.chart.plot.ValueMarker;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.DefaultXYDataset;
 
 import behaviorClassification.Chunk;
 import behaviorClassification.MyMath;
 
-import org.jfree.chart.plot.XYPlot;
+//import org.jfree.chart.plot.XYPlot;
 
+/**
+ * A GUI component to display a graph of time series data for a 
+ *  a Chunk of data. Gives users visual feedback when manually
+ *  classifying Chunks.
+ * @author nathandunn
+ *
+ */
 public class ChunkDisplayer extends JPanel{
+	
+	private static final long serialVersionUID = -6970537554754880572L;
 	
 	public static final Dimension prefSize = new Dimension(600, 600);
 	private JFreeChart chart;
@@ -30,9 +39,6 @@ public class ChunkDisplayer extends JPanel{
 	public ChunkDisplayer(){
 		this.setPreferredSize(prefSize);
 	}
-	
-
-	
 	
 	public void displayChunk(Chunk chunk){
 		displayChunk(chunk.getTimes(), chunk.getVals());
@@ -56,15 +62,6 @@ public class ChunkDisplayer extends JPanel{
 				true, // tooltips?
 				false // URLs?
 				);
-		
-		
-//		/////////
-//		double x = (time[0] + time[time.length-1])/2;
-//		ValueMarker m = new ValueMarker(x);
-//		m.setPaint(Color.black);
-//		XYPlot xyp = (XYPlot)chart.getPlot();
-//		xyp.addDomainMarker(m);
-//		/////////
 		
 		if (chartPanel != null)
 			this.remove(chartPanel);

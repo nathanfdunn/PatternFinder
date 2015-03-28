@@ -7,14 +7,45 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	private double power;
 	private MatchDataObject data;
 	
+	private EvaluationSettings settings;
+	
+	
 	public EvaluationObject( MatchDataObject mdo ){
-//		final double alpha = 2;
-//		final double beta = 0.25;
-//		final int padding = 2;
+		this(mdo, EvaluationSettings.DEFAULT);
+	}
+	
+	
+	public EvaluationObject( MatchDataObject mdo, double alpha, double beta, int padding ){
+		this(mdo, new EvaluationSettings(alpha, beta, padding));
+	}
+	
+	
+	public static EvaluationObject evaluate(TokenStream ts, Pattern p, EvaluationSettings settings){
+		MatchDataObject mdo = new MatchDataObject(p, ts);
+		return new EvaluationObject(mdo, settings);
+	}
+	
+	public static EvaluationObject evaluate(TokenStream ts, Pattern p){
+		MatchDataObject mdo = new MatchDataObject(p, ts);
+		return new EvaluationObject(mdo);
+	}
+	
+	
+	public static double evaluatePower(TokenStream ts, Pattern p, EvaluationSettings settings){
+		return evaluate(ts, p, settings).getPower();
+	}
+	
+	public static double evaluatePower(TokenStream ts, Pattern p){
+		return evaluate(ts, p).getPower();
+	}
+	
+	
+	
+	public EvaluationObject( MatchDataObject mdo, EvaluationSettings settings){
 		
-		final double alpha = 1;
-		final double beta = 0.5;
-		final int padding = 4;
+		final double alpha = settings.getAlpha();
+		final double beta = settings.getBeta();
+		final double padding = settings.getPadding();
 		
 		this.data = mdo;
 		p = mdo.getPattern();
@@ -33,11 +64,16 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 			this.power = Math.pow(accuracy, alpha) / Math.pow(rarity, beta);
 	}
 	
+	/**
+	 * Uses a binomial model to compute how likely it is that there 
+	 *  would be at least one occurrence of the successor clause 
+	 *  within the time window of the string
+	 */
 	private void calculateRarity(){		
 		int streamLen = data.getTokenStream().length();
-		int intervalWidth = this.p.time.getWidth();
+		int intervalWidth = this.p.time.getWidth() + 1;		//add 1 because [0,0] covers one unit
 		double p = (double)data.getSuccessors().size() / streamLen;
-		this.rarity = 1 - Math.pow( 1-p, intervalWidth + 1);
+		this.rarity = 1 - Math.pow( 1-p, intervalWidth);
 	}
 	
 	@Override
@@ -72,4 +108,41 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	public int getNumAntiMatches(){
 		return data.getAntiMatches().size();
 	}
+	
+	
+	public static class EvaluationSettings{
+		private double alpha;
+		private double beta;
+		private double padding;
+		
+		public static final double DEFAULT_ALPHA = 1;
+		public static final double DEFAULT_BETA = 0.5;
+		public static final double DEFAULT_PADDING = 4;
+		
+		public static final EvaluationSettings DEFAULT = new EvaluationSettings();
+		
+		public EvaluationSettings(){
+			this.alpha = DEFAULT_ALPHA;
+			this.beta = DEFAULT_BETA;
+			this.padding = DEFAULT_PADDING;
+		}
+		
+		public EvaluationSettings(double alpha, double beta, int padding) {
+			this.alpha = alpha;
+			this.beta = beta;
+			this.padding = padding;
+		}
+		
+		public double getAlpha() {
+			return alpha;
+		}
+		public double getBeta() {
+			return beta;
+		}
+		public double getPadding() {
+			return padding;
+		}
+		
+	}
+	
 }

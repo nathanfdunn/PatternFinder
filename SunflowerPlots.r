@@ -1,5 +1,5 @@
 
-
+blah = function(){
 read.table("~/Programming/PatternFinder/PatternDetection/AccTable_g_k_mw4",T)->acc
 
 acc$Max[ which(acc$Max == Inf) ] = 10000
@@ -15,3 +15,4 @@ readline("Pause")
 sunflowerplot(K, Accuracy)
 readline("Pause")
 sunflowerplot(acc$Max, Accuracy, xlab="log( Max Weight )")
+}

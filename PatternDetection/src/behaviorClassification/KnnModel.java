@@ -234,6 +234,13 @@ public class KnnModel implements Serializable {
 		String[] headers = new String[]{"Gamma", "K", "Max", "Acc"};
 		return new DataTable(entries, headers);
 	}
+	
+	/**
+	 * Chooses the parameers that maximize the accuracy
+	 */
+	public void configureParameters(){
+		
+	}
 
 	
 	private KnnModel copy() {

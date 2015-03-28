@@ -1,0 +1,10 @@
+package tests;
+
+/**
+ * Tests pattern extraction using seasonal ITASE data
+ * @author nathandunn
+ *
+ */
+public class ItaseExtraction {
+
+}

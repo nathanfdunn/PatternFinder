@@ -1,0 +1,15 @@
+package tests;
+
+/**
+ * Tests Pattern Extraction on seasonal data
+ * @author nathandunn
+ *
+ */
+public class ItaseExtraction {
+
+	public static void main(String[] args) {
+
+		
+	}
+
+}

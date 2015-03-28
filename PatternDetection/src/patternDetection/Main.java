@@ -40,7 +40,7 @@ public class Main {
 		
 		//*
 		TokenStream ts = randData();
-		ArrayList<EvaluationObject> patterns = PatternExtractor.bruteForce(ts, 100);
+		ArrayList<EvaluationObject> patterns = new PatternExtractor().extract(ts, 100);
 		
 		for (int i=0; i<patterns.size(); i++){
 			System.out.println(patterns.get(i));

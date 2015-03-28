@@ -3,20 +3,45 @@ package patternDetection;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import patternDetection.EvaluationObject.EvaluationSettings;
+
 
 public class PatternExtractor {
+
+	private EvaluationSettings settings;
+	
+	public PatternExtractor(){
+		this( new EvaluationSettings() );
+	}
+	
+	public PatternExtractor(EvaluationSettings settings) {
+		this.settings = settings;
+	}
+
+	public PatternExtractor(double alpha, double beta, int padding){
+		this( new EvaluationSettings(alpha, beta, padding) );
+	}
+	
+	
+	public static ArrayList<EvaluationObject> defaultExtract(TokenStream ts){
+		return new PatternExtractor().extract(ts);
+	}
+	public static ArrayList<EvaluationObject> defaultExtract(TokenStream ts, int numPatterns){
+		return new PatternExtractor().extract(ts, numPatterns);
+	}
+	
 
 	/**
 	 * 
 	 * @param ts
 	 * @return
 	 */
-	public static ArrayList<EvaluationObject> bruteForce(TokenStream ts){
-		return bruteForce(ts, 100);
+	public ArrayList<EvaluationObject> extract(TokenStream ts){
+		return extract(ts, 100);
 	}
 	
 	
-	public static ArrayList<EvaluationObject> bruteForce(TokenStream ts, int numPatterns){
+	public ArrayList<EvaluationObject> extract(TokenStream ts, int numPatterns){
 		ArrayList<Clause> clausePool = allClauses(ts);
 		
 		ArrayList<EvaluationObject> out = new ArrayList<EvaluationObject>();
@@ -27,7 +52,7 @@ public class PatternExtractor {
 					Interval t = PatternCompleter.completeTime(ts, pre, suc);
 					if (t!=null){
 						Pattern p = new Pattern(pre, suc, t);
-						out.add(PatternEvaluator.evaluate(ts, p));
+						out.add( evaluate(ts, p) );
 						if (out.size() > numPatterns){
 							evictLowest(out);
 						}
@@ -38,12 +63,19 @@ public class PatternExtractor {
 		return out;
 	}
 	
+	
+	private EvaluationObject evaluate(TokenStream ts, Pattern p){
+		MatchDataObject mdo = new MatchDataObject(p, ts);
+		return new EvaluationObject(mdo, this.settings);
+	}
+	
+	
 	private static void evictLowest(ArrayList<EvaluationObject> list) {
 		if (list.size() == 0)
 			return;
 		boolean success = list.remove( Collections.min(list) );
 		if (!success)
-			throw new Error("Something went wrong");
+			throw new Error("Something went wrong while evicting lowest");
 	}
 
 	public static ArrayList<Clause> allClauses(TokenStream ts){

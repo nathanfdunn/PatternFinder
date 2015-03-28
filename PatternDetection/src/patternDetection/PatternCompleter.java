@@ -2,6 +2,8 @@ package patternDetection;
 
 import java.util.ArrayList;
 
+import patternDetection.EvaluationObject.EvaluationSettings;
+
 /**
  * 
  * @author nathandunn
@@ -10,6 +12,10 @@ import java.util.ArrayList;
 public class PatternCompleter {
 	
 	public static Interval completeTime( TokenStream ts, Clause pre, Clause suc ){
+		return completeTime(ts, pre, suc, EvaluationSettings.DEFAULT);
+	}
+
+	public static Interval completeTime( TokenStream ts, Clause pre, Clause suc, EvaluationSettings settings ){
 		Interval out = null;
 		double maxPower = -1;
 		double curPower = -1;
@@ -18,7 +24,7 @@ public class PatternCompleter {
 			for (int start = 0; start <= end; start++){
 				Interval temp = new Interval(start, end);
 				Pattern p = new Pattern(pre, suc, temp);
-				curPower = PatternEvaluator.evaluatePower(ts, p);
+				curPower = EvaluationObject.evaluatePower(ts, p, settings);
 				if (curPower > maxPower){
 					maxPower = curPower;
 					out = temp;
@@ -28,7 +34,11 @@ public class PatternCompleter {
 		return out;
 	}
 	
-	public static Clause completeSuccessor( TokenStream ts, Clause pre, Interval time){
+	public static Clause completeSuccessor( TokenStream ts, Clause pre, Interval time ){
+		return completeSuccessor( ts, pre, time, EvaluationSettings.DEFAULT );
+	}
+	
+	public static Clause completeSuccessor( TokenStream ts, Clause pre, Interval time, EvaluationSettings settings){
 		ArrayList<String> quantities = ts.quantities();
 		Behavior[] behaviors = Behavior.class.getEnumConstants();
 
@@ -40,7 +50,7 @@ public class PatternCompleter {
 			for (Behavior b : behaviors){
 				Clause suc = new Clause(quantID, b);
 				Pattern p = new Pattern(pre, suc, time);
-				curPower = PatternEvaluator.evaluatePower(ts, p);
+				curPower = EvaluationObject.evaluatePower(ts, p, settings);
 				if (curPower > maxPower){
 					maxPower = curPower;
 					out = suc;
@@ -52,8 +62,32 @@ public class PatternCompleter {
 	}
 	
 	
-	//public Clause completePrecursor( TokenStream ts, Clause suc, Interval)
+	public Clause completePrecursor( TokenStream ts, Clause suc, Interval time, EvaluationSettings settings ){
+		ArrayList<String> quantities = ts.quantities();
+		Behavior[] behaviors = Behavior.getKnownBehaviors();
 
+		Clause out = null;
+		double maxPower = -1;
+		double curPower = -1;
+		
+		for (String quantID : quantities){
+			for (Behavior b : behaviors){
+				Clause pre = new Clause(quantID, b);
+				Pattern p = new Pattern(pre, suc, time);
+				curPower = EvaluationObject.evaluatePower(ts, p, settings);
+				if (curPower > maxPower){
+					maxPower = curPower;
+					out = pre;
+				}
+			}
+		}
+		
+		return out;
+	}
+	
+	public Clause completePrecursor( TokenStream ts, Clause suc, Interval time ){
+		return completePrecursor( ts, suc, time, EvaluationSettings.DEFAULT );
+	}
 	
 	
 }

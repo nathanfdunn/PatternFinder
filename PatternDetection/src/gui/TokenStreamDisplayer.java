@@ -36,7 +36,8 @@ public class TokenStreamDisplayer extends JPanel {
 		return symbolPanel;
 	}
 
-	private static final Dimension prefSize = new Dimension(500,300);
+	private static final Dimension prefSize = new Dimension(100,300);//new Dimension(500,300);
+	
 	
 //	private JFreeChart chart;
 	private ChartPanel chartPanel;
@@ -107,6 +108,11 @@ public class TokenStreamDisplayer extends JPanel {
 		
 		((XYPlot)chart.getPlot()).getRangeAxis().setRange(min, max + pad);
 		ChartPanel out = new ChartPanel(chart, false);
+		
+		out.setMinimumDrawWidth( 0 );
+		out.setMinimumDrawHeight( 0 );
+		out.setMaximumDrawWidth( 1920 );
+		out.setMaximumDrawHeight( 1200 );
 		
 		return out;
 	}

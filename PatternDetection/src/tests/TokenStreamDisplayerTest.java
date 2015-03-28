@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import patternDetection.Behavior;
 import patternDetection.Token;
@@ -27,12 +28,20 @@ public class TokenStreamDisplayerTest {
 		//win.add(tsd.getSymbolPanel(), BorderLayout.CENTER);
 		//win.setLayout(new GridBagLayout());
 //		GridBagConstraints gbc = new GridBagConstraints();
-		win.setLayout(new GridLayout(10,1)); // 0,1
+		int num=1;
+		win.setLayout(new GridLayout(num,1)); // 0,1
 		
-		for (int i=0; i<10; i++)
-			//			win.add(new TokenStreamDisplayer(testList()));//,gbc);
-			win.add(new TokenStreamDisplayer(testList(), testVals(),
-					"Blah" + i, partition()));
+		for (int i=0; i<num; i++){
+			TokenStreamDisplayer disp = new TokenStreamDisplayer(testList(),
+					testVals(), "Blah" + i, partition());
+			JPanel p = new JPanel();
+			p.setLayout(new BorderLayout());
+			p.add(disp, BorderLayout.CENTER);
+			win.add(p);
+		}
+//			//			win.add(new TokenStreamDisplayer(testList()));//,gbc);
+//			win.add(new TokenStreamDisplayer(testList(), testVals(),
+//					"Blah" + i, partition()));
 		
 		win.pack();
 		win.setVisible(true);

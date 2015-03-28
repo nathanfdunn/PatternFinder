@@ -12,7 +12,6 @@ import patternDetection.Clause;
 import patternDetection.EvaluationObject;
 import patternDetection.Interval;
 import patternDetection.Pattern;
-import patternDetection.PatternEvaluator;
 import patternDetection.PatternExtractor;
 import patternDetection.TokenStream;
 import patternDetection.Tokenizer;
@@ -68,7 +67,7 @@ public class FullCircle {
 		
 		
 		System.out.println(ts);
-		ArrayList<EvaluationObject> patterns = PatternExtractor.bruteForce(ts);
+		ArrayList<EvaluationObject> patterns = PatternExtractor.defaultExtract(ts);
 		
 		for (EvaluationObject eo : patterns)
 			System.out.println(eo);
@@ -79,8 +78,8 @@ public class FullCircle {
 		Pattern p2 = new Pattern(suc, pre, new Interval(1,1));
 		
 		
-		System.out.println(PatternEvaluator.evaluatePower(ts, p));
-		System.out.println(PatternEvaluator.evaluatePower(ts, p2));
+		System.out.println(EvaluationObject.evaluatePower(ts, p));
+		System.out.println(EvaluationObject.evaluatePower(ts, p2));
 		
 		
 		
