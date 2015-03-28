@@ -3,3 +3,5 @@
 1427577975958	Rename method 'defaultBruteForce'
 1427577995248	Rename method 'bruteForce'
 1427578031386	Rename method 'bruteForce'
+1427580443346	Rename field 'rarity'
+1427580671901	Rename method 'calculateRarity'

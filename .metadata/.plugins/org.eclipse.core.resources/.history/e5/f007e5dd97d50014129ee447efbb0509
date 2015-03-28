@@ -13,9 +13,7 @@ import patternDetection.EvaluationObject;
 import patternDetection.Interval;
 import patternDetection.Pattern;
 import patternDetection.PatternExtractor;
-import patternDetection.Token;
 import patternDetection.TokenStream;
-import patternDetection.TokenStream.TokenList;
 import patternDetection.Tokenizer;
 import behaviorClassification.ChunkList;
 import behaviorClassification.ClassifiedChunkList;
@@ -45,9 +43,9 @@ public class FullCircle {
 		
 		TokenStream ts = tokenizer.tokenize(itaseData, 0.5);	//half a year chunk width
 		
-//		TokenList tokens = ts.stream.get("SO4");
-//		tokens.tokens.set(2, new Token("SO4",Behavior.SPI,2) );
-
+		
+		Pnt.pnt(ts);
+		int i = 1/0;
 
 		TokenStreamDisplayer tsd = new TokenStreamDisplayer(
 				ts.getQuant(ts.quantities().get(0)),
@@ -66,9 +64,6 @@ public class FullCircle {
 		win.pack();
 		win.setVisible(true);
 
-//		Pnt.pnt(ts);
-//		int i = 1/0;
-		
 //		int crash = 1/0;
 		
 		

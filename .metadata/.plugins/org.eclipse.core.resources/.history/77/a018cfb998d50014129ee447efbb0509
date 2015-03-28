@@ -246,10 +246,10 @@ public class TokenStreamDisplayer extends JPanel {
 		return flipY( getSpiPoints() );
 	}
 	
-	private static double[][] getDecPoints(){
-		return flipY( getIncPoints() );
-	}
 	private static double[][] getIncPoints(){
+		return flipY( getDecPoints() );
+	}
+	private static double[][] getDecPoints(){
 		return new double[][]{
 			new double[]{-0.5, 0.5},
 			new double[]{-0.5, 0.5}

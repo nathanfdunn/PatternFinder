@@ -3,7 +3,7 @@ package patternDetection;
 public class EvaluationObject implements Comparable<EvaluationObject>{
 	private Pattern p;
 	private double accuracy;
-	private double ubiquity;
+	private double rarity;
 	private double power;
 	private MatchDataObject data;
 	
@@ -48,26 +48,18 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 		p = mdo.getPattern();
 
 		calculatePower();
+		
+		if (this.rarity == 0.0)
+			this.power = -1;
+		else
+			this.power = Math.pow(accuracy, alpha) / Math.pow(rarity, beta);
 	}
 	
 	private void calculatePower(){
-		boolean flag = false;
-		if (data.getPrecursors().size() == 0){
-			flag = true;
-			this.accuracy = Double.NaN;
-		}
-		if (data.getSuccessors().size() == 0){
-			this.ubiquity = 0;
-			flag = true;
-		}
-		if (!flag){
-			calculateAccuracy();
-			calculateUbiquity();
-			this.power = Math.pow(accuracy, settings.getAlpha()) /
-					Math.pow(ubiquity, settings.getBeta());
-		}else{
-			this.power = -1;
-		}
+		
+		calculateAccuracy();
+		calculatePower();
+		
 	}
 	
 	/**
@@ -77,8 +69,8 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 		int numMatches = data.getMatches().size();
 		int numAntiMatches = data.getAntiMatches().size();
 		
-		this.accuracy = ((double)numMatches + settings.padding) / 
-				(numMatches + numAntiMatches + 2*settings.padding);
+		this.accuracy = ((double)numMatches + padding) / 
+				(numMatches + numAntiMatches + 2*padding);
 	}
 	
 	
@@ -88,11 +80,11 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	 *  would be at least one occurrence of the successor clause 
 	 *  within the time window of the string
 	 */
-	private void calculateUbiquity(){		
+	private void calculateRarity(){		
 		int streamLen = data.getTokenStream().length();
 		int intervalWidth = this.p.time.getWidth() + 1;		//add 1 because [0,0] covers one unit
 		double p = (double)data.getSuccessors().size() / streamLen;
-		this.ubiquity = 1 - Math.pow( 1-p, intervalWidth);
+		this.rarity = 1 - Math.pow( 1-p, intervalWidth);
 	}
 	
 	@Override
@@ -104,27 +96,18 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	public String toString(){
 		return String.format("%s (%d, %d, %d, %d)(%f, %f, %f)", 
 				p, getNumMatches(), getNumAntiMatches(), data.getPrecursors().size(),
-				data.getSuccessors().size(), accuracy, ubiquity, power);
+				data.getSuccessors().size(), accuracy, rarity, power);
 	}
 	
 	public Pattern getPattern() {
 		return p;
 	}
-	
 	public double getAccuracy() {
 		return accuracy;
 	}
-	
-	public double getUbiquity() {
-		return ubiquity;
+	public double getRarity() {
+		return rarity;
 	}
-	
-	public double getRarity(){
-		if (ubiquity == 0)
-			return Double.NaN;
-		return 1/ubiquity;
-	}
-	
 	public double getPower() {
 		return power;
 	}
@@ -139,7 +122,6 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	
 	
 	public static class EvaluationSettings{
-		
 		private double alpha;
 		private double beta;
 		private double padding;

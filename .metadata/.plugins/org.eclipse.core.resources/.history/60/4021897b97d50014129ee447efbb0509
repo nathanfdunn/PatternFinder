@@ -139,7 +139,6 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	
 	
 	public static class EvaluationSettings{
-		
 		private double alpha;
 		private double beta;
 		private double padding;

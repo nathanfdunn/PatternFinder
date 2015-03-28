@@ -65,8 +65,6 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 			calculateUbiquity();
 			this.power = Math.pow(accuracy, settings.getAlpha()) /
 					Math.pow(ubiquity, settings.getBeta());
-		}else{
-			this.power = -1;
 		}
 	}
 	
@@ -139,7 +137,6 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	
 	
 	public static class EvaluationSettings{
-		
 		private double alpha;
 		private double beta;
 		private double padding;

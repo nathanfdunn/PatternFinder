@@ -45,8 +45,8 @@ public class FullCircle {
 		
 		TokenStream ts = tokenizer.tokenize(itaseData, 0.5);	//half a year chunk width
 		
-//		TokenList tokens = ts.stream.get("SO4");
-//		tokens.tokens.set(2, new Token("SO4",Behavior.SPI,2) );
+		TokenList tokens = ts.stream.get("SO4");
+		tokens.tokens.set(2, new Token("SO4",2,Behavior.SPI));
 
 
 		TokenStreamDisplayer tsd = new TokenStreamDisplayer(
@@ -66,8 +66,8 @@ public class FullCircle {
 		win.pack();
 		win.setVisible(true);
 
-//		Pnt.pnt(ts);
-//		int i = 1/0;
+		Pnt.pnt(ts);
+		int i = 1/0;
 		
 //		int crash = 1/0;
 		

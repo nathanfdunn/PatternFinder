@@ -74,7 +74,7 @@ public class TokenStream {
 		return stream.entrySet().iterator().next().getValue().tokens.size();
 	}
 	
-	public static class TokenList {
+	public class TokenList {
 		public ArrayList<Token> tokens;
 		
 		public TokenList(ArrayList<Token> tokens) {
