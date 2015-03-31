@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="behaviorClassification.CompositeChunkList"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="behaviorClassification.CsvToTable"/>
@@ -39,9 +37,7 @@
 <fullyQualifiedTypeName name="patternDetection.Clause"/>
 <fullyQualifiedTypeName name="patternDetection.Interval"/>
 <fullyQualifiedTypeName name="patternDetection.PatternEvaluator"/>
-<fullyQualifiedTypeName name="patternDetection.Token"/>
 <fullyQualifiedTypeName name="behaviorClassification.MyMath"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="patternDetection.Behavior"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="java.awt.Graphics"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="behaviorClassification.Serializer"/>
 <fullyQualifiedTypeName name="behaviorClassification.DataTable"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="patternDetection.EvaluationObject.EvaluationSettings"/>
+<fullyQualifiedTypeName name="patternDetection.Token"/>
+<fullyQualifiedTypeName name="patternDetection.TokenStream.TokenList"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

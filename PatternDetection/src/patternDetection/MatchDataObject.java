@@ -5,17 +5,17 @@ import java.util.ArrayList;
 public class MatchDataObject {
 
 	private Pattern p;		//Pattern this object tries to match
-	private TokenStream ts;
+	private SimpleTokenStream ts;
 
-	private ArrayList<Token> precursors;
-	private ArrayList<Token> successors;
+	private ArrayList<SimpleToken> precursors;
+	private ArrayList<SimpleToken> successors;
 	private MatchDataObject.DifferenceTable lags;
 	
 	private ArrayList<Match> matches;
 	private ArrayList<Match> antiMatches;
 	private ArrayList<Match> indMatches;
 	
-	public MatchDataObject(Pattern p, TokenStream ts){
+	public MatchDataObject(Pattern p, SimpleTokenStream ts){
 		this.p = p;
 		this.ts = ts;
 		precursors = ts.filter(p.pre);
@@ -32,9 +32,9 @@ public class MatchDataObject {
 	private void findMatches(){
 		for (int i=0; i<precursors.size(); i++){
 			Match match;
-			Token pre = precursors.get(i);
+			SimpleToken pre = precursors.get(i);
 			if (lags.isDeterminate(i, p.time)){
-				Token possibleSuccessor = lags.firstBetween(i, p.time);
+				SimpleToken possibleSuccessor = lags.firstBetween(i, p.time);
 				if (possibleSuccessor == null)
 					match = Match.createAntiMatch(pre);
 				else
@@ -62,15 +62,15 @@ public class MatchDataObject {
 		return p;
 	}
 
-	public TokenStream getTokenStream() {
+	public SimpleTokenStream getTokenStream() {
 		return ts;
 	}
 
-	public ArrayList<Token> getPrecursors() {
+	public ArrayList<SimpleToken> getPrecursors() {
 		return precursors;
 	}
 
-	public ArrayList<Token> getSuccessors() {
+	public ArrayList<SimpleToken> getSuccessors() {
 		return successors;
 	}
 
@@ -94,13 +94,13 @@ public class MatchDataObject {
 
 	private static class DifferenceTable {
 
-		private ArrayList<Token> precursors;
-		private ArrayList<Token> successors;
+		private ArrayList<SimpleToken> precursors;
+		private ArrayList<SimpleToken> successors;
 		private int streamLen;
 		private int[][] diff;
 
 
-		public DifferenceTable(ArrayList<Token> precursors, ArrayList<Token> successors, int length){
+		public DifferenceTable(ArrayList<SimpleToken> precursors, ArrayList<SimpleToken> successors, int length){
 			this.precursors = precursors;
 			this.successors = successors;
 			this.diff = new int[precursors.size()][successors.size()];
@@ -124,7 +124,7 @@ public class MatchDataObject {
 		 * @param interval
 		 * @return
 		 */
-		public Token firstBetween(int precursorIndex, Interval interval){
+		public SimpleToken firstBetween(int precursorIndex, Interval interval){
 			int[] lags = diff[precursorIndex];
 			for (int i=0; i<lags.length; i++){
 				if (interval.contains(lags[i]))

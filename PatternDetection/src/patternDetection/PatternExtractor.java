@@ -23,10 +23,10 @@ public class PatternExtractor {
 	}
 	
 	
-	public static ArrayList<EvaluationObject> defaultExtract(TokenStream ts){
+	public static ArrayList<EvaluationObject> defaultExtract(SimpleTokenStream ts){
 		return new PatternExtractor().extract(ts);
 	}
-	public static ArrayList<EvaluationObject> defaultExtract(TokenStream ts, int numPatterns){
+	public static ArrayList<EvaluationObject> defaultExtract(SimpleTokenStream ts, int numPatterns){
 		return new PatternExtractor().extract(ts, numPatterns);
 	}
 	
@@ -36,18 +36,18 @@ public class PatternExtractor {
 	 * @param ts
 	 * @return
 	 */
-	public ArrayList<EvaluationObject> extract(TokenStream ts){
+	public ArrayList<EvaluationObject> extract(SimpleTokenStream ts){
 		return extract(ts, 100);
 	}
 	
 	
-	public ArrayList<EvaluationObject> extract(TokenStream ts, int numPatterns){
-		ArrayList<Clause> clausePool = allClauses(ts);
+	public ArrayList<EvaluationObject> extract(SimpleTokenStream ts, int numPatterns){
+		ArrayList<SimpleClause> clausePool = allClauses(ts);
 		
 		ArrayList<EvaluationObject> out = new ArrayList<EvaluationObject>();
 		//TODO: check if pre and suc are present before doing time completion
-		for (Clause pre : clausePool)
-			for (Clause suc : clausePool){
+		for (SimpleClause pre : clausePool)
+			for (SimpleClause suc : clausePool){
 				if (pre != suc || true){	//TODO
 					Interval t = PatternCompleter.completeTime(ts, pre, suc);
 					if (t!=null){
@@ -64,7 +64,7 @@ public class PatternExtractor {
 	}
 	
 	
-	private EvaluationObject evaluate(TokenStream ts, Pattern p){
+	private EvaluationObject evaluate(SimpleTokenStream ts, Pattern p){
 		MatchDataObject mdo = new MatchDataObject(p, ts);
 		return new EvaluationObject(mdo, this.settings);
 	}
@@ -78,14 +78,14 @@ public class PatternExtractor {
 			throw new Error("Something went wrong while evicting lowest");
 	}
 
-	public static ArrayList<Clause> allClauses(TokenStream ts){
+	public static ArrayList<SimpleClause> allClauses(SimpleTokenStream ts){
 		ArrayList<String> quantities = ts.quantities();
 		Behavior[] behaviors = Behavior.getKnownBehaviors();
-		ArrayList<Clause> out = new ArrayList<Clause>();
+		ArrayList<SimpleClause> out = new ArrayList<SimpleClause>();
 		
 		for (String quantID : quantities)
 			for (Behavior b : behaviors)
-				out.add( new Clause(quantID, b));
+				out.add( new SimpleClause(quantID, b));
 		
 		return out;
 	}

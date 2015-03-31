@@ -17,19 +17,19 @@ public class Tokenizer {
 	}
 	
 	
-	private ArrayList<Token> tokenize(ArrayList<Chunk> chunks, String quant){
-		ArrayList<Token> out = new ArrayList<Token>();
+	private ArrayList<SimpleToken> tokenize(ArrayList<Chunk> chunks, String quant){
+		ArrayList<SimpleToken> out = new ArrayList<SimpleToken>();
 		for (int i=0; i<chunks.size(); i++){
 			Chunk chunk = chunks.get(i);
 			Behavior b = model.classifyChunkBehavior(chunk);
-			Token t = new Token(quant, b, i);
+			SimpleToken t = new SimpleToken(quant, b, i);
 			out.add(t);
 		}
 		return out;
 	}
 	
-	public TokenStream tokenize(ChunkList chunkList){
-		TokenStream out = new TokenStream(chunkList.getPartition());
+	public SimpleTokenStream tokenize(ChunkList chunkList){
+		SimpleTokenStream out = new SimpleTokenStream(chunkList.getPartition());
 		for (String quant : chunkList.getQuantities())
 			out.add(quant, tokenize(chunkList.getChunks(quant), quant));
 		return out;
@@ -37,12 +37,12 @@ public class Tokenizer {
 	
 //	TODO at some point will have to specify chunkWidth or numChunks
 	
-	public TokenStream tokenize(RawTimeSeriesTable table, double chunkWidth){
+	public SimpleTokenStream tokenize(RawTimeSeriesTable table, double chunkWidth){
 		ChunkList cl = new ChunkList(table, chunkWidth);
 		return tokenize(cl);
 	}
 	
-	public TokenStream tokenize(RawTimeSeriesTable table, int numChunks){
+	public SimpleTokenStream tokenize(RawTimeSeriesTable table, int numChunks){
 		double chunkWidth = table.timeSpan()/numChunks;
 		return tokenize(table, chunkWidth);
 	}

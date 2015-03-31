@@ -1,0 +1,5 @@
+package clausesAndTokens;
+
+public interface IClause<T extends IToken> {
+
+}

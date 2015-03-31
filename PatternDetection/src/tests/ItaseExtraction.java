@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import patternDetection.Behavior;
-import patternDetection.Clause;
+import patternDetection.SimpleClause;
 import patternDetection.EvaluationObject;
 import patternDetection.Interval;
 import patternDetection.Pattern;
 import patternDetection.PatternExtractor;
-import patternDetection.Token;
-import patternDetection.TokenStream;
+import patternDetection.SimpleToken;
+import patternDetection.SimpleTokenStream;
 import patternDetection.Tokenizer;
 import behaviorClassification.CsvToTable;
 import behaviorClassification.KnnModel;
@@ -37,7 +37,7 @@ public class ItaseExtraction {
 				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered.csv");
 //				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered_truncated.csv");
 				
-		TokenStream ts = tokenizer.tokenize(itaseData, 0.5);	//half a year chunk width
+		SimpleTokenStream ts = tokenizer.tokenize(itaseData, 0.5);	//half a year chunk width
 		
 		ts = perfectSeasonal();
 //		Pnt.pnt(ts);
@@ -71,8 +71,8 @@ public class ItaseExtraction {
 		for (EvaluationObject eo : patterns)
 			System.out.println(eo);
 		
-		Clause pre = new Clause("SO4", Behavior.INC);
-		Clause suc = new Clause("SO4", Behavior.DEC);
+		SimpleClause pre = new SimpleClause("SO4", Behavior.INC);
+		SimpleClause suc = new SimpleClause("SO4", Behavior.DEC);
 		Pattern p = new Pattern(pre, suc, new Interval(1,1));
 		Pattern p2 = new Pattern(suc, pre, new Interval(1,1));
 		
@@ -84,12 +84,12 @@ public class ItaseExtraction {
 		
 	}
 	
-	private static TokenStream perfectSeasonal(){
-		TokenStream out = new TokenStream();
-		ArrayList<Token> sulfate = new ArrayList<Token>();
+	private static SimpleTokenStream perfectSeasonal(){
+		SimpleTokenStream out = new SimpleTokenStream();
+		ArrayList<SimpleToken> sulfate = new ArrayList<SimpleToken>();
 		//double[] partition = new double[226];
 		for (int i=0; i<226; i++){
-			Token t = new Token("SO4", Behavior.UNK, i);
+			SimpleToken t = new SimpleToken("SO4", Behavior.UNK, i);
 			t.behavior = i%2==0? Behavior.INC: Behavior.DEC;
 			sulfate.add(t);
 		}

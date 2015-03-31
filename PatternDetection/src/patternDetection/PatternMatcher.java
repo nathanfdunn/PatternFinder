@@ -4,7 +4,7 @@ package patternDetection;
 
 public class PatternMatcher {
 	
-	public static MatchDataObject findMatches(Pattern p, TokenStream ts){
+	public static MatchDataObject findMatches(Pattern p, SimpleTokenStream ts){
 		return new MatchDataObject(p, ts);
 	}
 		

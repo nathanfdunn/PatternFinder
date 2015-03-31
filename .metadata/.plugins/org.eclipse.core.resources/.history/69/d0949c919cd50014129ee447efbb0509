@@ -1,0 +1,6 @@
+package clausesAndTokens;
+
+public interface IToken {
+
+//	public boolean matches( Clause<T extends this> clause );
+}

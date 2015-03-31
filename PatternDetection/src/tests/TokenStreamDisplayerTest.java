@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import patternDetection.Behavior;
-import patternDetection.Token;
+import patternDetection.SimpleToken;
 
 public class TokenStreamDisplayerTest {
 
@@ -48,14 +48,14 @@ public class TokenStreamDisplayerTest {
 
 	}
 	
-	private static ArrayList<Token> testList(){
-		ArrayList<Token> out = new ArrayList<Token>();
-		out.add(new Token("",Behavior.DIP,0));
-		out.add(new Token("",Behavior.DEC,1));
-		out.add(new Token("",Behavior.FLA,2));
-		out.add(new Token("",Behavior.INC,3));
-		out.add(new Token("",Behavior.SPI,4));
-		out.add(new Token("",Behavior.UNK,5));
+	private static ArrayList<SimpleToken> testList(){
+		ArrayList<SimpleToken> out = new ArrayList<SimpleToken>();
+		out.add(new SimpleToken("",Behavior.DIP,0));
+		out.add(new SimpleToken("",Behavior.DEC,1));
+		out.add(new SimpleToken("",Behavior.FLA,2));
+		out.add(new SimpleToken("",Behavior.INC,3));
+		out.add(new SimpleToken("",Behavior.SPI,4));
+		out.add(new SimpleToken("",Behavior.UNK,5));
 		
 		return out;
 	}

@@ -1,0 +1,16 @@
+package clausesAndTokens;
+
+public class TokeType {
+
+	private String name;
+	
+	//TODO toString()?
+	public String string(){
+		return name;
+	}
+	
+	public boolean equals(TokeType type){
+		return
+	}
+	
+}

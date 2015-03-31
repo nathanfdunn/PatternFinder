@@ -3,7 +3,7 @@ package mainFeatures;
 
 import behaviorClassification.ChunkList;
 import patternDetection.Pattern;
-import patternDetection.TokenStream;
+import patternDetection.SimpleTokenStream;
 
 public class Util {
 
@@ -12,7 +12,7 @@ public class Util {
 
 	}
 	
-	public TokenStream tokenize(ChunkList chunkList){
+	public SimpleTokenStream tokenize(ChunkList chunkList){
 		return null;	//TODO
 		
 	}

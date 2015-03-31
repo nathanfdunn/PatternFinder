@@ -1,27 +1,27 @@
 package patternDetection;
 
 public class Match {
-	public Token precursor;
-	public Token successor;
+	public SimpleToken precursor;
+	public SimpleToken successor;
 	public MatchType type;
 	
 	
-	public Match(Token precursor, Token successor, MatchType type) {
+	public Match(SimpleToken precursor, SimpleToken successor, MatchType type) {
 		super();
 		this.precursor = precursor;
 		this.successor = successor;
 		this.type = type;
 	}
 	
-	public static Match createMatch(Token pre, Token suc){
+	public static Match createMatch(SimpleToken pre, SimpleToken suc){
 		return new Match(pre, suc, MatchType.MATCH);
 	}
 	
-	public static Match createAntiMatch(Token pre){
+	public static Match createAntiMatch(SimpleToken pre){
 		return new Match(pre, null, MatchType.ANTI);
 	}
 	
-	public static Match createIndMatch(Token pre){
+	public static Match createIndMatch(SimpleToken pre){
 		return new Match(pre, null, MatchType.IND);
 	}
 

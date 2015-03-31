@@ -11,11 +11,11 @@ import patternDetection.EvaluationObject.EvaluationSettings;
  */
 public class PatternCompleter {
 	
-	public static Interval completeTime( TokenStream ts, Clause pre, Clause suc ){
+	public static Interval completeTime( SimpleTokenStream ts, SimpleClause pre, SimpleClause suc ){
 		return completeTime(ts, pre, suc, EvaluationSettings.DEFAULT);
 	}
 
-	public static Interval completeTime( TokenStream ts, Clause pre, Clause suc, EvaluationSettings settings ){
+	public static Interval completeTime( SimpleTokenStream ts, SimpleClause pre, SimpleClause suc, EvaluationSettings settings ){
 		Interval out = null;
 		double maxPower = -1;
 		double curPower = -1;
@@ -34,21 +34,21 @@ public class PatternCompleter {
 		return out;
 	}
 	
-	public static Clause completeSuccessor( TokenStream ts, Clause pre, Interval time ){
+	public static SimpleClause completeSuccessor( SimpleTokenStream ts, SimpleClause pre, Interval time ){
 		return completeSuccessor( ts, pre, time, EvaluationSettings.DEFAULT );
 	}
 	
-	public static Clause completeSuccessor( TokenStream ts, Clause pre, Interval time, EvaluationSettings settings){
+	public static SimpleClause completeSuccessor( SimpleTokenStream ts, SimpleClause pre, Interval time, EvaluationSettings settings){
 		ArrayList<String> quantities = ts.quantities();
 		Behavior[] behaviors = Behavior.class.getEnumConstants();
 
-		Clause out = null;
+		SimpleClause out = null;
 		double maxPower = -1;
 		double curPower = -1;
 		
 		for (String quantID : quantities){
 			for (Behavior b : behaviors){
-				Clause suc = new Clause(quantID, b);
+				SimpleClause suc = new SimpleClause(quantID, b);
 				Pattern p = new Pattern(pre, suc, time);
 				curPower = EvaluationObject.evaluatePower(ts, p, settings);
 				if (curPower > maxPower){
@@ -62,17 +62,17 @@ public class PatternCompleter {
 	}
 	
 	
-	public Clause completePrecursor( TokenStream ts, Clause suc, Interval time, EvaluationSettings settings ){
+	public SimpleClause completePrecursor( SimpleTokenStream ts, SimpleClause suc, Interval time, EvaluationSettings settings ){
 		ArrayList<String> quantities = ts.quantities();
 		Behavior[] behaviors = Behavior.getKnownBehaviors();
 
-		Clause out = null;
+		SimpleClause out = null;
 		double maxPower = -1;
 		double curPower = -1;
 		
 		for (String quantID : quantities){
 			for (Behavior b : behaviors){
-				Clause pre = new Clause(quantID, b);
+				SimpleClause pre = new SimpleClause(quantID, b);
 				Pattern p = new Pattern(pre, suc, time);
 				curPower = EvaluationObject.evaluatePower(ts, p, settings);
 				if (curPower > maxPower){
@@ -85,7 +85,7 @@ public class PatternCompleter {
 		return out;
 	}
 	
-	public Clause completePrecursor( TokenStream ts, Clause suc, Interval time ){
+	public SimpleClause completePrecursor( SimpleTokenStream ts, SimpleClause suc, Interval time ){
 		return completePrecursor( ts, suc, time, EvaluationSettings.DEFAULT );
 	}
 	

@@ -1,0 +1,7 @@
+package clausesAndTokens;
+
+public interface IClause<T extends IToken> {
+
+	public boolean matches(T token);
+	
+}

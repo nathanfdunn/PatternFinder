@@ -20,7 +20,7 @@ import org.jfree.data.xy.DefaultXYDataset;
 
 import behaviorClassification.MyMath;
 import patternDetection.Behavior;
-import patternDetection.Token;
+import patternDetection.SimpleToken;
 import tests.Pnt;
 import behaviorClassification.MyMath;
 
@@ -43,7 +43,7 @@ public class TokenStreamDisplayer extends JPanel {
 	private ChartPanel chartPanel;
 	private JPanel symbolPanel;
 	
-	public TokenStreamDisplayer(ArrayList<Token> tokens){
+	public TokenStreamDisplayer(ArrayList<SimpleToken> tokens){
 		symbolPanel = new SymbolPanel(tokens);
 		this.setLayout(new BorderLayout());
 		this.add(symbolPanel, BorderLayout.SOUTH);
@@ -51,7 +51,7 @@ public class TokenStreamDisplayer extends JPanel {
 		//this.setPreferredSize(new Dimension(500, 300));
 	}
 	
-	public TokenStreamDisplayer(ArrayList<Token> tokens, double[][] values,
+	public TokenStreamDisplayer(ArrayList<SimpleToken> tokens, double[][] values,
 			String quant, double[] partition){
 		symbolPanel = new SymbolPanel(tokens);
 		this.setLayout(new BorderLayout());
@@ -127,13 +127,13 @@ public class TokenStreamDisplayer extends JPanel {
 		private double[][][] linesList;
 		private double maxX;
 		
-		public SymbolPanel(ArrayList<Token> tokens){
+		public SymbolPanel(ArrayList<SimpleToken> tokens){
 			initializePoints(tokens);
 			//this.setPreferredSize(new Dimension(500, 300));
 		}
 
 		
-		private void initializePoints(ArrayList<Token> tokens){
+		private void initializePoints(ArrayList<SimpleToken> tokens){
 			pointsList = new double[tokens.size()][][];
 			linesList = new double[tokens.size()+1][][];
 			int i;

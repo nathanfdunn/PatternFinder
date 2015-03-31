@@ -20,22 +20,22 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	}
 	
 	
-	public static EvaluationObject evaluate(TokenStream ts, Pattern p, EvaluationSettings settings){
+	public static EvaluationObject evaluate(SimpleTokenStream ts, Pattern p, EvaluationSettings settings){
 		MatchDataObject mdo = new MatchDataObject(p, ts);
 		return new EvaluationObject(mdo, settings);
 	}
 	
-	public static EvaluationObject evaluate(TokenStream ts, Pattern p){
+	public static EvaluationObject evaluate(SimpleTokenStream ts, Pattern p){
 		MatchDataObject mdo = new MatchDataObject(p, ts);
 		return new EvaluationObject(mdo);
 	}
 	
 	
-	public static double evaluatePower(TokenStream ts, Pattern p, EvaluationSettings settings){
+	public static double evaluatePower(SimpleTokenStream ts, Pattern p, EvaluationSettings settings){
 		return evaluate(ts, p, settings).getPower();
 	}
 	
-	public static double evaluatePower(TokenStream ts, Pattern p){
+	public static double evaluatePower(SimpleTokenStream ts, Pattern p){
 		return evaluate(ts, p).getPower();
 	}
 	
@@ -89,11 +89,19 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	 *  within the time window of the string
 	 */
 	private void calculateUbiquity(){		
-		int streamLen = data.getTokenStream().length();
+		int streamLen = nonUnk();	//data.getTokenStream().length();// - data;
 		int intervalWidth = this.p.time.getWidth() + 1;		//add 1 because [0,0] covers one unit
 		double p = (double)data.getSuccessors().size() / streamLen;
 		this.ubiquity = 1 - Math.pow( 1-p, intervalWidth);
 	}
+	
+	private int nonUnk(){
+		SimpleTokenStream ts = data.getTokenStream();
+		String quant = p.suc.quantID;
+		int numUnk = ts.filter( new SimpleClause(quant, Behavior.UNK) ).size();
+		return ts.length() - numUnk;
+	}
+	
 	
 	@Override
 	public int compareTo(EvaluationObject arg0) {

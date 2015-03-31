@@ -1,12 +1,12 @@
 package patternDetection;
 
 public class Pattern {
-	public Clause pre;
-	public Clause suc;
+	public SimpleClause pre;
+	public SimpleClause suc;
 	public Interval time;
 	
 	
-	public Pattern(Clause pre, Clause suc, Interval time) {
+	public Pattern(SimpleClause pre, SimpleClause suc, Interval time) {
 		this.pre = pre;
 		this.suc = suc;
 		this.time = time;

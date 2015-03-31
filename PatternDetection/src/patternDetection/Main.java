@@ -39,7 +39,7 @@ public class Main {
 		*/
 		
 		//*
-		TokenStream ts = randData();
+		SimpleTokenStream ts = randData();
 		ArrayList<EvaluationObject> patterns = new PatternExtractor().extract(ts, 100);
 		
 		for (int i=0; i<patterns.size(); i++){
@@ -51,14 +51,14 @@ public class Main {
 	}
 	
 	
-	private static TokenStream randData(){
-		TokenStream out = new TokenStream();
+	private static SimpleTokenStream randData(){
+		SimpleTokenStream out = new SimpleTokenStream();
 		int len = 100;
 		String[] quantities = {"Fe+", "Na+", "Ca+", "CO2", "O18", "D20"};
 		for (String q : quantities){
-			ArrayList<Token> tokens = new ArrayList<Token>();
+			ArrayList<SimpleToken> tokens = new ArrayList<SimpleToken>();
 			for (int i = 0; i < len; i++){
-				tokens.add( new Token(q, randBehavior(), i) );
+				tokens.add( new SimpleToken(q, randBehavior(), i) );
 			}
 			out.add(q, tokens);
 		}

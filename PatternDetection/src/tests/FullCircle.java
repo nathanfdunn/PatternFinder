@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import patternDetection.Behavior;
-import patternDetection.Clause;
+import patternDetection.SimpleClause;
 import patternDetection.EvaluationObject;
 import patternDetection.Interval;
 import patternDetection.Pattern;
 import patternDetection.PatternExtractor;
-import patternDetection.Token;
-import patternDetection.TokenStream;
-import patternDetection.TokenStream.TokenList;
+import patternDetection.SimpleToken;
+import patternDetection.SimpleTokenStream;
+import patternDetection.SimpleTokenStream.TokenList;
 import patternDetection.Tokenizer;
 import behaviorClassification.ChunkList;
 import behaviorClassification.ClassifiedChunkList;
@@ -43,7 +43,7 @@ public class FullCircle {
 //				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered.csv");
 				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered_truncated.csv");
 		
-		TokenStream ts = tokenizer.tokenize(itaseData, 0.5);	//half a year chunk width
+		SimpleTokenStream ts = tokenizer.tokenize(itaseData, 0.5);	//half a year chunk width
 		
 //		TokenList tokens = ts.stream.get("SO4");
 //		tokens.tokens.set(2, new Token("SO4",Behavior.SPI,2) );
@@ -79,8 +79,8 @@ public class FullCircle {
 		for (EvaluationObject eo : patterns)
 			System.out.println(eo);
 		
-		Clause pre = new Clause("SO4", Behavior.INC);
-		Clause suc = new Clause("SO4", Behavior.DEC);
+		SimpleClause pre = new SimpleClause("SO4", Behavior.INC);
+		SimpleClause suc = new SimpleClause("SO4", Behavior.DEC);
 		Pattern p = new Pattern(pre, suc, new Interval(1,1));
 		Pattern p2 = new Pattern(suc, pre, new Interval(1,1));
 		

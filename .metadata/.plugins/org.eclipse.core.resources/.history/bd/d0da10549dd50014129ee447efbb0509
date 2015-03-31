@@ -1,0 +1,27 @@
+package clausesAndTokens;
+
+import java.util.ArrayList;
+
+/**
+ * Used for both tokens and clauses
+ * @author nathandunn
+ *
+ */
+public class FeatureType {
+
+	private String name;
+	
+	private ArrayList<FeatureType> children;
+	
+	
+	
+	//TODO toString()?
+	public String string(){
+		return name;
+	}
+	
+	public boolean equals(FeatureType type){
+		return name.equals(type.string());
+	}
+	
+}
