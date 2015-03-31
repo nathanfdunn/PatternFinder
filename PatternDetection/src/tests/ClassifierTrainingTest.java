@@ -3,17 +3,20 @@ package tests;
 import behaviorClassification.ChunkList;
 import behaviorClassification.ClassifiedChunkList;
 import behaviorClassification.CsvToTable;
+import behaviorClassification.FeatureExtractor;
 import behaviorClassification.InputSimulator;
 import behaviorClassification.ManualInputReader;
 import behaviorClassification.ModelClassifier;
 import behaviorClassification.RawTimeSeriesTable;
 import behaviorClassification.Serializer;
+import behaviorClassification.StandardFeatureExtractor;
 import behaviorClassification.UserChunkClassifier;
 
 public class ClassifierTrainingTest {
 
 	public static void main(String[] args){
-		ModelClassifier model = new ModelClassifier(classifyAutomatically());
+		FeatureExtractor fe = new StandardFeatureExtractor();
+		ModelClassifier model = new ModelClassifier(classifyAutomatically(), fe);
 		overwriteModel(model);
 	}
 	

@@ -11,13 +11,18 @@ import behaviorClassification.Serializer;
  */
 public class Objs {
 
-	public static final Tokenizer toke = new Tokenizer((ModelClassifier)Serializer
+	public static final String SERIAL_PATH = "../../SerializedObjects/";
+	
+	public static final String DATA_PATH = "../../DataSets_R/";
+	
+	
+	public static final Tokenizer tokenizer = new Tokenizer((ModelClassifier)Serializer
 			.deserialize("GISP2_ModelClassifier"));
 	
-	public static Tokenizer getTokenizer(){
-		return new Tokenizer((ModelClassifier)Serializer
-				.deserialize("GISP2_ModelClassifier"));
-	}
+//	public static Tokenizer getTokenizer(){
+//		return new Tokenizer((ModelClassifier)Serializer
+//				.deserialize("GISP2_ModelClassifier"));
+//	}
 	
 	
 	

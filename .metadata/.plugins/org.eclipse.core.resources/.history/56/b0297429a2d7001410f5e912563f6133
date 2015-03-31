@@ -1,0 +1,22 @@
+package tests;
+
+import java.util.ArrayList;
+
+import patternDetection.EvaluationObject;
+import patternDetection.EvaluationObject.EvaluationSettings;
+import patternDetection.PatternExtractor;
+import patternDetection.SimpleTokenStream;
+
+public class ResultsDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void displayPatterns(SimpleTokenStream sts, EvaluationSettings settings){
+		ArrayList<EvaluationObject> patterns = new PatternExtractor(settings).extract(sts);
+		Pnt.pntArr(patterns);
+	}
+
+}

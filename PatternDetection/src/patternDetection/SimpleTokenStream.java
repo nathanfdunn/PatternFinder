@@ -13,6 +13,13 @@ public class SimpleTokenStream {
 		this(null);
 	}
 	
+	public SimpleTokenStream subStream(String[] quants){
+		SimpleTokenStream out = new SimpleTokenStream();
+		for (String q : quants)
+			out.add(q, this.getQuant(q));
+		out.partition = this.partition;
+		return out;
+	}
 	
 	public static SimpleTokenStream mergeStreams( 
 			SimpleTokenStream stream1, SimpleTokenStream stream2 ){
@@ -58,6 +65,8 @@ public class SimpleTokenStream {
 	}
 	
 	public ArrayList<SimpleToken> getQuant(String quantID){
+		if (!stream.containsKey(quantID))
+			throw new Error("Invalid quantityID: "+quantID);
 		return stream.get(quantID).tokens;
 	}
 	

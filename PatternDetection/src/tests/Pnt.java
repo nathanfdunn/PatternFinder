@@ -1,5 +1,6 @@
 package tests;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Pnt {
@@ -12,12 +13,12 @@ public class Pnt {
 		System.out.println();
 	}
 	
-	public static<T extends Object> void pntArr(T[] arg){
+	public static<T> void pntArr(T[] arg){
 		for (int i=0; i<arg.length; i++)
 			System.out.println(arg[i]);
 	}
 	
-	public static<T extends Object> void pntArr(T[][] arg){
+	public static<T> void pntArr(T[][] arg){
 		for (int i=0; i<arg.length; i++){
 			String line = "";
 			for (int j=0; j<arg[i].length; j++){
@@ -62,4 +63,15 @@ public class Pnt {
 		System.out.print("PAUSE");
 		new Scanner(System.in).nextLine();
 	}
+	
+	public static<T> void pntArr(ArrayList<T> arg){
+		for (T t : arg)
+			System.out.println(t);
+	}
 }
+
+
+
+
+
+

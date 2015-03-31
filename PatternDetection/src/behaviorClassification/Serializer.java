@@ -9,13 +9,15 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
 
+import tests.Objs;
+
 public class Serializer {
 
-	private static final String path = "../../SerializedObjects/";
+	private static final String path = Objs.SERIAL_PATH;//"../../SerializedObjects/";
 	
 	public static void serialize(Serializable obj, String fileName){
 		try{
-			fileName = "../../SerializedObjects/" + fileName + ".ser";
+			fileName = path + fileName + ".ser";
 			FileOutputStream fileOut = new FileOutputStream(fileName);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(obj);

@@ -23,13 +23,14 @@ import behaviorClassification.RawTimeSeriesTable;
 public class ItaseSeasonal {
 
 	public static void main(String[] args) {
-		Pnt.pnt("Full ITASE:");
-		fullItase();
-		Pnt.pause();
+//		Pnt.pnt("Full ITASE:");
+		//fullItase();
+//		Pnt.pause();
 		Pnt.pnt("\n\nTruncated ITASE:");
 		shortItase();
-		Pnt.pnt("\n\nSynthetic Seasonal");
-		syntheticSeasonal();
+//		Pnt.pnt("\n\nSynthetic Seasonal");
+//		syntheticSeasonal();
+		
 	}
 	
 //	public static Tokenizer getTokenizer(){
@@ -44,23 +45,23 @@ public class ItaseSeasonal {
 //		return getTokenizer().tokenize(table, 0.5);
 //	}
 	
-	private static void fullItase(){
+	public static void fullItase(){
 		RawTimeSeriesTable table = CsvToTable.
 				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered.csv");
-		SimpleTokenStream sts = Objs.getTokenizer().tokenize(table, 0.5);
-		showStuff(sts, table, null);
+		SimpleTokenStream sts = Objs.tokenizer.tokenize(table, 0.5);
+		showTokensAndPatterns(sts, table, null);
 	}
 	
 	private static void shortItase(){
 		RawTimeSeriesTable table = CsvToTable.
 				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered_truncated.csv");
-		SimpleTokenStream sts = Objs.getTokenizer().tokenize(table, 0.5);
-		showStuff(sts, table, null);
+		SimpleTokenStream sts = Objs.tokenizer.tokenize(table, 0.5);
+		showTokensAndPatterns(sts, table, null);
 	}
 	
 	private static void syntheticSeasonal(){
 		SimpleTokenStream sts = perfectSeasonal();
-		showStuff(sts, null, null);
+		showTokensAndPatterns(sts, null, null);
 	}
 	
 	//will only show the first group of data
@@ -90,7 +91,8 @@ public class ItaseSeasonal {
 			System.out.println(eo);
 	}*/
 	
-	public static void showStuff(SimpleTokenStream sts, RawTimeSeriesTable table, EvaluationSettings settings){
+	public static void showTokensAndPatterns(SimpleTokenStream sts, RawTimeSeriesTable table,
+			EvaluationSettings settings){
 		double[] partition = sts.getPartition() == null ? new double[0] : sts.getPartition();
 		
 		TokenStreamDisplayer tsd = table == null?
@@ -104,7 +106,7 @@ public class ItaseSeasonal {
 				"SO4", 
 				partition
 				);
-				
+
 		JFrame win = new JFrame();
 		win.add(tsd);
 		win.pack();

@@ -28,7 +28,7 @@ public class TokenStreamDisplayerTest {
 		//win.add(tsd.getSymbolPanel(), BorderLayout.CENTER);
 		//win.setLayout(new GridBagLayout());
 //		GridBagConstraints gbc = new GridBagConstraints();
-		int num=1;
+		int num=2;
 		win.setLayout(new GridLayout(num,1)); // 0,1
 		
 		for (int i=0; i<num; i++){

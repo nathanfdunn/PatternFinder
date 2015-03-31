@@ -1,0 +1,22 @@
+package tests;
+
+import patternDetection.SimpleTokenStream;
+import behaviorClassification.CsvToTable;
+import behaviorClassification.RawTimeSeriesTable;
+
+public class Gisp2Test {
+
+	public static void main(String[] args){
+	
+		
+		RawTimeSeriesTable table = CsvToTable.readCsv(Objs.DATA_PATH+"nfdunn_GISP2_formatted.csv");
+		SimpleTokenStream sts = Objs.tokenizer.tokenize(table, 10);
+
+		
+//		table = table.subTable(start, end);
+//		SimpleTokenStream sts = Objs.tokenizer.tokenize(table, numChunks, start, end);
+//		return new Object[]{table, sts};
+		
+	}
+	
+}

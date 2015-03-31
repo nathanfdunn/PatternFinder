@@ -32,20 +32,30 @@ public class RawTimeSeriesTable extends DataTable{
 	public RawTimeSeriesTable(double[][] entries, String[] headers, int timeInd) {
 		super(entries, headers);
 		this.timeInd = timeInd;
+//		swapTimeCol(this.entries, timeInd);
+//		this.headers = swapAndCopy(headers, timeInd);
 		
-		double[] times = entries[timeInd];
-		System.out.println(times.length);
-		System.out.println(times.length);
-		System.out.println(times.length);
-		System.out.println(times.length);
+//		double[] times = entries[timeInd];
+		double[] times = getTimes();
+		if (times.length != 0)
+			this.before = times[0] < times[ times.length-1 ];
+	}
+	
+	private void swapTimeCol(double[][] entries, int timeInd){
+		double[] temp = entries[timeInd];
+		entries[timeInd] = entries[0];
+		entries[0] = temp;
+	}
+	
+	private String[] swapAndCopy(String[] headers, int timeInd){
+		String[] out = new String[headers.length];
+		for (int i=0; i<out.length; i++)
+			out[i] = headers[i];
+		String temp = out[timeInd];
+		out[timeInd] = out[0];
+		out[0] = temp;
 		
-////		Pnt.pntArr(times);
-//		Pnt.pnt(times.length);
-//		
-////		Pnt.pntArr(times);
-//		Pnt.pnt(times[0]);
-//		Pnt.pnt(times[times.length-1]);
-		this.before = times[0] < times[ times.length-1 ];
+		return out;
 	}
 	
 	
@@ -73,6 +83,7 @@ public class RawTimeSeriesTable extends DataTable{
 	}
 
 	public double[] getTimes(){
+//		return entries[0];
 		return entries[timeInd];
 	}
 	
@@ -118,9 +129,12 @@ public class RawTimeSeriesTable extends DataTable{
 			out.setRow(this.getRow( inds.get(i)), i);
 		
 		out.before = this.before;
-		
 		return out;
 	}
+	
+//	public RawTimeSeriesTable subTable(String[] headers){
+//		
+//	}
 	
 	
 //	public RawDataTable subTable(String[] desiredQuantities){

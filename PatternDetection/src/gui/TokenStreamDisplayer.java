@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
@@ -19,8 +20,10 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.DefaultXYDataset;
 
 import behaviorClassification.MyMath;
+import behaviorClassification.RawTimeSeriesTable;
 import patternDetection.Behavior;
 import patternDetection.SimpleToken;
+import patternDetection.SimpleTokenStream;
 import tests.Pnt;
 import behaviorClassification.MyMath;
 
@@ -36,8 +39,9 @@ public class TokenStreamDisplayer extends JPanel {
 		return symbolPanel;
 	}
 
-	private static final Dimension prefSize = new Dimension(100,300);//new Dimension(500,300);
-	
+	private static final Dimension DISP_SIZE = new Dimension(200,600);//new Dimension(500,300);
+	private static final Dimension SYMB_SIZE = new Dimension(200,300);
+	private static final Dimension CHART_SIZE = new Dimension(700,250);
 	
 //	private JFreeChart chart;
 	private ChartPanel chartPanel;
@@ -49,7 +53,22 @@ public class TokenStreamDisplayer extends JPanel {
 		this.add(symbolPanel, BorderLayout.SOUTH);
 		this.add(symbolPanel);
 //		this.setPreferredSize(new Dimension(500, 300));
-		this.setPreferredSize(prefSize);
+//		this.setPreferredSize();
+	}
+	
+	/**
+	 * Creates a displayer for just the specified quantity
+	 * @param sts
+	 * @param table
+	 * @param quant
+	 */
+	public TokenStreamDisplayer(SimpleTokenStream sts, RawTimeSeriesTable table, String quant){
+		this(
+				sts.getQuant(quant), 
+				new double[][]{ table.getTimes(), table.getCol(quant)},
+				quant,
+				sts.getPartition()
+				);		
 	}
 	
 	public TokenStreamDisplayer(ArrayList<SimpleToken> tokens, double[][] values,
@@ -78,6 +97,13 @@ public class TokenStreamDisplayer extends JPanel {
 //		this.setPreferredSize(prefSize);
 	}
 	
+	public void display(){
+		JFrame win = new JFrame();
+		win.add(this);
+		win.pack();
+		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		win.setVisible(true);
+	}
 	
 	private static ChartPanel createChartPanel(double[][] values, String quant,
 			double[] partition){
@@ -86,7 +112,7 @@ public class TokenStreamDisplayer extends JPanel {
 		dataSet.addSeries(quant, values);
 
 		JFreeChart chart  = ChartFactory.createXYLineChart(
-				quant, // chart title
+				"",//quant, // chart title
 				"", // domain axis label
 				"", // range axis label
 				dataSet,  // initial series
@@ -96,12 +122,13 @@ public class TokenStreamDisplayer extends JPanel {
 				false // URLs?
 				);
 		
-		for (double mark : partition){
-			ValueMarker m = new ValueMarker(mark);
-			m.setPaint(Color.black);
-			XYPlot xyp = (XYPlot)chart.getPlot();
-			xyp.addDomainMarker(m);
-		}
+		if (partition != null)
+			for (double mark : partition){
+				ValueMarker m = new ValueMarker(mark);
+				m.setPaint(Color.black);
+				XYPlot xyp = (XYPlot)chart.getPlot();
+				xyp.addDomainMarker(m);
+			}
 
 		
 		double min = Math.min(0, MyMath.getMin(values[1]));
@@ -112,10 +139,17 @@ public class TokenStreamDisplayer extends JPanel {
 		((XYPlot)chart.getPlot()).getRangeAxis().setRange(min, max + pad);
 		ChartPanel out = new ChartPanel(chart, false);
 		
+		int maxWidth = //100;//
+		1920;
+		int maxHeight = //200;//
+				1200;
+		
 		out.setMinimumDrawWidth( 0 );
 		out.setMinimumDrawHeight( 0 );
-		out.setMaximumDrawWidth( 1920 );
-		out.setMaximumDrawHeight( 1200 );
+		out.setMaximumDrawWidth( maxWidth );
+		out.setMaximumDrawHeight( maxHeight );
+		
+		out.setPreferredSize(CHART_SIZE);
 		
 		return out;
 	}
