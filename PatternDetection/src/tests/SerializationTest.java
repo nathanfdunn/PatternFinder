@@ -14,7 +14,7 @@ import behaviorClassification.CsvToTable;
 import behaviorClassification.IInputReader;
 import behaviorClassification.InputSimulator;
 import behaviorClassification.RawTimeSeriesTable;
-import behaviorClassification.UserClassifier;
+import behaviorClassification.UserChunkClassifier;
 
 public class SerializationTest {
 	//TODO actually test the Serializer class
@@ -24,7 +24,7 @@ public class SerializationTest {
 		System.out.println(cl.getNumChunks());
 		System.out.println(cl);
 		
-		ClassifiedChunkList ccl = new UserClassifier(new InputSimulator()).classify(cl);
+		ClassifiedChunkList ccl = new UserChunkClassifier(new InputSimulator()).classify(cl);
 		System.out.println(ccl);
 
 		try{

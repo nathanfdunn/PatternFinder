@@ -1,0 +1,17 @@
+1427779796013	Rename type 'ItaseExtraction'
+1427783067815	Delete element
+1427789151854	Delete element
+1427789213294	Delete element
+1427790027769	Rename type 'KnnTest'
+1427792704730	Rename type 'UserClassifier'
+1427793413809	Rename type 'ChunkClassifier'
+1427795455389	Rename local variable 'startTime'
+1427795468435	Rename local variable 'endTime'
+1427795475514	Rename local variable 'startTime'
+1427795484101	Rename local variable 'endTime'
+1427796172995	Rename method 'getLastTime'
+1427796181237	Rename method 'getFirstTime'
+1427797211211	Rename local variable 'o'
+1427799157053	Rename local variable 'lowest'
+1427799167681	Rename local variable 'lowInd'
+1427799307682	Rename local variable 'dummyEntries'

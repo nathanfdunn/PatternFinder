@@ -22,7 +22,9 @@ public class Tokenizer {
 		for (int i=0; i<chunks.size(); i++){
 			Chunk chunk = chunks.get(i);
 			Behavior b = model.classifyChunkBehavior(chunk);
-			SimpleToken t = new SimpleToken(quant, b, i);
+//			SimpleToken t = new SimpleToken(quant, b, i);	//TODO change back
+			SimpleToken t = new SimpleToken(quant, b, i, chunk);
+
 			out.add(t);
 		}
 		return out;
@@ -42,10 +44,23 @@ public class Tokenizer {
 		return tokenize(cl);
 	}
 	
+	public SimpleTokenStream tokenize(RawTimeSeriesTable table, double chunkWidth, 
+			double start, double end){
+		ChunkList cl = new ChunkList(table, chunkWidth, start, end);
+		return tokenize(cl);
+	}
+	
 	public SimpleTokenStream tokenize(RawTimeSeriesTable table, int numChunks){
 		double chunkWidth = table.timeSpan()/numChunks;
 		return tokenize(table, chunkWidth);
 	}
+	
+	public SimpleTokenStream tokenize(RawTimeSeriesTable table, int numChunks, 
+			double start, double end){
+		double chunkWidth = table.timeSpan()/numChunks;
+		return tokenize(table, chunkWidth, start, end);		
+	}
+	
 	
 	
 //	

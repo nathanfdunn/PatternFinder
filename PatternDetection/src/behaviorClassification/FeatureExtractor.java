@@ -1,11 +1,15 @@
 package behaviorClassification;
 
+import java.io.Serializable;
+
 /**
  * A class to find the relevant features of a chunk of time series data
  * @author nathandunn
  *
  */
-public abstract class FeatureExtractor {
+public abstract class FeatureExtractor implements Serializable {
+
+	private static final long serialVersionUID = 1360310641613878068L;
 
 	public abstract double[] extractFeatures(double[] values, double[] times);
 	
@@ -19,14 +23,13 @@ public abstract class FeatureExtractor {
 
 	public abstract String[] featureNames();
 	
-	//TODO make non-static?
 	/**
 	 * Determines if the specified chunk has enough information in it for
 	 *  features to be meaningful
-	 * @param c
+	 * @param c		a cleaned Chunk
 	 * @return
 	 */
-	public final static boolean isFeaturizable(Chunk c){
+	public static boolean isFeaturizable(Chunk c){
 		final int minLength = 5;
 		return c.getLength() >= minLength;
 	}

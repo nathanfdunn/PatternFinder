@@ -11,7 +11,7 @@ import behaviorClassification.ManualInputReader;
 import behaviorClassification.RawTimeSeriesTable;
 import behaviorClassification.Serializer;
 import behaviorClassification.StandardFeatureExtractor;
-import behaviorClassification.UserClassifier;
+import behaviorClassification.UserChunkClassifier;
 
 public class TrainClassifier {
 
@@ -27,7 +27,7 @@ public class TrainClassifier {
 		System.out.println("chunking good");
 
 		//ClassifiedChunkList ccl = new UserClassifier(new ManualInputReader()).classify(cl);
-		ClassifiedChunkList ccl = new UserClassifier(
+		ClassifiedChunkList ccl = new UserChunkClassifier(
 				new ManualInputReader()
 				).classify(cl);
 

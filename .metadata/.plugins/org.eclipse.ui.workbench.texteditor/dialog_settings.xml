@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="get" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
-			<item value="get"/>
-			<item value="ubiquity"/>
-			<item value="param"/>
-			<item value="accur"/>
-			<item value="evaluate"/>
-			<item value="setPre"/>
-			<item value="Drawing"/>
-			<item value="paintLine"/>
+			<item value="index"/>
+			<item value="indOf"/>
+			<item value="subT"/>
+			<item value="GISP2"/>
+			<item value="sub"/>
+			<item value="subtable"/>
+			<item value="cleanChunk"/>
+			<item value="toSt"/>
 		</list>
 		<list key="replacehistory">
 		</list>

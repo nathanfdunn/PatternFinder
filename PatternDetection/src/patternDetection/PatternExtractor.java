@@ -52,7 +52,9 @@ public class PatternExtractor {
 					Interval t = PatternCompleter.completeTime(ts, pre, suc);
 					if (t!=null){
 						Pattern p = new Pattern(pre, suc, t);
-						out.add( evaluate(ts, p) );
+						EvaluationObject eval = evaluate(ts, p);
+						if (eval.powerIsValid())
+							out.add( eval );
 						if (out.size() > numPatterns){
 							evictLowest(out);
 						}
@@ -62,6 +64,10 @@ public class PatternExtractor {
 		Collections.sort(out, Collections.reverseOrder());
 		return out;
 	}
+	
+//	private boolean legalPattern(Pattern p){
+//		
+//	}
 	
 	
 	private EvaluationObject evaluate(SimpleTokenStream ts, Pattern p){

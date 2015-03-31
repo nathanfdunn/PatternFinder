@@ -11,10 +11,7 @@ import java.util.HashMap;
  *
  */
 public class KnnModel implements Serializable {
-	
-	public FeatureTable getTrainingData() {
-		return trainingData;
-	}
+
 
 
 	private FeatureTable trainingData;
@@ -22,6 +19,8 @@ public class KnnModel implements Serializable {
 	private double[] stdVec;
 	
 	private String[] classes;
+	
+	//TODO: make Settings object
 	private int k = 10;				//number of neighbors
 	private double gamma = 1;		//exponent for weighting distances
 	private double maxWeight = 100;	//maximum weight of a single vote
@@ -30,6 +29,9 @@ public class KnnModel implements Serializable {
 	
 	
 	public KnnModel(FeatureTable trainingData){
+		this.k = 10;
+		this.gamma = 1;
+		this.maxWeight = 100;
 		train(trainingData);
 	}
 	
@@ -41,6 +43,14 @@ public class KnnModel implements Serializable {
 		this.gamma = gamma;
 		this.maxWeight = maxWeight;
 		train(trainingData);
+	}
+	
+	public KnnModel(ClassifiedChunkList ccl){
+		this( new FeatureTable(ccl) );
+	}
+	
+	public KnnModel(ClassifiedChunkList ccl, FeatureExtractor fe){
+		this( new FeatureTable(ccl, fe) );
 	}
 
 
@@ -166,16 +176,16 @@ public class KnnModel implements Serializable {
 			//Insufficient data for a meaningful answer
 			return Double.NaN;
 
-		FeatureTable copy = trainingData;// trainingData.copy();
-		int n = copy.getNumRows();
+		//FeatureTable copy = trainingData;// trainingData.copy();
+		int n = trainingData.getNumRows();
 		int matches = 0;
 		for (int i=0; i<n; i++){
 			int[] inds = rangeExclude(i, n);
-			FeatureTable sub = copy.subTable(inds);
+			FeatureTable sub = trainingData.subTable(inds);
 			KnnModel model = 
 					new KnnModel(sub, this.k, this.gamma, this.maxWeight);
-			String prediction = model.classify( copy.getRow(i), true );
-			if (prediction.equals(copy.getClassifications()[i]))
+			String prediction = model.classify( trainingData.getRow(i), true );
+			if (prediction.equals( trainingData.getClassifications()[i]) )
 				matches++;
 		}
 		return matches / (double)n;
@@ -263,5 +273,10 @@ public class KnnModel implements Serializable {
 		if (i!=n-1)
 			out[i] = n-1;
 		return out;
+	}
+	
+	
+	public FeatureTable getTrainingData() {
+		return trainingData;
 	}
 }

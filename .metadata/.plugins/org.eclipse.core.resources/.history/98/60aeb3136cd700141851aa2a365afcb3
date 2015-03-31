@@ -1,0 +1,123 @@
+package tests;
+
+import gui.TokenStreamDisplayer;
+
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
+import patternDetection.Behavior;
+import patternDetection.SimpleClause;
+import patternDetection.EvaluationObject;
+import patternDetection.Interval;
+import patternDetection.Pattern;
+import patternDetection.PatternExtractor;
+import patternDetection.SimpleToken;
+import patternDetection.SimpleTokenStream;
+import patternDetection.Tokenizer;
+import behaviorClassification.CsvToTable;
+import behaviorClassification.KnnModel;
+import behaviorClassification.ModelClassifier;
+import behaviorClassification.RawTimeSeriesTable;
+import behaviorClassification.Serializer;
+
+/**
+ * Tests Pattern Extraction on seasonal data
+ * @author nathandunn
+ *
+ */
+public class ItaseSeasonal {
+
+	public static void main(String[] args) {
+		
+		fullItase();
+		shortItase();
+		syntheticSeasonal();
+//		SimpleClause pre = new SimpleClause("SO4", Behavior.INC);
+//		SimpleClause suc = new SimpleClause("SO4", Behavior.DEC);
+//		Pattern p = new Pattern(pre, suc, new Interval(1,1));
+//		Pattern p2 = new Pattern(suc, pre, new Interval(1,1));
+//		
+//		
+//		System.out.println(EvaluationObject.evaluatePower(ts, p));
+//		System.out.println(EvaluationObject.evaluatePower(ts, p2));
+		
+	}
+	
+	private static Tokenizer getTokenizer(){
+		KnnModel model = (KnnModel)Serializer.deserialize("GISP2_Model");
+		return new Tokenizer(new ModelClassifier(model));
+	}
+	
+	private static SimpleTokenStream parseFile(String fileName){
+		RawTimeSeriesTable table = CsvToTable.readCsv(fileName);
+		return getTokenizer().tokenize(table, 0.5);
+	}
+	
+	private static void fullItase(){
+		RawTimeSeriesTable table = CsvToTable.
+				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered.csv");
+		SimpleTokenStream sts = getTokenizer().tokenize(table, 0.5);
+		showStuff(sts, table);
+	}
+	
+	private static void shortItase(){
+		RawTimeSeriesTable table = CsvToTable.
+				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered_truncated.csv");
+		SimpleTokenStream sts = getTokenizer().tokenize(table, 0.5);
+		showStuff(sts, table);
+	}
+	
+	private static void syntheticSeasonal(){
+		SimpleTokenStream sts = perfectSeasonal();
+		showStuff(sts, null);
+	}
+	
+	//will only show the first group of data
+	private static void showStuff(SimpleTokenStream sts, RawTimeSeriesTable table){
+		double[] partition = sts.getPartition() == null? new double[0] : sts.getPartition();
+		
+		TokenStreamDisplayer tsd = table == null?
+				new TokenStreamDisplayer(sts.getQuant("SO4")) :
+				new TokenStreamDisplayer(
+				sts.getQuant(sts.quantities().get(0)),
+				new double[][]{
+					table.getTimes(),
+					table.getCol(0)
+				},
+				"SO4", 
+				partition
+				);
+				
+		JFrame win = new JFrame();
+		win.add(tsd);
+		win.pack();
+		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		win.setVisible(true);		
+		
+		ArrayList<EvaluationObject> patterns = PatternExtractor.defaultExtract(sts);
+		for (EvaluationObject eo : patterns)
+			System.out.println(eo);
+	}
+	
+	
+	private static SimpleTokenStream perfectSeasonal(){
+		SimpleTokenStream out = new SimpleTokenStream();
+		ArrayList<SimpleToken> sulfate = new ArrayList<SimpleToken>();
+		//double[] partition = new double[226];
+		for (int i=0; i<226; i++){
+			SimpleToken t = new SimpleToken("SO4", Behavior.UNK, i);
+			t.behavior = i%2==0? Behavior.INC: Behavior.DEC;
+			sulfate.add(t);
+		}
+		out.add("SO4", sulfate);
+		return out;
+	}
+	
+	
+	
+	
+	
+	
+
+}

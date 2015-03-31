@@ -1,5 +1,7 @@
 package tests;
 
+import java.util.Scanner;
+
 public class Pnt {
 
 	public static void pnt(Object o){
@@ -54,5 +56,10 @@ public class Pnt {
 	public static void pntArr(double[] arg){
 		for (int i=0; i<arg.length; i++)
 			System.out.println(arg[i]);
+	}
+	
+	public static void pause(){
+		System.out.print("PAUSE");
+		new Scanner(System.in).nextLine();
 	}
 }

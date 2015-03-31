@@ -1,0 +1,12 @@
+package tests;
+
+/**
+ * Used to get a whole bunch of objects that are regularly used
+ * @author nathandunn
+ *
+ */
+public class Objs {
+
+	
+	
+}

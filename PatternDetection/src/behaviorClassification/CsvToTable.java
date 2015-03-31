@@ -24,8 +24,10 @@ public class CsvToTable {
 	 *  RawTimeSeriesTable. CSV must be in the format of a table with multiple
 	 *  quantity columns and one time column. Each column must have a header.
 	 *  
-	 *  Note: the time column must be the last column of the table
-	 *   (will fix in a later update)
+	 * To correctly guess the time column, there should be many entries in the table.
+	 *  If there is a tie between which is most likely to be the time column, the
+	 *  rightmost column will be used, so it is important that depth or any other
+	 *  monotone values appear to the left of the time column.
 	 *  
 	 * @param fileName	the CSV to be parsed
 	 * @return			the formatted table
@@ -63,14 +65,39 @@ public class CsvToTable {
 	
 	/**
 	 * Figures out which column is most likely to be the one containing the
-	 *  time values
-	 * Note: currently assumes it is the last column
+	 *  time values.
+//	 * Note: currently assumes it is the last column
 	 * @param entries
 	 * @return
 	 */
 	private static int findTimeInd(double[][] entries){
+		int[] inversions = new int[entries.length];
+		for (int i=0; i<entries.length; i++)
+			inversions[i] = calculateInversions(entries[i]);
+		
+		int indOfLowest = entries.length-1;
+		int lowestValue = -1;
+		for (int i=entries.length-1; i>=0; i--){
+			if (inversions[i] < lowestValue){
+				lowestValue = inversions[i];
+				indOfLowest = i;
+			}
+		}
+		return indOfLowest;
 		//TODO: Find which column is "most" sorted
-		return entries.length-1;		//Assume it's the last column
+//		return entries.length-1;		//Assume it's the last column
+	}
+	
+	private static int calculateInversions(double[] values){
+		int inv1=0;
+		int inv2=0;
+		for (int i=0; i<values.length-1; i++){
+			if (values[i] < values[i+1])
+				inv1++;
+			else if (values[i] > values[i+1])	//handles NaNs as well as ties
+				inv2++;
+		}
+		return Math.min(inv1, inv2);
 	}
 	
 	//Strips off the quote marks

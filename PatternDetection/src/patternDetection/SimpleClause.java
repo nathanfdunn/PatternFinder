@@ -15,6 +15,6 @@ public class SimpleClause {
 	}
 	
 	public String toString(){
-		return quantID + behavior;
+		return quantID + behavior.toChar();
 	}
 }

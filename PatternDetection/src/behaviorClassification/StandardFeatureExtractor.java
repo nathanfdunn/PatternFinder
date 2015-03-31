@@ -2,6 +2,12 @@ package behaviorClassification;
 
 public class StandardFeatureExtractor extends FeatureExtractor {
 
+	private static final long serialVersionUID = -3950662327345673055L;
+	
+	
+	
+	private static final int MIN_LENGTH = 5;
+	
 	@Override
 	public double[] extractFeatures(double[] values, double[] times) {
 		return new double[]{
@@ -37,4 +43,13 @@ public class StandardFeatureExtractor extends FeatureExtractor {
 		
 		return w/std;
 	}
+
+//	@Override
+//	public boolean isFeaturizable(Chunk c) {
+//		return c.getLength() >= MIN_LENGTH;
+//	}
+	
+//	public static boolean isFeaturizable(Chunk c){
+//		return true;
+//	}
 }

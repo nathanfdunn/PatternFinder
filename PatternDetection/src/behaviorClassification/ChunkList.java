@@ -27,19 +27,31 @@ public class ChunkList {
 		this(table, table.timeSpan()/numChunks);
 	}
 	
+	//Used to ensure every no values are left out in a partition
+	// starting at the earliest time and ending at the latest
+	private static final double EPS = 0.0000001;
+
 	/**
 	 * Breaks the information in the table into Chunks whose time spans
-	 *  are all (with the possible exception of the last chunk) equal
-	 *  to chunkWidth time units
+	 *  are all equal to chunkWidth time units
 	 * @param table
 	 * @param chunkWidth
 	 */
 	public ChunkList(RawTimeSeriesTable table, double chunkWidth){
+		this(table, chunkWidth, table.getEarliestTime() - EPS, table.getLatestTime() + EPS);
+	}
+	
+	/**
+	 * Breaks the information in the table from start to end into Chunks whose time spans
+	 *  are all equal to chunkWidth time units
+	 * @param table
+	 * @param chunkWidth
+	 * @param start
+	 * @param end
+	 */
+	public ChunkList(RawTimeSeriesTable table, double chunkWidth, double start, double end){
 		chunkList = new HashMap<String, ArrayList<Chunk>>();
 		double[] times = table.getTimes();
-		double start = table.getFirstTime();
-		double end = table.getLastTime();
-		//double[] partition 
 		partition = Partitioner.seq(start, end, chunkWidth);
 	
 		int[][] inds = Partitioner.partitionTimes(times, partition);

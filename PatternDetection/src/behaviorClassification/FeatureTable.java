@@ -14,6 +14,8 @@ public class FeatureTable extends DataTable {
 	private static final long serialVersionUID = 7L;
 	private String[] classifications;
 	
+	//TODO: add a FeatureExtractor field?
+	
 	public FeatureTable(double[][] entries, String[] headers, String[] classifications){
 		super(entries, headers);
 		this.classifications = classifications;
@@ -45,6 +47,12 @@ public class FeatureTable extends DataTable {
 				classifications.toArray(new String[classifications.size()]);
 	}
 	
+	public FeatureTable(ClassifiedChunkList list){
+		this( list, new StandardFeatureExtractor() );
+	}
+	
+	
+	//TODO: refactor
 	/**
 	 * Returns a copy of this table only including the rows whose
 	 *  indicies are in the specified array

@@ -1,0 +1,13 @@
+package tests;
+
+import behaviorClassification.StandardFeatureExtractor;
+
+public class FeatureExtractorTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Pnt.pntArr((new StandardFeatureExtractor()).extractFeatures(arr2,t));
+		Pnt.pntArr(new StandardFeatureExtractor().featureNames());
+	}
+
+}

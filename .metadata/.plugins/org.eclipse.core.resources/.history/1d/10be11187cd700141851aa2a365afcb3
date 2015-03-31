@@ -1,0 +1,33 @@
+package tests;
+
+import gui.TokenStreamDisplayer;
+
+import java.io.File;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
+import patternDetection.EvaluationObject;
+import patternDetection.PatternExtractor;
+import patternDetection.SimpleToken;
+import patternDetection.SimpleTokenStream;
+import behaviorClassification.CsvToTable;
+import behaviorClassification.RawTimeSeriesTable;
+
+public class TamboraTest {
+
+	public static void main(String[] args) {
+		
+		RawTimeSeriesTable table = CsvToTable.readCsv("/Users/nathandunn/Desktop/tamboraTable.csv",0);
+		
+		SimpleTokenStream sts = ItaseSeasonal.getTokenizer().tokenize(table, 50.0, 1900, 2000);
+		Pnt.pnt(table);
+		table = table.subTable(1900, 2000);
+		Pnt.pnt(table);
+		ItaseSeasonal.showStuff(sts, table);
+		
+		
+	}
+
+
+}

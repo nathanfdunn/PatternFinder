@@ -48,7 +48,8 @@ public class TokenStreamDisplayer extends JPanel {
 		this.setLayout(new BorderLayout());
 		this.add(symbolPanel, BorderLayout.SOUTH);
 		this.add(symbolPanel);
-		//this.setPreferredSize(new Dimension(500, 300));
+//		this.setPreferredSize(new Dimension(500, 300));
+		this.setPreferredSize(prefSize);
 	}
 	
 	public TokenStreamDisplayer(ArrayList<SimpleToken> tokens, double[][] values,
@@ -80,7 +81,7 @@ public class TokenStreamDisplayer extends JPanel {
 	
 	private static ChartPanel createChartPanel(double[][] values, String quant,
 			double[] partition){
-		
+
 		DefaultXYDataset dataSet = new DefaultXYDataset();
 		dataSet.addSeries(quant, values);
 
@@ -101,9 +102,11 @@ public class TokenStreamDisplayer extends JPanel {
 			XYPlot xyp = (XYPlot)chart.getPlot();
 			xyp.addDomainMarker(m);
 		}
+
 		
 		double min = Math.min(0, MyMath.getMin(values[1]));
 		double max = MyMath.getMax(values[1]);
+
 		double pad = (max-min)/10;
 		
 		((XYPlot)chart.getPlot()).getRangeAxis().setRange(min, max + pad);

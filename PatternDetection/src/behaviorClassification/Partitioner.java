@@ -65,14 +65,13 @@ public class Partitioner {
 	 */
 	public //private 
 	static double[] seq(double start, double end, double chunkWidth){
-		final double eps = 0.0001;
 		int numChunks = (int)Math.floor((end-start)/chunkWidth);
 		double[] out = new double[numChunks+1];
-		out[0] = start - eps;
+		out[0] = start;
 		for (int i=1; i<numChunks; i++){
 			out[i] = out[i-1] + chunkWidth;
 		}
-		out[numChunks] = end + eps;			//TODO: test
+		out[numChunks] = end;
 		return out;
 	}
 	

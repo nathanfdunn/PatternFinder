@@ -174,6 +174,23 @@ public class MyMath {
 		return -getMin(neg(vals));
 	}
 	
+	public static int indOfMin(double[] vals){
+		int lowInd = -1;
+		double lowest = Double.POSITIVE_INFINITY;
+		for (int i=0; i<vals.length; i++){
+			if (vals[i] < lowest){
+				lowInd = i;
+				lowest = vals[i];
+			}
+		}
+		return lowInd;
+	}
+	
+	public static int indOfMax(double[] vals){
+		return indOfMin(neg(vals));
+	}
+	
+	
 	//Can be replaced with P301 operation
 	public static double[][] transpose(double[][] arr){
 		//TODO test that it is a square array;

@@ -95,6 +95,10 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 		this.ubiquity = 1 - Math.pow( 1-p, intervalWidth);
 	}
 	
+	public boolean powerIsValid(){
+		return power != -1 && !Double.isNaN(power);
+	}
+	
 	private int nonUnk(){
 		SimpleTokenStream ts = data.getTokenStream();
 		String quant = p.suc.quantID;

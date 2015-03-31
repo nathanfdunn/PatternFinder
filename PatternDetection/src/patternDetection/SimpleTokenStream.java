@@ -14,6 +14,23 @@ public class SimpleTokenStream {
 	}
 	
 	
+	public static SimpleTokenStream mergeStreams( 
+			SimpleTokenStream stream1, SimpleTokenStream stream2 ){
+		SimpleTokenStream out = new SimpleTokenStream();
+		ArrayList<String> quants1 = stream1.quantities();
+		ArrayList<String> quants2 = stream2.quantities();
+		for (String q : quants1)
+			if (quants2.contains(q))
+				throw new Error("Quantities intersect");
+		for (String q : quants1)
+			out.add(q, stream1.getQuant(q));
+		for (String q : quants2)
+			out.add(q, stream2.getQuant(q));
+		
+		return out;
+	}
+	
+	
 	public double[] getPartition() {
 		return partition;
 	}

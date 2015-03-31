@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.regex.Pattern"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="behaviorClassification.CsvToTable"/>
-<fullyQualifiedTypeName name="behaviorClassification.ChunkList"/>
-<fullyQualifiedTypeName name="behaviorClassification.ClassifiedChunkList"/>
-<fullyQualifiedTypeName name="behaviorClassification.UserClassifier"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
 <fullyQualifiedTypeName name="behaviorClassification.InputSimulator"/>
@@ -19,11 +13,9 @@
 <fullyQualifiedTypeName name="org.jfree.chart.plot.XYPlot"/>
 <fullyQualifiedTypeName name="gui.ChunkDisplayer"/>
 <fullyQualifiedTypeName name="behaviorClassification.ManualInputReader"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
-<fullyQualifiedTypeName name="behaviorClassification.Chunk"/>
 <fullyQualifiedTypeName name="behaviorClassification.RawDataTable"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
@@ -45,7 +37,6 @@
 <fullyQualifiedTypeName name="org.jfree.chart.ChartPanel"/>
 <fullyQualifiedTypeName name="org.jfree.chart.JFreeChart"/>
 <fullyQualifiedTypeName name="java.awt.EventQueue"/>
-<fullyQualifiedTypeName name="tests.Pnt"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
 <fullyQualifiedTypeName name="org.jfree.chart.plot.ValueMarker"/>
@@ -53,11 +44,20 @@
 <fullyQualifiedTypeName name="java.awt.GridBagConstraints"/>
 <fullyQualifiedTypeName name="java.awt.GridLayout"/>
 <fullyQualifiedTypeName name="gui.TokenStreamDisplayer"/>
-<fullyQualifiedTypeName name="behaviorClassification.Serializer"/>
 <fullyQualifiedTypeName name="behaviorClassification.DataTable"/>
-<fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="patternDetection.EvaluationObject.EvaluationSettings"/>
 <fullyQualifiedTypeName name="patternDetection.Token"/>
 <fullyQualifiedTypeName name="patternDetection.TokenStream.TokenList"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="patternDetection.SimpleTokenStream"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="behaviorClassification.Chunk"/>
+<fullyQualifiedTypeName name="tests.Pnt"/>
+<fullyQualifiedTypeName name="behaviorClassification.RawTimeSeriesTable"/>
+<fullyQualifiedTypeName name="behaviorClassification.CsvToTable"/>
+<fullyQualifiedTypeName name="behaviorClassification.UserChunkClassifier"/>
+<fullyQualifiedTypeName name="behaviorClassification.Serializer"/>
 </qualifiedTypeNameHistroy>
