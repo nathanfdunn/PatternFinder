@@ -1,0 +1,11 @@
+read.table("~/Programming/PatternFinder/PatternDetection/AccTable_g_k_mw4",T)->acc
+max(acc$Accuracy)
+colnames(acc)
+which(acc$Acc == max(acc$Acc))
+which.max(acc$Acc)
+which(acc$Acc == max(acc$Acc))->inds
+acc[inds]
+acc[inds,]
+max(acc$Acc)
+source("/Users/nathandunn/Programming/PatternFinder/R/SunflowerPlots.r")
+blah()

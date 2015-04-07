@@ -35,7 +35,8 @@ public class StandardFeatureExtractor extends FeatureExtractor {
 		};
 	}
 	
-	private static double fisherZ(double[] values, double[] times){
+	//TODO: make private
+	public static double fisherZ(double[] values, double[] times){
 		if (values.length <= 3)
 			throw new Error("Fisher Transformation needs n >= 4");
 		double w = MyMath.fisherTrans( MyMath.corrCoef(values, times) );

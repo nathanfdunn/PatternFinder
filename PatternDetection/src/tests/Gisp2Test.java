@@ -14,7 +14,7 @@ public class Gisp2Test {
 
 	public static void main(String[] args){
 		String[] quants = new String[]{
-				"Ca","Cl","NO3","Na"
+				"Ca","Cl"//,"NO3",//"Na"
 		};
 		
 		RawTimeSeriesTable table = CsvToTable.readCsv(Objs.DATA_PATH+"nfdunn_GISP2_formatted.csv");

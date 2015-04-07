@@ -1,9 +1,0 @@
-package clausesAndTokens;
-
-public class TokeType {
-
-	private String name;
-	
-	
-	
-}

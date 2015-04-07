@@ -1,0 +1,19 @@
+package behaviorClassification;
+
+public class SimplifiedFeatureExtractor extends FeatureExtractor{
+
+	@Override
+	public double[] extractFeatures(double[] values, double[] times) {
+		return new double[]{
+				
+		};
+	}
+
+	@Override
+	public String[] featureNames() {
+		return new String[]{
+			
+		};
+	}
+
+}

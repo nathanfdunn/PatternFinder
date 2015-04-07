@@ -19,6 +19,10 @@ public class ModelClassifier implements Serializable {
 	private FeatureExtractor fe;
 	
 
+	public KnnModel getModel() {
+		return model;
+	}
+
 	public ModelClassifier(ClassifiedChunkList ccl){
 		this(new KnnModel(ccl));
 	}

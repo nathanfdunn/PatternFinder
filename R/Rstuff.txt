@@ -1,0 +1,11 @@
+R_HOME = /Library/Frameworks/R.framework/Resources
+
+—-no-save
+
+
+JVM args(not necessary)
+-Djava.library.path=.
+
+
+
+We did that stuff with the run file?

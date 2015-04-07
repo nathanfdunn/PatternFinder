@@ -3,7 +3,7 @@ package patternDetection;
 import java.util.ArrayList;
 
 //TODO make more flexible
-
+//TODO make into a class
 
 public enum Behavior {
 	SPI,				//Spike

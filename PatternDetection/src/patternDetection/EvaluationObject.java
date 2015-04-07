@@ -160,15 +160,26 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 		public static final double DEFAULT_BETA = 0.5;
 		public static final double DEFAULT_PADDING = 4;
 		
-		public static final EvaluationSettings DEFAULT = new EvaluationSettings();
+		//TODO: make final
+		public static /*final*/ EvaluationSettings DEFAULT = new EvaluationSettings();
 		
-		public EvaluationSettings(){
+		
+		public static EvaluationSettings getEvaluationSettings(){
+			return DEFAULT;
+		}
+		
+		public static EvaluationSettings getEvaluationSettings(double alpha,
+				double beta, double padding){
+			return new EvaluationSettings(alpha, beta, padding);
+		}
+		
+		private EvaluationSettings(){
 			this.alpha = DEFAULT_ALPHA;
 			this.beta = DEFAULT_BETA;
 			this.padding = DEFAULT_PADDING;
 		}
 		
-		public EvaluationSettings(double alpha, double beta, int padding) {
+		private EvaluationSettings(double alpha, double beta, double padding) {
 			this.alpha = alpha;
 			this.beta = beta;
 			this.padding = padding;

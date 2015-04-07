@@ -157,8 +157,9 @@ public class TokenStreamDisplayer extends JPanel {
 	
 	private static class SymbolPanel extends JPanel {
 		private static final double xBuffer = 0.4;
-		private static final int horizBuffer = 50;
-		private static final int vertBuffer = 50;
+		private static final int horizBuffer = 52;
+		private static final int vertBuffer = 20;
+		private static final int leftHorizBuffer = 15;
 		
 		private double[][][] pointsList;
 		private double[][][] linesList;
@@ -212,7 +213,7 @@ public class TokenStreamDisplayer extends JPanel {
 		private int[][] scaleValues(double[][] vals, int hBuff, int vBuff, int width, int height){
 			//double xScale = width/maxX;
 			int[][] out = new int[][]{
-				MyMath.round( MyMath.add( MyMath.mult( vals[0], width/maxX), hBuff )),
+				MyMath.round( MyMath.add( MyMath.mult( vals[0], width/maxX), hBuff + leftHorizBuffer )),
 				MyMath.round( MyMath.add( MyMath.mult( MyMath.add( MyMath.neg(vals[1]), 1), height ), vertBuffer ))
 			};
 			return out;

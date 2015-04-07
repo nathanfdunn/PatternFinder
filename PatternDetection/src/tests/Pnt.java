@@ -60,7 +60,8 @@ public class Pnt {
 	}
 	
 	public static void pause(){
-		System.out.print("PAUSE");
+		
+		pnt("\nPAUSE\n");
 		new Scanner(System.in).nextLine();
 	}
 	

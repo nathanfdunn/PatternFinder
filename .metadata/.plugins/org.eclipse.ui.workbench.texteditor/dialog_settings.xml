@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="Fisher" key="selection"/>
 		<list key="findhistory">
-			<item value="index"/>
-			<item value="indOf"/>
-			<item value="subT"/>
-			<item value="GISP2"/>
-			<item value="sub"/>
-			<item value="subtable"/>
-			<item value="cleanChunk"/>
-			<item value="toSt"/>
+			<item value="Fisher"/>
+			<item value="buff"/>
+			<item value="display()"/>
+			<item value="createCha"/>
+			<item value="setMax"/>
+			<item value="MyMath.ma"/>
+			<item value="buf"/>
+			<item value="padding"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -1,7 +1,0 @@
-package clausesAndTokens;
-
-public abstract class IToken {
-
-	//public HashMap<TokeType, IToken> getTokens();?
-//	public boolean matches( Clause<T extends this> clause );
-}

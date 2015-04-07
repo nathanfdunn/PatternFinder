@@ -17,6 +17,11 @@ public class Tokenizer {
 	}
 	
 	
+	public ModelClassifier getModel() {
+		return model;
+	}
+
+
 	private ArrayList<SimpleToken> tokenize(ArrayList<Chunk> chunks, String quant){
 		ArrayList<SimpleToken> out = new ArrayList<SimpleToken>();
 		for (int i=0; i<chunks.size(); i++){

@@ -11,7 +11,7 @@ public class PatternExtractor {
 	private EvaluationSettings settings;
 	
 	public PatternExtractor(){
-		this( new EvaluationSettings() );
+		this( EvaluationSettings.DEFAULT );
 	}
 	
 	public PatternExtractor(EvaluationSettings settings) {
@@ -19,7 +19,7 @@ public class PatternExtractor {
 	}
 
 	public PatternExtractor(double alpha, double beta, int padding){
-		this( new EvaluationSettings(alpha, beta, padding) );
+		this( EvaluationSettings.getEvaluationSettings(alpha, beta, padding) );
 	}
 	
 	
@@ -37,7 +37,8 @@ public class PatternExtractor {
 	 * @return
 	 */
 	public ArrayList<EvaluationObject> extract(SimpleTokenStream ts){
-		return extract(ts, 100);
+		return extract(ts, 20);
+//		return extract(ts, 100);
 	}
 	
 	

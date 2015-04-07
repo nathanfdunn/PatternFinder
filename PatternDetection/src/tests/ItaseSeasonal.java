@@ -23,32 +23,28 @@ import behaviorClassification.RawTimeSeriesTable;
 public class ItaseSeasonal {
 
 	public static void main(String[] args) {
-//		Pnt.pnt("Full ITASE:");
-		//fullItase();
-//		Pnt.pause();
+		
 		Pnt.pnt("\n\nTruncated ITASE:");
 		shortItase();
-//		Pnt.pnt("\n\nSynthetic Seasonal");
-//		syntheticSeasonal();
+		Pnt.pause();
+		
+		Pnt.pnt("Long ITASE:");
+		longItase();
+		Pnt.pause();
+
+		Pnt.pnt("\n\nSynthetic Seasonal");
+		syntheticSeasonal();
 		
 	}
+
 	
-//	public static Tokenizer getTokenizer(){
-////		KnnModel model = (KnnModel)Serializer.deserialize("GISP2_Model");
-////		return new Tokenizer(new ModelClassifier(model));
-//		ModelClassifier model = (ModelClassifier)Serializer.deserialize("GISP2_ModelClassifier");
-//		return new Tokenizer(model);
-//	}
-	
-//	private static SimpleTokenStream parseFile(String fileName){
-//		RawTimeSeriesTable table = CsvToTable.readCsv(fileName);
-//		return getTokenizer().tokenize(table, 0.5);
-//	}
-	
-	public static void fullItase(){
+	public static void longItase(){
+		final double start = 1910.0;
+		final double end = 1970.0;
 		RawTimeSeriesTable table = CsvToTable.
 				readCsv("../../DataSets_R/US_ITASE-00-3_2013_filtered.csv");
-		SimpleTokenStream sts = Objs.tokenizer.tokenize(table, 0.5);
+		SimpleTokenStream sts = Objs.tokenizer.tokenize(table, 0.5, start, end);
+		table = table.subTable(start, end);
 		showTokensAndPatterns(sts, table, null);
 	}
 	
@@ -116,7 +112,7 @@ public class ItaseSeasonal {
 		ArrayList<EvaluationObject> patterns = settings == null?
 				PatternExtractor.defaultExtract(sts) : 
 				new PatternExtractor(settings).extract(sts);
-						
+		
 		for (EvaluationObject eo : patterns)
 			System.out.println(eo);
 	}

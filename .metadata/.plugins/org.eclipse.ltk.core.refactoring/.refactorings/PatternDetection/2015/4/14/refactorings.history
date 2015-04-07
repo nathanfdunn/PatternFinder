@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;tests.ItaseSeasonal.fullItase()&apos; to &apos;longItase&apos;&#x0A;- Original project: &apos;PatternDetection&apos;&#x0A;- Original element: &apos;tests.ItaseSeasonal.fullItase()&apos;&#x0A;- Renamed element: &apos;tests.ItaseSeasonal.longItase()&apos;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;fullItase&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;tests{ItaseSeasonal.java[ItaseSeasonal~fullItase" name="longItase" references="true" stamp="1427864501446" version="1.0"/>
+</session>

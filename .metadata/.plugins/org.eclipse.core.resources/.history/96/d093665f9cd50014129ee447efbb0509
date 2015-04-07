@@ -1,6 +1,0 @@
-package clausesAndTokens;
-
-public interface Token {
-
-//	public boolean matches( Clause<T extends this> clause );
-}
