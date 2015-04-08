@@ -15,7 +15,7 @@ public class PatternCommandApp extends CommandApp {
 	private static final String SAVE_PATH_VAR_NAME = "$__SAVE";
 	private static final String DEFAULT_SAVE_PATH = Objs.SERIAL_PATH;
 	
-	private static final String SETUP_FILE = "setup.txt";
+	public static final String INIT_FILE = "init.txt";
 	
 	private static final String ALPHA_VAR_NAME = "$__ALPHA";
 	private static final String BETA_VAR_NAME = "$__BETA";
@@ -46,7 +46,7 @@ public class PatternCommandApp extends CommandApp {
 	}
 	
 	protected void initRun(){
-		this.runFile(SETUP_FILE);
+//		this.runFile(INIT_FILE);
 	}
 	
 	

@@ -66,6 +66,8 @@ public class Partitioner {
 	public //private 
 	static double[] seq(double start, double end, double chunkWidth){
 		int numChunks = (int)Math.floor((end-start)/chunkWidth);
+//		int numChunks = (int)Math.floor(Math.abs(end-start)/chunkWidth);
+
 		double[] out = new double[numChunks+1];
 		out[0] = start;
 		for (int i=1; i<numChunks; i++){

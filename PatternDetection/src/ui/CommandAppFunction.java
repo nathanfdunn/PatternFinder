@@ -123,6 +123,38 @@ public abstract class CommandAppFunction {
 		}
 	}
 	
+	public static class runFunction extends CommandAppFunction {
+		public runFunction(CommandApp app) {
+			super(app, "run");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			String check = CommandAppUtil.argTypeCheck(args, STR);
+			if (check.equals("")){
+				String file = STR.convert(args.get(0));
+				this.app.runFile(file);
+				return NULL;
+			}
+			this.badArgs(check);
+			return NULL;
+		}
+	}
+	
+	public static class pauseFunction extends CommandAppFunction {
+		public pauseFunction(CommandApp app) {
+			super(app, "pause");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			this.app.out.print("PAUSE");
+			this.app.in.getInput();
+			return NULL;
+		}
+	}
+	
+	
 	
 	public static ArrayList<CommandAppFunction> getCommonFunctions(CommandApp app){
 		ArrayList<CommandAppFunction> out = new ArrayList<CommandAppFunction>();
@@ -131,6 +163,9 @@ public abstract class CommandAppFunction {
 		out.add(new setEchoFunction(app));
 		out.add(new concatFunction(app));
 		out.add(new lsFunction(app));
+		out.add(new runFunction(app));
+		out.add(new pauseFunction(app));
+		
 		return out;
 	}
 	

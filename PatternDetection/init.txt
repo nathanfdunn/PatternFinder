@@ -1,0 +1,3 @@
+(setEcho false)
+(run "coreSetup.txt")
+(setEcho true)

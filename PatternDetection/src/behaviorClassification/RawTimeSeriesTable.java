@@ -149,6 +149,11 @@ public class RawTimeSeriesTable extends DataTable{
 				headers[i] = renamed;
 	}
 	
+	public String toString(){
+		String header = getTimeHeader() + ":"+timeInd+"\n";
+		return header + super.toString();
+	}
+	
 	
 //	public RawDataTable subTable(String[] desiredQuantities){
 //		double[][] newEntries = new double[desiredQuantities.length][];

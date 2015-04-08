@@ -41,7 +41,7 @@ public class TokenStreamDisplayer extends JPanel {
 
 	private static final Dimension DISP_SIZE = new Dimension(200,600);//new Dimension(500,300);
 	private static final Dimension SYMB_SIZE = new Dimension(200,300);
-	private static final Dimension CHART_SIZE = new Dimension(700,250);
+	private static final Dimension CHART_SIZE = new Dimension(700,150);
 	
 //	private JFreeChart chart;
 	private ChartPanel chartPanel;

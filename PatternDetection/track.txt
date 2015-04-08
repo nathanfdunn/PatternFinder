@@ -1,0 +1,23 @@
+
+
+
+(print $pat)
+(set $blah $_)
+(print $blah)
+(print $matches)
+(setEcho true)
+(getMatches $evObj)
+(getInd $matches 0)
+(display $uiToke $m)
+(print $pat)
+(display $uiToke)
+(parsePattern "Cl\~Ca/:[0,3]")
+(match $uiToke $_)
+(display $uiToke $match2)
+(display $uiToke)
+(display $gispToke)
+(subTable $gispSmoo "NO3" "SO4" "Mg" "A2K")
+(set $gispSmooTrunc $_)
+(ls)
+(ls)
+(ls)

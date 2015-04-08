@@ -1,0 +1,60 @@
+package ui;
+
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
+import patternDetection.SimpleTokenStream;
+import static ui.CommandAppUtil.argTypeCheck;
+import static ui.CommandAppUtil.argTypeCheckRepeat;
+
+public class PatternCommandGuiApp extends PatternCommandApp {
+
+	private JFrame win;//= new JFrame();
+	
+	private CompositeTokenStreamDisplayer ctsd;
+	
+	public PatternCommandGuiApp(){
+		this.addFunctions(PatternAppFunctions.getPatternAppGuiFunctions(this));
+		
+		win = new JFrame();
+		win.setVisible(true);
+	}
+	
+	
+	protected void initRun(){
+		super.initRun();
+	}
+	
+	
+	public void displayStream(SimpleTokenStream sts){
+		if (ctsd != null)
+			win.remove(ctsd);
+		ctsd = new CompositeTokenStreamDisplayer(sts, true);
+		win.add(ctsd);
+		win.pack();
+	}
+	
+	
+	
+	
+	
+//	public static class displayFunction extends CommandAppFunction {
+//		
+//		public displayFunction(PatternCommandGuiApp app) {
+//			super(app, "display");
+//		}
+//
+//		@Override
+//		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+//			String check = argTypeCheck(args, STREAM)
+//			return NULL;
+//		}
+//	}	
+	
+}
+
+
+
+
+

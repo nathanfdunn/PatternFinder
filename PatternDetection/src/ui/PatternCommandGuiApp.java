@@ -16,14 +16,21 @@ public class PatternCommandGuiApp extends PatternCommandApp {
 	
 	public PatternCommandGuiApp(){
 		this.addFunctions(PatternAppFunctions.getPatternAppGuiFunctions(this));
-
+		this.in = new ManualInputReadRecord("track.txt");
 		win = new JFrame();
 		win.setVisible(true);
+		myInit();
+
 	}
 	
 	
 	protected void initRun(){
-		super.initRun();
+//		super.initRun();
+//		this.runFile(PatternCommandApp.INIT_FILE);
+	}
+	
+	protected void myInit(){
+		this.runFile(PatternCommandApp.INIT_FILE);
 	}
 	
 	

@@ -1,0 +1,9 @@
+(readTable "GISP2.csv")
+(set $gisp $_)
+
+(readTable "GISP2_smoo.csv")
+(set $gispSmoo $_)
+
+(readTable "ui00_3_2013.csv")
+(tokenize $_ 100)
+

@@ -1,0 +1,51 @@
+(readTable "GISP2.csv")
+(set $gisp $_)
+
+(readTable "GISP2_smoo.csv")
+(set $gispSmoo $_)
+
+(readTable "ui.csv")
+(set $ui $_)
+
+(readTable "ui_smoo.csv")
+(set $uiSmoo $_)
+
+(subTable $uiSmoo "SO4" "Ca" "Cl" "Year")
+(set $uiSmooTrunc $_)
+
+(subTable $uiSmooTrunc 1950 2000)
+(set $uiSmooTrunc $_)
+
+(tokenize $uiSmooTrunc 1.0)
+(set $uiToke $_)
+(display $uiToke)
+
+
+(subTable $gispSmoo "NO3" "SO4" "Mg" "A2K")
+(set $gispSmooTrunc $_)
+
+(tokenize $gispSmooTrunc 1000.0)
+(set $gispToke $_)
+
+(subTable $gispSmooTrunc 0 1950)
+(set $gispSmooTrunc $_)
+(tokenize $gispSmooTrunc 30)
+(set $gispToke $_)
+(display $gispToke)
+
+(display $uiToke)
+
+(extract $uiToke 20)
+(set $pat $_)
+(print $pat)
+
+(getInd $pat 2)
+(set $evObj $_)
+(getMatches $evObj)
+(set $matches $_)
+(getInd $matches 0)
+(set $m $_)
+
+
+
+

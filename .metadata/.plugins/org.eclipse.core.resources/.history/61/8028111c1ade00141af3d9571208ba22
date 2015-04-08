@@ -1,0 +1,25 @@
+
+(readTable "GISP2_form_rev_smooth.csv")
+(set $gispSmoo $_)
+
+(readTable "GISP2_form_rev.csv")
+(set $gisp $_)
+
+(readTable "ui00_3_2013.csv")
+(set $ui $_)
+
+(readTable "ui00_3_2013_smooth.csv")
+(set $uiSmoo $_)
+
+(subTable $ui "SO4" "Year")
+(subTable $_ 1888 2001)
+(set $uiSulf $_)
+
+(readTable "US_ITASE-00-3_2013_filtered.csv")
+(set $myui $_)
+(print $myui)
+
+(readTable "ui00_3_2013.csv")
+(set $myui $_)
+(print $myui)
+(quit)
