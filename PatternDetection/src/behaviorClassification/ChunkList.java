@@ -27,7 +27,7 @@ public class ChunkList {
 		this(table, table.timeSpan()/numChunks);
 	}
 	
-	//Used to ensure every no values are left out in a partition
+	//Used to ensure no values are left out in a partition
 	// starting at the earliest time and ending at the latest
 	private static final double EPS = 0.0000001;
 
@@ -41,6 +41,8 @@ public class ChunkList {
 		this(table, chunkWidth, table.getEarliestTime() - EPS, table.getLatestTime() + EPS);
 	}
 	
+	
+	//TODO support for reversed times
 	/**
 	 * Breaks the information in the table from start to end into Chunks whose time spans
 	 *  are all equal to chunkWidth time units

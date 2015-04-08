@@ -1,0 +1,26 @@
+package ui;
+
+import java.util.ArrayList;
+
+public class PatternCommandApp extends CommandApp {
+
+	public PatternCommandApp(){
+		
+	}
+	
+	protected AppVar<? extends Object> callFunction(String name, 
+			ArrayList<AppVar<? extends Object>> args ){
+		if (name.equals("quit"))
+			return quitFunction(args);
+		if (name.equals("print"))
+			return printFunction(args);
+		if (name.equals("setEcho"))
+			return setEcho(args);
+		
+		
+		
+		showError("Unrecognized function");
+		return NULL;
+	}
+	
+}

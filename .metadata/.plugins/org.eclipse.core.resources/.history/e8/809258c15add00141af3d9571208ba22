@@ -1,0 +1,20 @@
+package tests;
+
+import patternDetection.Behavior;
+import patternDetection.Interval;
+import patternDetection.Pattern;
+import patternDetection.SimpleClause;
+
+public class MatchTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SimpleClause pre = new SimpleClause("Cl", Behavior.FLA);
+		SimpleClause suc = new SimpleClause("Ca", Behavior.SPI);
+		Interval t = new Interval(27, 27);
+		Pattern p = new Pattern(pre, suc, t);
+		
+		
+	}
+
+}

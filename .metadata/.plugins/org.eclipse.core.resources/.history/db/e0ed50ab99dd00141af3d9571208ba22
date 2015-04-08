@@ -1,0 +1,10 @@
+package ui;
+
+public class AppExpression extends AppVar<String>{
+	
+	private String funName;
+	
+	public AppExpression(String s){
+		super(s);
+	}
+}

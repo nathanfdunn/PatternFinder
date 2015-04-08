@@ -1,0 +1,22 @@
+package ui;
+
+import patternDetection.Interval;
+import patternDetection.Pattern;
+
+public class PatternParser {
+
+	
+	public static boolean isValid(String str){
+		
+	}
+	
+	public static Pattern parse(String str){
+		String[] preRest = str.split(Pattern.PRE_SUC_SEP);
+		
+		
+	}
+	
+	public static Interval parseInterval(String str){
+		
+	}
+}

@@ -1,0 +1,38 @@
+package ui;
+
+public abstract class AppVar<T> {
+//	String name;
+	T obj;
+//	public String getName(){
+//		return name;
+//	}
+	
+	public AppVar<T(T obj){ 
+		this.obj = obj;
+	}
+	
+	public T get(){
+		return obj;
+	}
+	
+	public static class AppString extends AppVar<String>{
+		public AppString(String s){
+			obj = s;
+		}
+	}
+	
+	public static class AppInt extends AppVar<Integer>{
+		public AppInt(Integer i){
+			obj = i;
+		}
+	}
+	
+	public static class AppExpression extends AppVar<String>{
+		public AppString(String s){
+			obj = s;
+		}
+	}
+	
+}
+
+

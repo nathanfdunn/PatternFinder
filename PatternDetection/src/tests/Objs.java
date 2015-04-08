@@ -14,6 +14,7 @@ import behaviorClassification.Serializer;
  */
 public class Objs {
 
+	public static final int DEFAULT_EXTRACT = 100;
 	public static final String SERIAL_PATH = "../../SerializedObjects/";
 	
 	public static final String DATA_PATH = "../../DataSets_R/";

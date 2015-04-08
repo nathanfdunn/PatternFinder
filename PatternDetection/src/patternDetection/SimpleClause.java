@@ -17,4 +17,8 @@ public class SimpleClause {
 	public String toString(){
 		return quantID + behavior.toChar();
 	}
+	
+	public boolean equals(SimpleClause c){
+		return quantID.equals(c.quantID) && behavior.equals(c.behavior);
+	}
 }

@@ -1,12 +1,11 @@
 package tests;
 
-import gui.TokenStreamDisplayer;
-
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 
 import patternDetection.SimpleTokenStream;
+import ui.TokenStreamDisplayer;
 import behaviorClassification.CsvToTable;
 import behaviorClassification.RawTimeSeriesTable;
 

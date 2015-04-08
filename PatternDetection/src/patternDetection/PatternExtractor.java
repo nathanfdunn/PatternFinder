@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import patternDetection.EvaluationObject.EvaluationSettings;
+import tests.Objs;
 
 
 public class PatternExtractor {
@@ -37,7 +38,7 @@ public class PatternExtractor {
 	 * @return
 	 */
 	public ArrayList<EvaluationObject> extract(SimpleTokenStream ts){
-		return extract(ts, 20);
+		return extract(ts, Objs.DEFAULT_EXTRACT);
 //		return extract(ts, 100);
 	}
 	

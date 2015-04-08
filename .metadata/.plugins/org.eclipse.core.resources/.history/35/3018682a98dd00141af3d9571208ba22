@@ -1,0 +1,6 @@
+package ui;
+
+public interface AppOutput {
+
+	public void print(String s);
+}

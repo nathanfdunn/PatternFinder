@@ -1,0 +1,21 @@
+package ui;
+
+public abstract class AppVar<T> {
+	String name;
+	T obj;
+	public String getName(){
+		return name;
+	}
+	
+	public T get(){
+		return obj;
+	}
+	
+	public static class AppString extends AppVar<String>{
+		
+		
+	}
+	
+}
+
+

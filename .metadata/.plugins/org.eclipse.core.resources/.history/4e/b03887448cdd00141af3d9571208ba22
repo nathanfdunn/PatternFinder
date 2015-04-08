@@ -1,0 +1,20 @@
+package tests;
+
+//import java.util.regex;
+
+public class PatternParserTest {
+
+	public static void main(String[] args){
+		Pnt.pnt("Hello, World!".indexOf(","));
+		Pnt.pnt("Hello, World!".indexOf("golf"));
+		
+		String regex = "[.*]";
+		
+		String test = "[Hello!]";
+		String test2 = "[Bye";
+		
+//		regex.Pattern p = 
+		java.util.regex.Pattern p = java.util.regex.Pattern.compile(regex);
+		
+	}
+}

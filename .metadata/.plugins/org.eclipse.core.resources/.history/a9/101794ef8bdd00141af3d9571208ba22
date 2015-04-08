@@ -1,0 +1,9 @@
+package tests;
+
+public class PatternParserTest {
+
+	public static void main(String[] args){
+		Pnt.pnt("Hello, World!".indexOf(","));
+		Pnt.pnt("Hello, World!".indexOf("golf"));
+	}
+}

@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import ui.IInputReader;
+import ui.InputSimulator;
 import behaviorClassification.ChunkList;
 import behaviorClassification.ClassifiedChunkList;
 import behaviorClassification.CsvToTable;
-import behaviorClassification.IInputReader;
-import behaviorClassification.InputSimulator;
 import behaviorClassification.RawTimeSeriesTable;
 import behaviorClassification.UserChunkClassifier;
 

@@ -1,0 +1,8 @@
+package ui;
+
+public class AppExpression extends AppVar<String>{
+	
+	public AppExpression(String s){
+		super(s);
+	}
+}

@@ -1,0 +1,25 @@
+package ui;
+
+import java.util.ArrayList;
+
+/**
+ * Really a function call
+ * @author nathandunn
+ *
+ */
+public class AppExpression extends AppVar<String>{
+	
+	private String funName;
+	private ArrayList<AppVar<? extends Object>> args;
+	
+	public AppExpression(String s){
+		super(s);
+		
+	}
+	
+//	public AppVar<? extends Object> eval(){ 
+//
+//	}
+	
+	
+}

@@ -1,0 +1,29 @@
+package ui;
+
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+
+public class CommandAppParser {
+
+	private static final Pattern varFormat = Pattern.compile("\\$\\w[\\w\\d]*");
+	
+	public static boolean isValidVarName(String varName){
+		return varFormat.matcher(varName).find();
+	}
+		
+	/**
+	 * Provides information on which argument types are incorrect. Returns null if not problems
+	 * @param args
+	 * @param argTypes
+	 * @return
+	 */
+	private static String argTypeCheck(ArrayList<AppVar<? extends Object>> args,
+			AppVar<? extends Object>... argTypes){
+		if (args.size() != argTypes.length){
+//			String actualTypes = 
+		}
+		return null;
+	}
+	
+	
+}

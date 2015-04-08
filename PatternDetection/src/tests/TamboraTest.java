@@ -1,7 +1,5 @@
 package tests;
 
-import gui.TokenStreamDisplayer;
-
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -12,6 +10,7 @@ import patternDetection.EvaluationObject;
 import patternDetection.EvaluationObject.EvaluationSettings;
 import patternDetection.PatternExtractor;
 import patternDetection.SimpleTokenStream;
+import ui.TokenStreamDisplayer;
 import behaviorClassification.CsvToTable;
 import behaviorClassification.MyMath;
 import behaviorClassification.RawTimeSeriesTable;

@@ -1,0 +1,63 @@
+package ui;
+
+public abstract class AppVar<T> {
+//	String name;
+	T obj;
+//	public String getName(){
+//		return name;
+//	}
+	
+	public AppVar(T arg){ 
+		this.obj = arg;
+	}
+	
+	public T get(){
+		return obj;
+	}
+	
+	public abstract boolean instance(AppVar<? extends Object> appVar);
+	
+	
+	public static class AppString extends AppVar<String>{
+		public AppString(String s){
+			super(s);
+		}
+
+		@Override
+		public boolean instance(AppVar<? extends Object> appVar) {
+			return appVar instanceof AppString;
+		}
+	}
+	
+	public static class AppBool extends AppVar<Boolean>{
+		public static final AppBool TRUE = new AppBool(true);
+		public static final AppBool FALSE = new AppBool(false);
+		private AppBool(Boolean b){
+			super(b);
+		}
+	}
+	
+	public static class AppDouble extends AppVar<Double>{
+		public AppDouble(Double d){
+			super(d);
+		}
+	}
+	
+	
+	
+	public static class AppInt extends AppVar<Integer>{
+		public AppInt(Integer i){
+			super(i);
+		}
+	}
+	
+	public static class AppNull extends AppVar<Object>{
+		public static final AppNull NULL = new AppNull();
+		private AppNull(){
+			super(null);
+		}
+	}
+	
+}
+
+

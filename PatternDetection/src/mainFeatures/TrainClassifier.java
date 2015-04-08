@@ -1,13 +1,13 @@
 package mainFeatures;
 
+import ui.InputSimulator;
+import ui.ManualInputReadRecord;
 import behaviorClassification.ChunkList;
 import behaviorClassification.ClassifiedChunkList;
 import behaviorClassification.CsvToTable;
 import behaviorClassification.DataTable;
 import behaviorClassification.FeatureTable;
-import behaviorClassification.InputSimulator;
 import behaviorClassification.KnnModel;
-import behaviorClassification.ManualInputReader;
 import behaviorClassification.RawTimeSeriesTable;
 import behaviorClassification.Serializer;
 import behaviorClassification.StandardFeatureExtractor;
@@ -28,7 +28,7 @@ public class TrainClassifier {
 
 		//ClassifiedChunkList ccl = new UserClassifier(new ManualInputReader()).classify(cl);
 		ClassifiedChunkList ccl = new UserChunkClassifier(
-				new ManualInputReader()
+				new ManualInputReadRecord()
 				).classify(cl);
 
 		System.out.println("classify good");

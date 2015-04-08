@@ -1,0 +1,21 @@
+package ui;
+
+//import java.util.ArrayList;
+
+public abstract class CommandAppFunction {
+
+	private CommandApp app;
+	private final String name;
+	
+	public CommandAppFunction(CommandApp app, String name){
+		this.app = app;
+		this.name = name;
+	}
+	
+	public abstract AppVar<? extends Object> call( AppVar<? extends Object>... args );
+	
+	public String getName(){
+		return name;
+	}
+	
+}

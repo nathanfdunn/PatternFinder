@@ -1,0 +1,13 @@
+1428433845996	Rename package 'gui'
+1428433915577	Move compilation units
+1428454127601	Delete element
+1428457393925	Rename local variable 'behavior'
+1428459113321	Rename type 'IAppObject'
+1428459236335	Rename type 'IAppVar'
+1428460634478	Rename type 'AppOutput'
+1428460681182	Rename field 'input'
+1428460721942	Rename local variable 'warning'
+1428461230236	Move type 'AppExpression' to new file
+1428467925032	Rename type 'CommandAppParser'
+1428468510479	Rename type 'ManualInputReader'
+1428472022822	Rename type 'quitFunction'

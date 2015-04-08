@@ -1,0 +1,12 @@
+package ui;
+
+public class CommandApp {
+
+	
+	
+	public void execute(String cmd){
+		
+	}
+	
+	
+}

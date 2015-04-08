@@ -1,7 +1,5 @@
 package tests;
 
-import gui.CompositeTokenStreamDisplayer;
-
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
@@ -12,14 +10,14 @@ import patternDetection.EvaluationObject.EvaluationSettings;
 import patternDetection.PatternExtractor;
 import patternDetection.SimpleToken;
 import patternDetection.SimpleTokenStream;
+import ui.CompositeTokenStreamDisplayer;
 
 public class ResultsDemo {
 
 	public static void main(String[] args) {
 //	Objs.setEvalSettings(2, 0.2, 2);
 
-		TamboraTest.main(null);
-		Pnt.pause();
+//		Pnt.pause();
 //		Objs.setEvalSettings(0.5, 0, 0.2);		//Lagged seasonal
 //		Object o = Objs.tokenizer;
 //		Pnt.pnt(o);
@@ -28,14 +26,15 @@ public class ResultsDemo {
 //		Objs.setEvalSettings(0.5, 0, 0.1);
 //ClassifierTrainingTest.demoManual();
 //		Pnt.pause();
-		
+		TamboraTest.main(null);
+
 //		Gisp2Test.main(null);
 //		Pnt.pause();
 
 		ItaseSeasonal.main(null);
-		Pnt.pause();
-		Pnt.pnt();
-		Pnt.pause();
+//		Pnt.pause();
+//		Pnt.pnt();
+//		Pnt.pause();
 		Gisp2Test.main(null);
 		Pnt.pause();
 		ItaseSeasonal.longItase();

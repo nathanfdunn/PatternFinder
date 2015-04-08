@@ -140,6 +140,9 @@ public class MatchDataObject {
 		 * @return
 		 */
 		public boolean isDeterminate(int precursorIndex, Interval interval){
+			
+			//TODO: check for UNKs
+			
 			int preTime = precursors.get(precursorIndex).time;
 			return preTime + interval.high <= streamLen;
 		}

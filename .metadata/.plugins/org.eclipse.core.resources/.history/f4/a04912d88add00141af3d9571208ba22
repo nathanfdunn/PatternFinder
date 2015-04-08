@@ -1,0 +1,34 @@
+package ui;
+
+import patternDetection.Behavior;
+import patternDetection.Interval;
+import patternDetection.Pattern;
+import patternDetection.SimpleClause;
+
+public class PatternParser {
+
+	
+	public static boolean isValid(String str){
+		int preSucSepInd = str.indexOf(Pattern.PRE_SUC_SEP);
+		int 
+	}
+	
+	public static Pattern parsePattern(String str){
+		
+		String[] preRest = str.split(Pattern.PRE_SUC_SEP);
+		
+		
+	}
+	
+	public static Interval parseInterval(String str){
+		
+	}
+	
+	public static SimpleClause parseClause(String str){
+		
+	}
+	
+	public static Behavior parseBehavior(String str){
+		
+	}
+}

@@ -1,7 +1,5 @@
 package behaviorClassification;
 
-import gui.ChunkDisplayer;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,6 +10,9 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 
 import patternDetection.Behavior;
+import ui.ChunkDisplayer;
+import ui.IInputReader;
+import ui.ManualInputReadRecord;
 
 //TODO completely refactor
 public class UserChunkClassifier {
@@ -32,7 +33,7 @@ public class UserChunkClassifier {
 	}
 	
 	public UserChunkClassifier(){
-		this(new ManualInputReader());
+		this(new ManualInputReadRecord());
 	}
 
 	public ClassifiedChunkList classify(ChunkList chunkList){

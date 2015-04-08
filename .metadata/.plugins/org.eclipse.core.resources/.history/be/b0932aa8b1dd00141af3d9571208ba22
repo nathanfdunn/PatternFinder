@@ -1,0 +1,11 @@
+package ui;
+
+import java.util.ArrayList;
+
+public abstract class CommandAppFunction {
+
+	public abstract AppVar<? extends Object> call( AppVar<? extends Object>... args );
+	
+	
+	
+}

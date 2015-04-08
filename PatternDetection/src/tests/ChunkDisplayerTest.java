@@ -1,12 +1,11 @@
 package tests;
 
-import gui.ChunkDisplayer;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartPanel;
 
+import ui.ChunkDisplayer;
 import behaviorClassification.Chunk;
 
 public class ChunkDisplayerTest {

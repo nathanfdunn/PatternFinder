@@ -1,0 +1,121 @@
+package ui;
+
+import java.util.HashMap;
+
+import patternDetection.SimpleTokenStream;
+import ui.AppVar.AppNull;
+
+public class CommandApp {
+
+	private IInputReader in;
+	private boolean quit;
+	private HashMap<String, AppVar<? extends Object>> variables;
+	private IAppOutput out;
+//	private static final AppVar<? extends Object> 
+	
+	public void execute(String cmd){
+		
+		
+	}
+	
+	
+	
+//	public AppVar<? extends Object> eval(String functionName, String[] args){
+//		
+//	}
+	
+	
+	
+	
+	public AppVar<? extends Object> eval(String s){
+		int lParenInd = s.indexOf('(');
+		int rParenInd = s.lastIndexOf(')');
+		
+		if (lParenInd == -1 || rParenInd == -1){
+			return atomicEval(s);
+		}else{
+			if (lParenInd != 0 || rParenInd != s.length()-1){
+				showError("Bad command: "+s);
+				return AppNull.NULL;
+			}
+			
+			
+			//Do stuff for expression evaluation
+		}
+	}
+	/**
+	 * Evaluates either a literal or a variable
+	 * @param s
+	 * @return
+	 */
+	public AppVar<? extends Object> atomicEval(String s){
+		AppVar<? extends Object> out = varEval(s);
+		if (out != AppNull.NULL) return out;
+		
+		if (isVariable(s))
+			return variables.get(s);
+
+	}
+	
+	
+	private AppVar<? extends Object> stringLitEval(String s){ 
+		int quoteInd = s.indexOf('"');
+		int quoteInd2 = s.lastIndexOf('"');
+		if (quoteInd == 0 && quoteInd2 == s.length()-1 && quoteInd!=quoteInd2){
+			return new AppString("hello");
+		}
+	}
+
+	
+	
+	private AppVar<? extends Object> varEval(String s){ 
+		if (isVariable(s)) {
+			return variables.get(s);
+		} else {
+//			showWarning("Variable '"+s+"' is undefined");
+			return AppNull.NULL;
+		}
+	}
+	
+	
+	private boolean isVariable(String name){
+		return variables.containsKey(name);
+	}
+	
+	public void showWarning(String warningMessage){
+		out.print("Warning: "+warningMessage);
+	}
+	
+	public void showError(String errorMessage){
+		out.print("Error: "+errorMessage);
+	}
+	
+	public void run(){
+		while (!quit){
+			String cmd = in.getInput();
+			execute(cmd);
+		}
+	}
+	
+	private String[] parseCommand(String cmd){
+		return cmd.split("\\s+");
+	}
+	
+	private AppVar<? extends Object> set(String varName, AppVar<? extends Object> obj ){
+		variables.put(varName, obj);
+		return obj;
+	}
+	
+	private void quit(){
+		quit = true;
+	}
+	
+//	private AppVar<SimpleTokenStream> tokenize()
+	
+	
+	
+}
+
+
+
+

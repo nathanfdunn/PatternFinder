@@ -1,0 +1,49 @@
+package ui;
+
+import java.util.HashMap;
+
+import patternDetection.SimpleTokenStream;
+
+public class CommandApp {
+
+	private IInputReader input;
+	private boolean quit;
+	private HashMap<String, AppVar<? extends Object>> variables;
+	
+//	private static final AppVar<? extends Object> 
+	public void execute(String cmd){
+		
+		
+	}
+	
+	public AppVar<? extends Object> eval() 
+	
+	public void run(){
+		while (!quit){
+			String cmd = input.getInput();
+			execute(cmd);
+		}
+	}
+	
+	private String[] parseCommand(String cmd){
+		return cmd.split("\\s+");
+	}
+	
+	private AppVar<? extends Object> set(String varName, AppVar<? extends Object> obj ){
+		variables.put(varName, obj);
+		return obj;
+	}
+	
+	private void quit(){
+		quit = true;
+	}
+	
+//	private AppVar<SimpleTokenStream> tokenize()
+	
+	
+	
+}
+
+
+
+

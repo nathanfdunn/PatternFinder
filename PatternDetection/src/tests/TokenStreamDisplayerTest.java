@@ -1,7 +1,5 @@
 package tests;
 
-import gui.TokenStreamDisplayer;
-
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -13,6 +11,7 @@ import javax.swing.JPanel;
 
 import patternDetection.Behavior;
 import patternDetection.SimpleToken;
+import ui.TokenStreamDisplayer;
 
 public class TokenStreamDisplayerTest {
 

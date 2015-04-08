@@ -1,0 +1,8 @@
+package ui;
+
+public interface IAppVar<T> {
+
+	public String getName();
+	
+	public T get();
+}

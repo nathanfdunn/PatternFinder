@@ -1,8 +1,6 @@
 
 package tests;
 
-import gui.TokenStreamDisplayer;
-
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -17,14 +15,15 @@ import patternDetection.SimpleToken;
 import patternDetection.SimpleTokenStream;
 import patternDetection.SimpleTokenStream.TokenList;
 import patternDetection.Tokenizer;
+import ui.InputSimulator;
+import ui.ManualInputReadRecord;
+import ui.TokenStreamDisplayer;
 import behaviorClassification.ChunkList;
 import behaviorClassification.ClassifiedChunkList;
 import behaviorClassification.CsvToTable;
 import behaviorClassification.FeatureExtractor;
 import behaviorClassification.FeatureTable;
-import behaviorClassification.InputSimulator;
 import behaviorClassification.KnnModel;
-import behaviorClassification.ManualInputReader;
 import behaviorClassification.ModelClassifier;
 import behaviorClassification.RawTimeSeriesTable;
 import behaviorClassification.Serializer;

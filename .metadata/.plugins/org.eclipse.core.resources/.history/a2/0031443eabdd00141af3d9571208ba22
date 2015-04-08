@@ -1,0 +1,13 @@
+package tests;
+
+public class CommandAppTest {
+	
+	
+	public static void main(String[] args){
+		
+		
+		
+	}
+
+
+}

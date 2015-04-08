@@ -1,0 +1,35 @@
+package ui;
+
+import java.util.HashMap;
+
+public class CommandApp {
+
+	private IInputReader input;
+	private boolean quit;
+	private HashMap<String, AppVar<? extends Object>> variables;
+	
+	
+	public void execute(String cmd){
+		
+		
+	}
+	
+	public void run(){
+		while (!quit){
+			String cmd = input.getInput();
+			execute(cmd);
+		}
+	}
+	
+	private String[] parseCommand(String cmd){
+		return cmd.split("\\s+");
+	}
+	
+	private void set(String varName, AppVar<? extends Object> obj ){
+		variables.put(varName, obj);
+	}
+	
+	
+	
+	
+}

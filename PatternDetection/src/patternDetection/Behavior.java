@@ -58,7 +58,36 @@ public enum Behavior {
 			return DIP;
 		if (s.equals("UNK"))
 			return UNK;
-		throw new Error("Unrecognized string value");
+//		throw new Error("Unrecognized string value");
+		return null;
+	}
+	
+	public static Behavior translate(char c){
+		if (c == '^')
+			return SPI;
+		if (c == '/')
+			return INC;
+		if (c == '-')
+			return FLA;
+		if (c == '\\')
+			return DEC;
+		if (c == 'v')
+			return DIP;
+		if (c == '?')
+			return UNK;
+//		throw new Error("Unrecognized char value");
+		return null;
+	}
+	
+	public static String getAllChars(){
+		return getKnownChars() + UNK.toChar();
+	}
+	
+	public static String getKnownChars(){
+		String out = "";
+		for (Behavior b : getKnownBehaviors())
+			out += b.toChar();
+		return out;
 	}
 	
 	

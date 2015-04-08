@@ -1,0 +1,87 @@
+package ui;
+
+import java.util.regex.Matcher;
+
+import patternDetection.Behavior;
+import patternDetection.Interval;
+import patternDetection.Pattern;
+import patternDetection.SimpleClause;
+
+public class PatternParser {
+
+	/**
+	 * Returns true if string corresponds to a valid, 3 component Pattern string
+	 * @param str
+	 * @return
+	 */
+	public static boolean isValid(String str){
+//		int preSucSepInd = str.indexOf(Pattern.PRE_SUC_SEP);
+//		if (preSucSepInd < 1)		//if not there or if first charactern or earlier
+//			return false;
+//		int winSepInd = str.indexOf(Pattern.SUC_WIN_SEP);
+//		if (winSepInd < preSucSepInd+2)	//if not there or if less than 2 chars between ~ and :
+//			return false;
+//		int lBrackInd = str.indexOf(Interval.L_BRACK);
+//		if (lBrackInd < winSepInd + 1 )
+//			return false;
+//		int staEndSep = str.index
+//		int rBrackInd = str.indexOf(Interval.R_BRACK);
+		String clauseRegex = ".*[" +quo(Behavior.getAllChars()) +"]";
+		String timeRegex = "-?\\d+";
+		String regex = 
+				clauseRegex + Pattern.PRE_SUC_SEP + clauseRegex + Pattern.SUC_WIN_SEP + //pre~suc:
+				quo(Interval.L_BRACK) + timeRegex + Interval.STA_END_SEP + timeRegex + Interval.R_BRACK;
+				
+		java.util.regex.Pattern p = java.util.regex.Pattern.compile(regex);
+		
+		Matcher m = p.matcher(str);
+		return m.find();
+	}
+	
+	private static String quo(String str){
+		return java.util.regex.Pattern.quote(str);
+	}
+	
+	public static boolean isNumeric(String str){
+		try{
+			Integer.parseInt(str);
+		}catch(Exception e){
+			return false;
+		}
+		return true;
+	}
+	
+	public static int parseInt(String str){
+		try{
+			return Integer.parseInt(str);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		throw new Error("Not parsable");
+	}
+	
+//	public static Pattern parsePattern(String str){
+//		
+//		String[] preRest = str.split(Pattern.PRE_SUC_SEP);
+//		
+//		
+//	}
+//	
+//	public static Interval parseInterval(String str){
+//		
+//	}
+//	
+//	public static SimpleClause parseClause(String str){
+//		
+//	}
+//	
+//	public static Behavior parseBehavior(String str){
+//		
+//	}
+}
+
+
+
+
+
+

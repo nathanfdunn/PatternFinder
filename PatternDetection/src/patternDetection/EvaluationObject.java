@@ -60,6 +60,19 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 			this.ubiquity = 0;
 			flag = true;
 		}
+		if (data.getMatches().size() == 0){
+			flag = true;
+			calculateUbiquity();
+			if (data.getAntiMatches().size() == 0){
+				this.accuracy = Double.NaN;
+				this.power = -1;
+			}else{
+				//TODO allow usual accuracy?
+				this.accuracy = 0;
+				this.power = 0;
+			}
+			
+		}
 		if (!flag){
 			calculateAccuracy();
 			calculateUbiquity();

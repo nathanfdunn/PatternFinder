@@ -1,0 +1,34 @@
+package ui;
+
+public abstract class IAppVar<T> {
+	String name;
+	T obj;
+	public String getName(){
+		return name;
+	}
+	
+	public T get(){
+		return obj;
+	}
+	
+	
+	
+	public static class AppString implements IAppVar<String>{
+		
+		@Override
+		public String getName() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public String get() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	}
+	
+}
+
+

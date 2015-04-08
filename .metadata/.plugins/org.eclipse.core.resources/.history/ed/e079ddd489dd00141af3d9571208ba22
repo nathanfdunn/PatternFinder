@@ -1,0 +1,12 @@
+package ui;
+
+import patternDetection.Pattern;
+
+public class PatternParser {
+
+	public static Pattern parse(String str){
+		String[] preRest = str.split("~");
+		
+		
+	}
+}

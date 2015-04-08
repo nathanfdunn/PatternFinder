@@ -1,11 +1,11 @@
 package tests;
 
+import ui.InputSimulator;
+import ui.ManualInputReadRecord;
 import behaviorClassification.ChunkList;
 import behaviorClassification.ClassifiedChunkList;
 import behaviorClassification.CsvToTable;
 import behaviorClassification.FeatureExtractor;
-import behaviorClassification.InputSimulator;
-import behaviorClassification.ManualInputReader;
 import behaviorClassification.ModelClassifier;
 import behaviorClassification.RawTimeSeriesTable;
 import behaviorClassification.Serializer;
@@ -27,7 +27,7 @@ public class ClassifierTrainingTest {
 
 		FeatureExtractor fe = new StandardFeatureExtractor();
 		UserChunkClassifier ucc = new UserChunkClassifier(
-				new ManualInputReader("testRecord.txt")
+				new ManualInputReadRecord("testRecord.txt")
 				);
 		ModelClassifier model = new ModelClassifier(ucc.classify(getGispData()), fe);
 		writeModel(model, "testModel");
@@ -44,7 +44,7 @@ public class ClassifierTrainingTest {
 	
 	private static ClassifiedChunkList classifyManually(){
 		return new UserChunkClassifier( 
-				new ManualInputReader() ).classify( getGispData() );
+				new ManualInputReadRecord() ).classify( getGispData() );
 	}
 	
 	private static ClassifiedChunkList classifyAutomatically(){

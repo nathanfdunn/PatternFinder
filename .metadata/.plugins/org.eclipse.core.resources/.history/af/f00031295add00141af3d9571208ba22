@@ -1,0 +1,18 @@
+package ui;
+
+public class CommandApp {
+
+	private IInputReader input;
+	private boolean quit;
+	
+	public void execute(String cmd){
+		
+		
+	}
+	
+	public void run(){
+		
+	}
+	
+	
+}

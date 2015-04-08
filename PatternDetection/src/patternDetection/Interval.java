@@ -4,7 +4,11 @@ public class Interval {
 	public int low;
 	public int high;
 	
-
+	public static final String L_BRACK = "[";
+	public static final String R_BRACK = "]";
+	public static final String STA_END_SEP = ",";
+	
+	
 	public Interval(int low, int high) {
 		this.low = low;
 		this.high = high;
@@ -19,6 +23,6 @@ public class Interval {
 	}
 	
 	public String toString(){
-		return String.format("[%d, %d]",low, high);
+		return L_BRACK + low + STA_END_SEP + high + R_BRACK;
 	}
 }

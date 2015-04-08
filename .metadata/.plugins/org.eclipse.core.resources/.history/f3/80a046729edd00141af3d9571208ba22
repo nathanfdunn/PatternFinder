@@ -1,0 +1,12 @@
+package ui;
+
+import java.util.regex.Pattern;
+
+public class CommandAppParser {
+
+	Pattern format = Pattern.compile("$");
+	
+	public boolean isValidVarName(String varName){
+		
+	}
+}
