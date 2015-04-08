@@ -1,0 +1,15 @@
+package ui;
+
+
+
+/**
+ * A dummy file to hold Pattern related AppVar's
+ * @author nathandunn
+ *
+ */
+public abstract class PatternAppVar {
+
+	
+	
+	
+}

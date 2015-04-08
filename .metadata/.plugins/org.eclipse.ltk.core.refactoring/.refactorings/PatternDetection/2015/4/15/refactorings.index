@@ -11,3 +11,7 @@
 1428467925032	Rename type 'CommandAppParser'
 1428468510479	Rename type 'ManualInputReader'
 1428472022822	Rename type 'quitFunction'
+1428474708911	Rename type 'PatternAppVar'
+1428474717743	Rename type 'PatternAppFunctinos'
+1428475696191	Rename method 'set'
+1428486988010	Rename enum constant 'IND'

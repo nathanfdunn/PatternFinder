@@ -1,0 +1,2 @@
+(readTable "seasonal.csv")
+(set $table $_)

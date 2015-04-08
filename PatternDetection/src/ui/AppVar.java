@@ -37,6 +37,8 @@ public abstract class AppVar<T> {
 	}
 	
 	
+	//Basic types:
+	
 	public static class AppString extends AppVar<String>{
 		public AppString(String s){
 			super(s);
@@ -87,12 +89,17 @@ public abstract class AppVar<T> {
 		}
 		
 		public boolean instance(AppVar<? extends Object> appVar) {
-			return appVar instanceof AppDouble;
+			return appVar instanceof AppDouble || appVar instanceof AppInt;
 		}
 
 		public Double convert(AppVar<? extends Object> appVar) {
-			if (instance(appVar))
+//			if (instance(appVar))
+//				return ((AppDouble)appVar).get();
+			if (appVar instanceof AppDouble)
 				return ((AppDouble)appVar).get();
+			if (appVar instanceof AppInt)
+				return ((AppInt)appVar).get() + 0.0;	//Convert to Double
+			
 			return null;
 		}
 
@@ -156,6 +163,9 @@ public abstract class AppVar<T> {
 		@Override
 		public Object convert(AppVar<? extends Object> appVar) {
 			return null;
+		}
+		public String toString(){
+			return "";
 		}
 	}
 	

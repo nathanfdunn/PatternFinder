@@ -1,0 +1,33 @@
+package ui;
+
+import java.util.ArrayList;
+
+import patternDetection.Pattern;
+
+public class PatternCommandApp extends CommandApp {
+
+	public PatternCommandApp(){
+	}
+	
+	
+	
+	public static class AppPattern extends AppVar<Pattern>{
+		@Override
+		public String getType() {
+			return "Pattern";
+		}
+
+		@Override
+		public boolean instance(AppVar<? extends Object> appVar) {
+			return appVar instanceof AppPattern;
+		}
+
+		@Override
+		public Pattern convert(AppVar<? extends Object> appVar) {
+			if (instance(appVar))
+				return ((AppPattern)appVar).get();
+			return null;
+		}
+		
+	}
+}

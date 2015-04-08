@@ -22,8 +22,11 @@ public class Match {
 	}
 	
 	public static Match createIndMatch(SimpleToken pre){
-		return new Match(pre, null, MatchType.IND);
+		return new Match(pre, null, MatchType.INDET);
 	}
 
+	public String toString(){
+		return type + " : " +precursor + " " + successor;
+	}
 	
 }

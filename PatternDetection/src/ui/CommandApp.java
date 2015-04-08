@@ -1,13 +1,20 @@
 package ui;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import patternDetection.SimpleTokenStream;
+import patternDetection.EvaluationObject.EvaluationSettings;
+import patternDetection.Tokenizer;
+import tests.Objs;
+import ui.AppVar.AppBool;
+import ui.AppVar.AppDouble;
+import ui.AppVar.AppInt;
+import ui.AppVar.AppNull;
+import ui.AppVar.AppString;
 //import ui.AppVar.AppNull;
-import ui.AppVar.*;
 //import static ui.CommandAppUtil.argTypeCheck;
-import ui.CommandAppUtil;
 
 
 
@@ -25,9 +32,17 @@ public class CommandApp {
 	protected HashMap<String, AppVar<? extends Object>> variables;
 	protected IAppOutput out;
 	protected boolean echo = true;
+	protected HashMap<String, CommandAppFunction> functions;
+	
+	protected Tokenizer tokenizer = Objs.tokenizer;
 	
 	
+	protected EvaluationSettings getEvalSettings(){
+		return EvaluationSettings.DEFAULT;
+	}
 	
+	
+	private static final String LAST_VAL = "$_";
 	
 //	private static final AppVar<? extends Object> 
 	
@@ -37,12 +52,50 @@ public class CommandApp {
 		this( new ManualInputReader(), new StdOutAppOutput());
 	}
 	
+	protected int getNumPatterns(){
+		return Objs.DEFAULT_EXTRACT;
+	}
+	
+	protected String getDataPath(){
+		return null;
+	}
+	
+	protected String getSavePath(){
+		return null;
+	}
+	
 	public CommandApp(IInputReader in, IAppOutput out){
 		this.in = in;
 		this.out = out;
 		quit = false;
 		variables = new HashMap<String, AppVar<? extends Object>>();
+		functions = new HashMap<String, CommandAppFunction>();
+		addFunctions(CommandAppFunction.getCommonFunctions(this));
+		initializeVars();
 	}
+	
+	protected void addFunctions(ArrayList<CommandAppFunction> functions){
+		for (CommandAppFunction func : functions)
+			this.functions.put(func.getName(), func);
+	}
+	
+	protected void runFile(String fileName){
+		try{
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
+			String line;
+			while ((line = br.readLine()) != null)
+				execute(line);
+
+			br.close();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	protected void initializeVars(){
+		cacheVal(NULL);
+	}
+	
 	
 	private void intro(){
 		out.print("Welcome to the PEAM app");
@@ -52,10 +105,28 @@ public class CommandApp {
 		intro();
 		while (!quit){
 			String cmd = in.getInput();
-			AppVar<? extends Object> res = eval(cmd);
-			if (echo)
-				printFunction(res);
+			execute(cmd);
 		}
+	}
+
+	protected void execute(String cmd){
+		if (!cmd.equals("")){
+			AppVar<? extends Object> res = eval(cmd);
+			cacheVal(res);
+			echo();
+		}
+	}
+
+	private void cacheVal(AppVar<? extends Object> val ){
+//		this.setVar(LAST_VAL, val);
+		this.variables.put(LAST_VAL, val);
+	}
+	
+	private void echo(){
+		AppVar<? extends Object> obj =  variables.get(LAST_VAL);
+		if (echo)
+			if (obj != NULL && obj != null)
+				out.print(obj.toString());
 	}
 	
 	//Cannot nest functions
@@ -79,19 +150,20 @@ public class CommandApp {
 			showError("Empty function call");
 			return NULL;
 		}
+		
 		String functionName = strings[0];
 		if (functionName.equals("set")){
 			return setFunction(strings);
-		}
+		}		
 		
 		ArrayList<AppVar<? extends Object>> args = 
 				new ArrayList<AppVar<? extends Object>>();
 		for (int i=1; i<strings.length; i++){
 			AppVar<? extends Object> arg = atomicEval(strings[i]);
-			if (arg == NULL){
-				showError("Function "+functionName + " failed");
-				return NULL;
-			}
+//			if (arg == NULL){
+//				showError("Function "+functionName + " failed");
+//				return NULL;
+//			}
 			args.add(arg);
 		}
 		return callFunction(functionName, args);
@@ -100,77 +172,50 @@ public class CommandApp {
 	
 	protected AppVar<? extends Object> callFunction(String name, 
 			ArrayList<AppVar<? extends Object>> args ){
-		if (name.equals("quit"))
-			return quitFunction(args);
-		if (name.equals("print"))
-			return printFunction(args);
-		if (name.equals("setEcho"))
-			return setEcho(args);
+
+		CommandAppFunction func = functions.get(name);
+		if (func != null){
+			return func.call(args);
+		}
 		
 		showError("Unrecognized function");
 		return NULL;
 	}
 	
 
-	
-	protected AppVar<? extends Object> quitFunction(ArrayList<AppVar<? extends Object>> args){ 
-		if (args.size() != 0) showError("Unused arguments in 'quit'");
-		quit();
-		return NULL;
-	}
-	
-	protected AppVar<? extends Object> setEcho(ArrayList<AppVar<? extends Object>> args){
-		String check = CommandAppUtil.argTypeCheck(args, BOOL);
-		if (check.equals("")){
-			this.echo = BOOL.convert(args.get(0));
-		}
-		return NULL;
-	}
-	
 	protected AppVar<? extends Object> setFunction(String[] args){ 
 		if (args.length != 3){
 			showError("'set' takes exactly 2 arguments");
 			return NULL;
 		}else
-			return set(args[1], atomicEval(args[2]));
+			return setVar(args[1], atomicEval(args[2]));
 	}
 	
-	protected AppVar<? extends Object> printFunction(ArrayList<AppVar<? extends Object>> args){
-		for (AppVar<? extends Object> arg : args )
-			out.print(arg.toString());
-		return NULL;
-	}
-	
-	protected void printFunction(AppVar<? extends Object> arg ){
-		if (arg != NULL)
-			out.print(arg.toString());
-	}
-	
-	
-	private AppVar<? extends Object> set(String varName, AppVar<? extends Object> obj ){
+	protected AppVar<? extends Object> setVar(String varName, AppVar<? extends Object> obj ){
 		if (CommandAppUtil.isValidVarName(varName)){
-			if (obj != NULL){
-				variables.put(varName, obj);
-				return obj;
-			}else{
-				showError("Variable "+varName + " cannot be assigned a NULL");
-				return NULL;
-			}
+//			if (obj != NULL){
+//				variables.put(varName, obj);
+//				return obj;
+//			}else{
+//				showError("Variable "+varName + " cannot be assigned a NULL");
+//				return NULL;
+//			}
+			variables.put(varName, obj);
+			return obj;
 		}
 		showError("Invalid LHS (Bad variable name)");
 		return NULL;
 	}
 	
-	
+
+	protected AppVar<? extends Object> getVar(String varName){
+		return this.variables.get(varName);
+	}
 	
 	public void quit(){
 		quit = true;
 	}
-	
-//	private AppVar<SimpleTokenStream> tokenize()
-	
-	
-	
+		
 	
 	/**
 	 * Evaluates either a literal or a variable

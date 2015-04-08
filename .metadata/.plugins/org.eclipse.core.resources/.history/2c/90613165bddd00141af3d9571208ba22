@@ -1,0 +1,33 @@
+package ui;
+
+import java.util.ArrayList;
+
+import patternDetection.Pattern;
+import tests.Objs;
+import ui.AppVar.AppString;
+
+public class PatternCommandApp extends CommandApp {
+
+	private static final String DATA_PATH_VAR_NAME = "$__DATA";
+	private static final String DEFAULT_DATA_PATH = Objs.DATA_PATH;
+	
+	private static final String SAVE_PATH_VAR_NAME = "$__SAVE";
+	private static final String DEFAULT_SAVE_PATH = Objs.SERIAL_PATH;
+	
+	
+	public PatternCommandApp(){
+		super();
+	}
+	
+	protected void initializeVars(){
+		super.initializeVars();
+		AppString dataPath = new AppString(DEFAULT_DATA_PATH);
+		AppString savePath = new AppString(DEFAULT_SAVE_PATH);
+		this.setVar(DATA_PATH_VAR_NAME, dataPath);
+		this.setVar(SAVE_PATH_VAR_NAME, savePath);
+		
+		
+	}
+	
+
+}

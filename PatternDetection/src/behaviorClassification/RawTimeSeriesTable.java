@@ -132,9 +132,22 @@ public class RawTimeSeriesTable extends DataTable{
 		return out;
 	}
 	
-//	public RawTimeSeriesTable subTable(String[] headers){
-//		
-//	}
+	public RawTimeSeriesTable subTable(String[] headers){
+		double[][] entries = new double[headers.length][];
+		int timeInd = -1;
+		for (int i=0; i<headers.length; i++){
+			if (this.getTimeHeader().equals(headers[i]))
+				timeInd = i;
+			entries[i] = this.getCol(headers[i]);
+		}
+		return new RawTimeSeriesTable(entries, headers, timeInd );
+	}
+	
+	public void rename(String current, String renamed){
+		for (int i=0; i <headers.length; i++)
+			if (headers[i].equals(current))
+				headers[i] = renamed;
+	}
 	
 	
 //	public RawDataTable subTable(String[] desiredQuantities){

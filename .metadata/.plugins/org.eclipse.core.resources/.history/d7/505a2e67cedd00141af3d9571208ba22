@@ -1,0 +1,53 @@
+package ui;
+
+import patternDetection.Tokenizer;
+import tests.Objs;
+import ui.AppVar.AppString;
+
+public class PatternCommandApp extends CommandApp {
+
+	private static final String DATA_PATH_VAR_NAME = "$__DATA";
+	private static final String DEFAULT_DATA_PATH = Objs.DATA_PATH;
+	
+	private static final String SAVE_PATH_VAR_NAME = "$__SAVE";
+	private static final String DEFAULT_SAVE_PATH = Objs.SERIAL_PATH;
+	
+	private static final String SETUP_FILE = "setup.txt";
+	
+	private static final String ALPHA_VAR_NAME = "$__ALPHA";
+	private static final String BETA_VAR_NAME = "$__BETA";
+	private static final String PAD_VAR_NAME = "$__PAD";
+	
+//	private static final String 
+	
+//	protected Tokenizer tokenizer;
+	
+	
+	public PatternCommandApp(){
+		super();
+		this.addFunctions(PatternAppFunctions.getPatternAppFunctions(this));
+		this.runFile(SETUP_FILE);
+		this.tokenizer = Objs.tokenizer;
+//		System.out.println(this.tokenizer);
+	}
+	
+	
+	
+	protected void initializeVars(){
+		super.initializeVars();
+		AppString dataPath = new AppString(DEFAULT_DATA_PATH);
+		AppString savePath = new AppString(DEFAULT_SAVE_PATH);
+		this.setVar(DATA_PATH_VAR_NAME, dataPath);
+		this.setVar(SAVE_PATH_VAR_NAME, savePath);
+	}
+	
+	protected String getDataPath(){
+		return STR.convert(this.getVar(DATA_PATH_VAR_NAME));
+	}
+	
+	protected String getSavePath(){
+		return STR.convert(this.getVar(SAVE_PATH_VAR_NAME));
+	}
+	
+
+}

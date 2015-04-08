@@ -1,0 +1,16 @@
+package ui;
+
+import java.util.ArrayList;
+
+import patternDetection.Pattern;
+
+public class PatternCommandApp extends CommandApp {
+
+	
+	public PatternCommandApp(){
+		super();
+	}
+	
+	
+
+}

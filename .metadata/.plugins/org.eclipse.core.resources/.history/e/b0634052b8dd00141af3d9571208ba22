@@ -1,0 +1,23 @@
+package ui;
+
+import java.util.ArrayList;
+
+import patternDetection.Pattern;
+import tests.Objs;
+
+public class PatternCommandApp extends CommandApp {
+
+	private static final String DEF_DATA_PATH = Objs.DATA_PATH;
+	private static final String DEF_SAVE_PATH = Objs.SERIAL_PATH;
+	
+	
+	public PatternCommandApp(){
+		super();
+	}
+	
+	private void initializeVars(){
+		
+	}
+	
+
+}

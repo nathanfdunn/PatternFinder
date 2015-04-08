@@ -1,0 +1,116 @@
+package ui;
+
+import static ui.CommandAppUtil.argTypeCheck;
+
+import java.util.ArrayList;
+
+import behaviorClassification.CsvToTable;
+import patternDetection.Pattern;
+import ui.AppVar.AppBool;
+import ui.AppVar.AppDouble;
+import ui.AppVar.AppInt;
+import ui.AppVar.AppNull;
+import ui.AppVar.AppString;
+import ui.CommandAppFunction.printFunction;
+import ui.CommandAppFunction.quitFunction;
+import ui.CommandAppFunction.setEchoFunction;
+import ui.PatternAppVarTypes.AppPattern;
+import ui.PatternAppVarTypes.AppTable;
+
+public class PatternAppFunctions {
+
+	
+	public static final AppNull NULL = AppVar.NULL;
+	public static final AppString STR = AppVar.STR;
+	public static final AppBool BOOL = AppVar.BOOL;
+	public static final AppInt INT = AppVar.INT;
+	public static final AppDouble DOUBLE = AppVar.DOUBLE;
+
+	public static class parsePatternFunction extends CommandAppFunction {
+		public parsePatternFunction(CommandApp app) {
+			super(app, "parsePattern");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			String check = argTypeCheck(args, STR);
+			if (check.equals("")){
+				Pattern p = PatternParser.parse( STR.convert(args.get(0)) );
+				return new AppPattern(p);
+			}
+			
+			this.app.showError(check);
+			return NULL;
+		}
+	}
+	
+	
+	public static class readTableFunction extends CommandAppFunction {
+		public readTableFunction(CommandApp app) {
+			super(app, "readTable");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			String error;
+			String check = argTypeCheck(args, STR);
+			String fileName;
+			if (check.equals("")){
+				fileName = this.app.getDataPath() + STR.convert(args.get(0)) ;
+				return new AppTable( CsvToTable.readCsv( fileName ) );
+			}else{
+				error = check;
+				check = argTypeCheck(args, STR, DOUBLE, DOUBLE);
+				fileName = this.app.getDataPath() + STR.convert(args.get(0)) ;
+
+				if (check.equals("")){
+					return new AppTable( CsvToTable.readCsv( fileName,
+							DOUBLE.convert(args.get(1)),
+							DOUBLE.convert(args.get(2)) ));
+				}
+			}
+			this.app.showError("Bad arguments for function "+this.getName() );
+			this.app.out.print(error);
+			return NULL;
+		}
+	}
+	
+
+	public static class subTableFunction extends CommandAppFunction {
+		public subTableFunction(CommandApp app) {
+			super(app, "subTable");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+
+			return NULL;
+		}
+	}
+
+	
+	public static class tokenizeFunction extends CommandAppFunction {
+		public tokenizeFunction(CommandApp app) {
+			super(app, "tokenize");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			
+			return NULL;
+		}
+	}
+	
+
+	
+	
+	public static ArrayList<CommandAppFunction> getPatternAppFunctions(CommandApp app){
+		ArrayList<CommandAppFunction> out = new ArrayList<CommandAppFunction>();
+		out.add(new parsePatternFunction(app));
+		out.add(new readTableFunction(app));
+
+		return out;
+	}
+	
+	
+}

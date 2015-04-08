@@ -2,6 +2,7 @@ package ui;
 
 import java.util.ArrayList;
 
+import patternDetection.Tokenizer;
 import ui.AppVar.AppBool;
 import ui.AppVar.AppDouble;
 import ui.AppVar.AppInt;
@@ -18,7 +19,7 @@ public abstract class CommandAppFunction {
 	public static final AppInt INT = AppVar.INT;
 	public static final AppDouble DOUBLE = AppVar.DOUBLE;
 	
-	
+	protected Tokenizer tokenizer;
 	protected CommandApp app;
 	protected final String name;
 	
@@ -27,10 +28,14 @@ public abstract class CommandAppFunction {
 		this.name = name;
 	}
 	
-	public abstract AppVar<? extends Object> call( AppVar<? extends Object>... args );
+	public abstract AppVar<? extends Object> call( ArrayList<AppVar<? extends Object>> args );
 	
 	public String getName(){
 		return name;
+	}
+	
+	public void badArgs(String check){
+		this.app.showError("Bad arguments: \n"+check);
 	}
 	
 	
@@ -42,8 +47,8 @@ public abstract class CommandAppFunction {
 		}
 
 		@Override
-		public AppVar<? extends Object> call(AppVar<? extends Object>... args) {
-			if (args.length != 0) this.app.showError("Unused arguments in 'quit'");
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			if (args.size() != 0) this.app.showError("Unused arguments in 'quit'");
 			this.app.quit();
 			return NULL;
 		}
@@ -55,9 +60,15 @@ public abstract class CommandAppFunction {
 		}
 
 		@Override
-		public AppVar<? extends Object> call(AppVar<? extends Object>... args) {
-			for (AppVar<? extends Object> arg : args )
-				this.app.out.print(arg.toString());
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			for (AppVar<? extends Object> arg : args ){
+				if (arg == NULL)
+					this.app.out.print("NULL");
+				else if (arg.get() == null)
+					this.app.out.print(null);
+				else
+					this.app.out.print(arg.toString());
+			}
 			return NULL;
 		}
 	}
@@ -68,21 +79,41 @@ public abstract class CommandAppFunction {
 		}
 
 		@Override
-		public AppVar<? extends Object> call(AppVar<? extends Object>... args) {
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
 			@SuppressWarnings("unchecked")
 			String check = CommandAppUtil.argTypeCheck(args, BOOL);
 			if (check.equals("")){
-				this.app.echo = BOOL.convert(args[0]);
+				this.app.echo = BOOL.convert(args.get(0));
+			}else{
+				this.app.showError(check);
 			}
 			return NULL;
 		}
 	}
+	
+
+	
+	public static class concatFunction extends CommandAppFunction {
+		public concatFunction(CommandApp app) {
+			super(app, "concat");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			String result = "";
+			for (AppVar<? extends Object> arg : args)
+				result += arg.toString();
+			return new AppString(result);
+		}
+	}
+	
 	
 	public static ArrayList<CommandAppFunction> getCommonFunctions(CommandApp app){
 		ArrayList<CommandAppFunction> out = new ArrayList<CommandAppFunction>();
 		out.add(new printFunction(app));
 		out.add(new quitFunction(app));
 		out.add(new setEchoFunction(app));
+		out.add(new concatFunction(app));
 		return out;
 	}
 	

@@ -38,6 +38,12 @@ public class CsvToTable {
 		return readCsv(fileName, -1);		//will use the findTimeInd function
 	}
 	
+	
+	public static RawTimeSeriesTable readCsv( String fileName, double start, double end ){
+		RawTimeSeriesTable table = readCsv(fileName);
+		return table.subTable(start, end);
+	}
+	
 	/**
 	 * Parses the CSV using the timeInd-th column as the time values
 	 * @param fileName

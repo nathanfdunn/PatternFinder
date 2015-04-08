@@ -40,6 +40,11 @@ public class EvaluationObject implements Comparable<EvaluationObject>{
 	}
 	
 	
+	public MatchDataObject getMdo(){
+		return data;
+	}
+	
+	
 	
 	public EvaluationObject( MatchDataObject mdo, EvaluationSettings settings){
 		
