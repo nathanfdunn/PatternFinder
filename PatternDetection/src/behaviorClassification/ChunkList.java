@@ -3,6 +3,8 @@ package behaviorClassification;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import tests.Pnt;
+
 
 /**
  * Provides a class to store chunks of data grouped by the quantity that
@@ -38,8 +40,12 @@ public class ChunkList {
 	 * @param chunkWidth
 	 */
 	public ChunkList(RawTimeSeriesTable table, double chunkWidth){
-		this(table, chunkWidth, table.getEarliestTime() - EPS, table.getLatestTime() + EPS);
+		this(table, chunkWidth, table.getMostRecentTime() - EPS, table.getLeastRecentTime() + EPS);
 	}
+	
+	
+	
+	
 	
 	
 	//TODO support for reversed times
@@ -54,10 +60,14 @@ public class ChunkList {
 	public ChunkList(RawTimeSeriesTable table, double chunkWidth, double start, double end){
 		chunkList = new HashMap<String, ArrayList<Chunk>>();
 		double[] times = table.getTimes();
+//		Pnt.pntArr(times);
 		partition = Partitioner.seq(start, end, chunkWidth);
-	
+//		Pnt.pntArr(partition);
 		int[][] inds = Partitioner.partitionTimes(times, partition);
+//		Pnt.pntArr(inds);
 		double[][] timeChunks = Partitioner.indexVals(inds, times);
+//		Pnt.pntArr(timeChunks);
+
 		numChunks = inds.length;
 		
 		quantities = table.getNonTimeHeaders();

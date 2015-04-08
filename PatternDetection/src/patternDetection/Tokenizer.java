@@ -1,14 +1,18 @@
 package patternDetection;
 
+import java.util.ArrayList;
+
+import tests.Objs;
+import behaviorClassification.Chunk;
 import behaviorClassification.ChunkList;
+import behaviorClassification.CsvToTable;
 import behaviorClassification.ModelClassifier;
 import behaviorClassification.RawTimeSeriesTable;
 
-import java.util.ArrayList;
-
-import behaviorClassification.Chunk;
-
 public class Tokenizer {
+	
+ 	public static final Tokenizer DEFAULT_TOKENIZER = Objs.createTokenizer();// Objs.tokenizer;
+	
 	
 	private ModelClassifier model;
 
@@ -21,6 +25,31 @@ public class Tokenizer {
 		return model;
 	}
 
+	
+	public static SimpleTokenStream defaultTokenize(String fileName, int numChunks){
+		RawTimeSeriesTable table = CsvToTable.readCsv(fileName);
+		return DEFAULT_TOKENIZER.tokenize(table, numChunks);
+	}
+	
+	public static SimpleTokenStream defaultTokenize(String fileName, double chunkWidth){
+		RawTimeSeriesTable table = CsvToTable.readCsv(fileName);
+		return DEFAULT_TOKENIZER.tokenize(table, chunkWidth);
+	}
+	
+	
+	public static SimpleTokenStream defaultTokenize(String fileName, double chunkWidth,
+			double start, double end){
+		RawTimeSeriesTable table = CsvToTable.readCsv(fileName);
+		return DEFAULT_TOKENIZER.tokenize(table, chunkWidth, start, end);
+	}
+	
+	public static SimpleTokenStream defaultTokenize(String fileName, int numChunks,
+			double start, double end){
+		RawTimeSeriesTable table = CsvToTable.readCsv(fileName);
+		return DEFAULT_TOKENIZER.tokenize(table, numChunks, start, end);
+	}
+	
+	
 
 	private ArrayList<SimpleToken> tokenize(ArrayList<Chunk> chunks, String quant){
 		ArrayList<SimpleToken> out = new ArrayList<SimpleToken>();

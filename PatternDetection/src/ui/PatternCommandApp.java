@@ -32,10 +32,24 @@ public class PatternCommandApp extends CommandApp {
 	public PatternCommandApp(){
 		super();
 		this.addFunctions(PatternAppFunctions.getPatternAppFunctions(this));
-		this.runFile(SETUP_FILE);
+		this.initRun();
 		this.tokenizer = Objs.tokenizer;
 //		System.out.println(this.tokenizer);
 	}
+	
+	public PatternCommandApp(IInputReader in, IAppOutput out){
+		super(in, out);
+		this.addFunctions(PatternAppFunctions.getPatternAppFunctions(this));
+		this.initRun();
+		this.tokenizer = Objs.tokenizer;
+		
+	}
+	
+	protected void initRun(){
+		this.runFile(SETUP_FILE);
+	}
+	
+	
 	
 	
 	

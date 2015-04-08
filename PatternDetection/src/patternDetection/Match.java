@@ -1,6 +1,18 @@
 package patternDetection;
 
 public class Match {
+	public SimpleToken getPrecursor() {
+		return precursor;
+	}
+
+	public SimpleToken getSuccessor() {
+		return successor;
+	}
+
+	public MatchType getType() {
+		return type;
+	}
+
 	public SimpleToken precursor;
 	public SimpleToken successor;
 	public MatchType type;

@@ -1,0 +1,41 @@
+package tests;
+
+import java.util.ArrayList;
+
+import patternDetection.EvaluationObject;
+import patternDetection.Match;
+import patternDetection.PatternExtractor;
+import patternDetection.SimpleTokenStream;
+import behaviorClassification.CsvToTable;
+import behaviorClassification.RawTimeSeriesTable;
+
+public class MatchDisplayerTest {
+
+	public static void maine(String[] args){
+		String[] quants = new String[]{
+				"Ca","Cl"//,"NO3",//"Na"
+		};
+		
+		RawTimeSeriesTable table = CsvToTable.readCsv(Objs.DATA_PATH+"nfdunn_GISP2_formatted.csv");
+		SimpleTokenStream sts = Objs.tokenizer.tokenize(table, 30);
+
+		sts = sts.subStream( quants );
+		
+		ArrayList<EvaluationObject> patterns = PatternExtractor.defaultExtract(sts);
+		
+		EvaluationObject eo = patterns.get(0);
+		Match m = eo.getMdo().getMatches().get(0);
+		
+		
+		
+		
+	}
+	
+	
+}
+
+
+
+
+
+

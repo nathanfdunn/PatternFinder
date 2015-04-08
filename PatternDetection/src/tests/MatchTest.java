@@ -13,6 +13,7 @@ import patternDetection.MatchDataObject;
 import patternDetection.Pattern;
 import patternDetection.SimpleClause;
 import patternDetection.SimpleTokenStream;
+import patternDetection.Tokenizer;
 import ui.TokenStreamDisplayer;
 
 public class MatchTest {
@@ -28,9 +29,8 @@ public class MatchTest {
 				"Ca","Cl"//,"NO3",//"Na"
 		};
 		
-		RawTimeSeriesTable table = CsvToTable.readCsv(Objs.DATA_PATH+"nfdunn_GISP2_formatted.csv");
-		SimpleTokenStream sts = Objs.tokenizer.tokenize(table, 30);
 
+		SimpleTokenStream sts = getSeasonal();
 		sts = sts.subStream( quants );
 		
 		MatchDataObject mdo = new MatchDataObject(p, sts);
@@ -51,4 +51,26 @@ public class MatchTest {
 //		win.setVisible(true);
 	}
 
+	
+	public static SimpleTokenStream getTambora(){
+		double start = 1717.545 - 2;
+		double end = 1917.545;
+		String so4file = "/Users/nathandunn/Desktop/tamboraTable.csv";
+		
+		return Tokenizer.defaultTokenize(so4file, 10.0, start, end);
+
+	}
+
+	public static SimpleTokenStream getSeasonal(){
+		final double start = 1910.0;
+		final double end = 1970.0;
+		String fileName = "../../DataSets_R/US_ITASE-00-3_2013_filtered.csv";
+		return Tokenizer.defaultTokenize(fileName, 0.5, start, end);
+	}
+	
 }
+
+
+
+
+

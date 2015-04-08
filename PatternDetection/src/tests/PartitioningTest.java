@@ -5,6 +5,7 @@ import behaviorClassification.Partitioner;
 public class PartitioningTest {
 
 	public static void main(String[] args) {
+		
 		double[] vals = Partitioner.seq(0, 10, 1.0);
 		Pnt.pntArr(vals);
 		Pnt.pnt();

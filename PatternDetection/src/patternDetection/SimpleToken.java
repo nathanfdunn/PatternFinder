@@ -3,6 +3,22 @@ package patternDetection;
 import behaviorClassification.Chunk;
 
 public class SimpleToken {
+	public String getQuantIdentity() {
+		return quantIdentity;
+	}
+
+	public Behavior getBehavior() {
+		return behavior;
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public Chunk getChunk() {
+		return chunk;
+	}
+
 	public String quantIdentity;
 	public Behavior behavior;
 	public int time;
@@ -26,7 +42,7 @@ public class SimpleToken {
 	}
 	
 	public String toString(){
-		return "("+quantIdentity + behavior + ", t="+time+")";
+		return "("+quantIdentity + behavior.toChar() + ", t="+time+")";
 	}
 	
 }

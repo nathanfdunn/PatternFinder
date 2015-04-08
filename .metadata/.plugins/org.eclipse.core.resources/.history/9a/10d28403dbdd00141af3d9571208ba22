@@ -1,0 +1,11 @@
+package ui;
+
+import javax.swing.JFrame;
+
+public class PatternCommandGuiApp extends PatternCommandApp {
+
+	private JFrame win;//= new JFrame();
+	
+	
+	
+}

@@ -1,0 +1,75 @@
+package tests;
+
+import java.util.ArrayList;
+
+import patternDetection.EvaluationObject;
+import patternDetection.Match;
+import patternDetection.PatternExtractor;
+import patternDetection.SimpleTokenStream;
+import patternDetection.Tokenizer;
+import ui.CompositeTokenStreamDisplayer;
+import ui.PatternCommandGuiApp;
+import behaviorClassification.CsvToTable;
+import behaviorClassification.RawTimeSeriesTable;
+
+public class MatchDisplayerTest {
+
+	public static void main(String[] args){
+//		String[] quants = new String[]{
+//				"Ca","Cl"//,"NO3",//"Na"
+//		};
+//		
+//		RawTimeSeriesTable table = CsvToTable.readCsv(Objs.DATA_PATH+"nfdunn_GISP2_formatted.csv");
+//		SimpleTokenStream sts = Objs.tokenizer.tokenize(table, 30);
+//
+//		sts = sts.subStream( quants );
+//		
+//		ArrayList<EvaluationObject> patterns = PatternExtractor.defaultExtract(sts);
+//		
+//		EvaluationObject eo = patterns.get(0);
+//		Match m = eo.getMdo().getMatches().get(0);
+//		
+//		Pnt.pnt(m);
+//
+//		new CompositeTokenStreamDisplayer(sts,true).display();
+//		Pnt.pause();
+//		sts = sts.subStream(m);
+//		
+//		new CompositeTokenStreamDisplayer(sts,true).display();
+		
+		PatternCommandGuiApp app = new PatternCommandGuiApp();
+		
+		SimpleTokenStream sts = getSeasonal();
+		app.displayStream(sts);
+		Pnt.pause();
+		sts = getTambora();
+		app.displayStream(sts);
+		
+	}
+	
+	
+	public static SimpleTokenStream getTambora(){
+		double start = 1717.545 - 2;
+		double end = 1917.545;
+		String so4file = "/Users/nathandunn/Desktop/tamboraTable.csv";
+		
+		return Tokenizer.defaultTokenize(so4file, 10.0, start, end);
+
+	}
+
+	public static SimpleTokenStream getSeasonal(){
+		final double start = 1910.0;
+		final double end = 1970.0;
+		String fileName = "../../DataSets_R/US_ITASE-00-3_2013_filtered.csv";
+		return Tokenizer.defaultTokenize(fileName, 0.5, start, end);
+	}
+	
+	
+	
+}
+
+
+
+
+
+

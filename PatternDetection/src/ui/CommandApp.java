@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import patternDetection.EvaluationObject.EvaluationSettings;
+import patternDetection.SimpleTokenStream;
 import patternDetection.Tokenizer;
 import tests.Objs;
 import ui.AppVar.AppBool;
@@ -39,6 +40,10 @@ public class CommandApp {
 	
 	protected EvaluationSettings getEvalSettings(){
 		return EvaluationSettings.DEFAULT;
+	}
+	
+	public void displayStream(SimpleTokenStream stream){
+		return;
 	}
 	
 	
@@ -178,7 +183,7 @@ public class CommandApp {
 			return func.call(args);
 		}
 		
-		showError("Unrecognized function");
+		showError("Unrecognized function: "+name);
 		return NULL;
 	}
 	

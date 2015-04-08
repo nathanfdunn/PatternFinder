@@ -1,0 +1,30 @@
+package ui;
+
+import javax.swing.JFrame;
+
+import patternDetection.SimpleTokenStream;
+
+public class PatternCommandGuiApp extends PatternCommandApp {
+
+	private JFrame win;//= new JFrame();
+	
+	private CompositeTokenStreamDisplayer ctsd;
+	
+	public PatternCommandGuiApp(){
+		win = new JFrame();
+		win.setVisible(true);
+	}
+	
+	
+	public void displayStream(SimpleTokenStream sts){
+		win.remove(ctsd);
+		ctsd = new CompositeTokenStreamDisplayer(sts);
+		win.add(ctsd);
+	}
+	
+}
+
+
+
+
+

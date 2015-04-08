@@ -64,8 +64,8 @@ public class RawTimeSeriesTable extends DataTable{
 	 */
 	public double timeSpan(){
 		double out = before?
-				getLatestTime() - getEarliestTime():
-				getEarliestTime() - getLatestTime();
+				getLeastRecentTime() - getMostRecentTime():
+				getMostRecentTime() - getLeastRecentTime();
 
 		if (out < 0)
 			throw new Error("Times are reversed");
@@ -73,11 +73,11 @@ public class RawTimeSeriesTable extends DataTable{
 	}
 	
 	//TODO make more sophisticated
-	public double getEarliestTime(){
+	public double getMostRecentTime(){
 		return getTimes()[0];
 	}
 	
-	public double getLatestTime(){
+	public double getLeastRecentTime(){
 		double[] times = getTimes();
 		return times[times.length-1];
 	}

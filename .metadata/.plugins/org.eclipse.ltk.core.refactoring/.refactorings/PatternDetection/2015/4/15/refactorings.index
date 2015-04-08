@@ -15,3 +15,6 @@
 1428474717743	Rename type 'PatternAppFunctinos'
 1428475696191	Rename method 'set'
 1428486988010	Rename enum constant 'IND'
+1428491877679	Delete element
+1428494373073	Rename method 'getEarliestTime'
+1428494380209	Rename method 'getLatestTime'

@@ -7,9 +7,12 @@ import java.util.ArrayList;
 
 import patternDetection.EvaluationObject;
 import patternDetection.EvaluationObject.EvaluationSettings;
+import patternDetection.Interval;
 import patternDetection.Match;
 import patternDetection.Pattern;
+import patternDetection.PatternCompleter;
 import patternDetection.PatternExtractor;
+import patternDetection.SimpleToken;
 import patternDetection.SimpleTokenStream;
 import ui.AppVar.AppBool;
 import ui.AppVar.AppDouble;
@@ -22,6 +25,7 @@ import ui.PatternAppVarTypes.AppMatch;
 import ui.PatternAppVarTypes.AppPattern;
 import ui.PatternAppVarTypes.AppStream;
 import ui.PatternAppVarTypes.AppTable;
+import ui.PatternAppVarTypes.AppToken;
 import behaviorClassification.CsvToTable;
 import behaviorClassification.RawTimeSeriesTable;
 
@@ -39,6 +43,8 @@ public class PatternAppFunctions {
 	public static final AppPattern PAT = PatternAppVarTypes.PAT;
 	public static final AppList LIST = PatternAppVarTypes.LIST;
 	public static final AppEvObj EV_OBJ = PatternAppVarTypes.EV_OBJ;
+	public static final AppMatch MATCH = PatternAppVarTypes.MATCH;
+	
 	
 
 	
@@ -53,6 +59,10 @@ public class PatternAppFunctions {
 			String check = argTypeCheck(args, STR);
 			if (check.equals("")){
 				Pattern p = PatternParser.parse( STR.convert(args.get(0)) );
+				if (p == null){
+					this.app.showWarning("Pattern was not parsable");
+					return NULL;
+				}
 				return new AppPattern(p);
 			}
 			
@@ -203,6 +213,31 @@ public class PatternAppFunctions {
 		}
 	}
 	
+	
+	public static class completeTimeFunction extends CommandAppFunction {
+		public completeTimeFunction(CommandApp app) {
+			super(app, "completeTime");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			String check = argTypeCheck(args, STREAM, PAT);
+			if (check.equals("")){
+				SimpleTokenStream sts = STREAM.convert(args.get(0));
+				Pattern p = PAT.convert(args.get(1));
+				EvaluationSettings settings = this.app.getEvalSettings();
+				Interval i = PatternCompleter.completeTime(sts, p.pre, p.suc, settings);
+				Pattern out = new Pattern(p.pre, p.suc, i);
+				return new AppPattern(out);
+			}
+			this.badArgs(check);
+			return NULL;
+		}
+	}
+
+	
+	
+	
 	public static class extractFunction extends CommandAppFunction {
 		public extractFunction(CommandApp app) {
 			super(app, "extract");
@@ -295,8 +330,92 @@ public class PatternAppFunctions {
 		}
 	}
 	
-	
+	public static class getAntiMatchesFunction extends CommandAppFunction {
+		public getAntiMatchesFunction(CommandApp app) {
+			super(app, "getAntiMatches");
+		}
 
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			String check = argTypeCheck(args, EV_OBJ);
+			if (check.equals("")){
+				EvaluationObject eo = EV_OBJ.convert(args.get(0));
+				ArrayList<Match> matches = eo.getMdo().getAntiMatches();
+				ArrayList<AppMatch> list = new ArrayList<AppMatch>();
+				for (Match m : matches)
+					list.add(new AppMatch(m));
+				return new AppList(list);
+			}
+			this.badArgs(check);
+			return NULL;
+		}
+	}
+	
+	public static class getIndMatchesFunction extends CommandAppFunction {
+		public getIndMatchesFunction(CommandApp app) {
+			super(app, "getIndMatches");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			String check = argTypeCheck(args, EV_OBJ);
+			if (check.equals("")){
+				EvaluationObject eo = EV_OBJ.convert(args.get(0));
+				ArrayList<Match> matches = eo.getMdo().getIndMatches();
+				ArrayList<AppMatch> list = new ArrayList<AppMatch>();
+				for (Match m : matches)
+					list.add(new AppMatch(m));
+				return new AppList(list);
+			}
+			this.badArgs(check);
+			return NULL;
+		}
+	}
+	
+	public static class getPreFunction extends CommandAppFunction {
+		public getPreFunction(CommandApp app) {
+			super(app, "getPre");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			String check = argTypeCheck(args, EV_OBJ);
+			if (check.equals("")){
+				EvaluationObject eo = EV_OBJ.convert(args.get(0));
+				ArrayList<SimpleToken> tokens = eo.getMdo().getPrecursors();
+				ArrayList<AppToken> list = new ArrayList<AppToken>();
+				for (SimpleToken t : tokens)
+					list.add(new AppToken(t));
+				return new AppList(list);
+			}
+			this.badArgs(check);
+			return NULL;
+		}
+	}
+	
+	public static class getSucFunction extends CommandAppFunction {
+		public getSucFunction(CommandApp app) {
+			super(app, "getSuc");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			String check = argTypeCheck(args, EV_OBJ);
+			if (check.equals("")){
+				EvaluationObject eo = EV_OBJ.convert(args.get(0));
+				ArrayList<SimpleToken> tokens = eo.getMdo().getSuccessors();
+				ArrayList<AppToken> list = new ArrayList<AppToken>();
+				for (SimpleToken t : tokens)
+					list.add(new AppToken(t));
+				return new AppList(list);
+			}
+			this.badArgs(check);
+			return NULL;
+		}
+	}
+	
+	
+	
 	
 
 	
@@ -309,9 +428,58 @@ public class PatternAppFunctions {
 		out.add(new renTabColFunction(app));
 		out.add(new tokenizeFunction(app));
 		out.add(new matchFunction(app));
+		out.add(new completeTimeFunction(app));
 		out.add(new extractFunction(app));
 		out.add(new getIndFunction(app));
 		out.add(new getMatchesFunction(app));
+		out.add(new getAntiMatchesFunction(app));
+		out.add(new getPreFunction(app));
+		out.add(new getSucFunction(app));
+		return out;
+	}
+	
+	
+	
+	
+
+	
+	public static class displayFunction extends CommandAppFunction {
+		public displayFunction(CommandApp app) {
+			super(app, "display");
+		}
+
+		@Override
+		public AppVar<? extends Object> call(ArrayList<AppVar<? extends Object>> args) {
+			String check = argTypeCheck(args, STREAM);
+			if (check.equals("")){
+				SimpleTokenStream sts = STREAM.convert(args.get(0));
+				this.app.displayStream(sts);
+				return NULL;
+			}else{
+				String error = check;
+				check = argTypeCheck(args, STREAM, MATCH);
+				if (check.equals("")){
+					SimpleTokenStream sts = STREAM.convert(args.get(0));
+					Match m = MATCH.convert(args.get(1));
+					sts = sts.subStream(m);
+					this.app.displayStream(sts);
+					return NULL;
+				}
+				this.badArgs(error + "\n" + check);
+				return NULL;
+			}
+			
+//			return NULL;
+		}
+	}
+	
+	
+	
+	
+	public static ArrayList<CommandAppFunction> getPatternAppGuiFunctions(CommandApp app){
+		ArrayList<CommandAppFunction> out = new ArrayList<CommandAppFunction>();
+		out.add(new displayFunction(app));
+		
 		return out;
 	}
 	

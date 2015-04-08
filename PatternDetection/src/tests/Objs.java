@@ -22,7 +22,7 @@ public class Objs {
 	
 	public static final Tokenizer tokenizer = createTokenizer();
 	
-	private static final Tokenizer createTokenizer(){
+	public static final Tokenizer createTokenizer(){
 		Tokenizer out = 
 		new Tokenizer((ModelClassifier)Serializer
 				.deserialize("GISP2_ModelClassifier"));

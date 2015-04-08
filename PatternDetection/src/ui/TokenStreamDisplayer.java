@@ -71,6 +71,8 @@ public class TokenStreamDisplayer extends JPanel {
 				);		
 	}
 	
+
+	
 	
 	
 	
@@ -224,7 +226,7 @@ public class TokenStreamDisplayer extends JPanel {
 		
 		public void paintComponent(Graphics g){
 			g.setColor(Color.white);
-			g.fillRect(0, 0, 1000, 1000);
+			g.fillRect(0, 0, 10000, 10000);
 			g.setColor(Color.BLACK);
 			int[][][][] pointsList = scaleValues();
 			drawSymbols(g, pointsList[0]);

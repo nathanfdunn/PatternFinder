@@ -6,6 +6,7 @@ import patternDetection.EvaluationObject;
 import patternDetection.Match;
 import patternDetection.MatchDataObject;
 import patternDetection.Pattern;
+import patternDetection.SimpleToken;
 import patternDetection.SimpleTokenStream;
 import patternDetection.Tokenizer;
 import behaviorClassification.RawTimeSeriesTable;
@@ -25,6 +26,7 @@ public abstract class PatternAppVarTypes {
 	public static final AppPattern PAT = new AppPattern(null);
 	public static final AppList LIST = new AppList(null);
 	public static final AppEvObj EV_OBJ = new AppEvObj(null);
+	public static final AppMatch MATCH = new AppMatch(null);
 
 	
 	
@@ -100,6 +102,30 @@ public abstract class PatternAppVarTypes {
 		}
 	}
 	
+	
+	public static class AppToken extends AppVar<SimpleToken>{
+
+		public AppToken(SimpleToken arg) {
+			super(arg);
+		}
+
+		@Override
+		public String getType() {
+			return "SimpleToken";
+		}
+
+		@Override
+		public boolean instance(AppVar<? extends Object> appVar) {
+			return appVar instanceof AppToken;
+		}
+
+		@Override
+		public SimpleToken convert(AppVar<? extends Object> appVar) {
+			if (instance(appVar))
+				return ((AppToken)appVar).get();
+			return null;
+		}
+	}
 	
 	public static class AppTokenizer extends AppVar<Tokenizer>{
 
