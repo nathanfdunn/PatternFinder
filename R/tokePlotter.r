@@ -135,4 +135,4 @@ myPlot = function( dat, times=1:length(dat), startTime=1, color='blue', chunkWid
 # mynewvals2=mynewvals
 # mynewvals2[360]=NA
 # myPlot2(mynewvals2)
-# #myPlot2(mynewvals)
+myPlot2(mynewvals)

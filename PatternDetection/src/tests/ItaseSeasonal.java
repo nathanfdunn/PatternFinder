@@ -54,10 +54,12 @@ public class ItaseSeasonal {
 		showTokensAndPatterns(sts, table, null);
 	}
 	
-	private static void syntheticSeasonal(){
+	public static void syntheticSeasonal(){
 		SimpleTokenStream sts = perfectSeasonal();
 		showTokensAndPatterns(sts, null, null);
+		
 	}
+
 	
 	//will only show the first group of data
 	/*public static void showStuff(SimpleTokenStream sts, RawTimeSeriesTable table){
@@ -117,7 +119,7 @@ public class ItaseSeasonal {
 	}
 	
 	
-	private static SimpleTokenStream perfectSeasonal(){
+	public static SimpleTokenStream perfectSeasonal(){
 		SimpleTokenStream out = new SimpleTokenStream();
 		ArrayList<SimpleToken> sulfate = new ArrayList<SimpleToken>();
 		//double[] partition = new double[226];

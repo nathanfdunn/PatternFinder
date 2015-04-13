@@ -275,9 +275,40 @@ public abstract class PatternAppVarTypes {
 //		}
 //	}
 	
-	public static class AppList extends AppVar<ArrayList<? extends AppVar<? extends Object>>>{
+//	public static class AppList extends AppVar<ArrayList<? extends AppVar<?>>>{
+//
+//		public AppList(ArrayList<? extends AppVar<?>> arg) {
+//			super(arg);
+//		}
+//
+//		@Override
+//		public String getType() {
+//			return "ArrayList<? extends AppVar<? extends Object>>";
+//		}
+//
+//		@Override
+//		public boolean instance(AppVar<? extends Object> appVar) {
+//			return appVar instanceof AppList;
+//		}
+//
+//		@Override
+//		public ArrayList<? extends AppVar<? extends Object>> convert(AppVar<? extends Object> appVar) {
+//			if (instance(appVar))
+//				return ((AppList)appVar).get();
+//			return null;
+//		}
+//		
+//		public String toString(){
+//			String out = "";
+//			for (AppVar<? extends Object> el : obj )
+//				out += el+"\n";
+//			return out;
+//		}
+//	}
+	
+	public static class AppList extends AppVar<ArrayList<? extends AppVar<?>>>{
 
-		public AppList(ArrayList<? extends AppVar<? extends Object>> arg) {
+		public AppList(ArrayList<? extends AppVar<?>> arg) {
 			super(arg);
 		}
 

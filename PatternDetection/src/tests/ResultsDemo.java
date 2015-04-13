@@ -1,20 +1,25 @@
 package tests;
 
 import java.util.ArrayList;
-import java.util.Observable;
 import java.util.Random;
 
 import patternDetection.Behavior;
 import patternDetection.EvaluationObject;
 import patternDetection.EvaluationObject.EvaluationSettings;
+import patternDetection.Pattern;
 import patternDetection.PatternExtractor;
 import patternDetection.SimpleToken;
 import patternDetection.SimpleTokenStream;
 import ui.CompositeTokenStreamDisplayer;
+import ui.PatternParser;
 
 public class ResultsDemo {
 
 	public static void main(String[] args) {
+		examine();
+		/*
+		ItaseSeasonal.main(null);
+		Pnt.pause();
 //	Objs.setEvalSettings(2, 0.2, 2);
 
 //		Pnt.pause();
@@ -39,6 +44,22 @@ public class ResultsDemo {
 		Pnt.pause();
 		ItaseSeasonal.longItase();
 		//*/
+	}
+	
+	//Used to examine why there is an anti-match in perfect seasonal
+	public static void examine(){
+		SimpleTokenStream sts = ItaseSeasonal.perfectSeasonal();
+		
+		Pattern p = PatternParser.parse("SO4\\~SO4/:[1,1]");
+		
+		EvaluationObject o = EvaluationObject.evaluate(sts, p);
+		Pnt.pnt(o);
+		Pnt.pnt(o.getMdo().getAntiMatches());
+		Pnt.pnt(o.getMdo().getIndMatches());
+		Pnt.pnt(sts);
+		
+		sts = sts.subStream(5, 200);
+		Pnt.pnt(sts);
 	}
 	
 	public static void displayPatterns(SimpleTokenStream sts, EvaluationSettings settings){

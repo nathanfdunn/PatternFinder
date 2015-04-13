@@ -1,0 +1,12 @@
+
+
+(readTable "nfdunn_Belukha_Ions_Annual_rev.csv")
+(set $belu $_)
+(subTable $belu "Cl" "Ca" "NO3" "Year")
+(set $belu $_)
+(tokenize $belu 10.0)
+(set $beluToke $_)
+
+
+
+

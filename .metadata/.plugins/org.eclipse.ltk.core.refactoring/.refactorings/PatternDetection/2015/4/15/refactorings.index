@@ -21,3 +21,5 @@
 1428515091750	Copy file
 1428515200126	Copy file
 1428515243187	Rename field 'SETUP_FILE'
+1428783049966	Rename local variable 'length'
+1428783091100	Rename field 'streamLen'

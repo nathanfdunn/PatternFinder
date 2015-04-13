@@ -1,7 +1,0 @@
-package ui;
-
-public interface IAppObject<T> {
-
-	
-	public String getName();
-}

@@ -11,15 +11,30 @@ import behaviorClassification.RawTimeSeriesTable;
 
 public class SimpleTokenStream {
 	public HashMap<String, TokenList> stream;
-	private double[] partition;
+	private double[] partition;				//beginning and end times for each token
+	private int timeOfEarliest;				//The time of the earliest token (in chunkWidth units)
+	private int timeOfLatest;				//The time of the latest token (in chunkWidth units)
+
+	
+
+
+	public SimpleTokenStream(double[] partition){
+		stream = new HashMap<String, TokenList>();
+		this.partition = partition;
+		
+		timeOfEarliest = -1;
+		timeOfLatest = -1;
+	}
+	
+	public SimpleTokenStream(){
+		this(null);
+	}
+	
 	
 	public void setPartition(double[] partition) {
 		this.partition = partition;
 	}
-
-	public SimpleTokenStream(){
-		this(null);
-	}
+	
 	
 //	/**
 //	 * Reconstructs the time series for a given quantity
@@ -54,36 +69,58 @@ public class SimpleTokenStream {
 		return out;
 	}
 	
-	/**
+	/**  //TOOD: refactor all
 	 * Constructs a SimpleTokenStream that contains tokens from index firstInd
 	 *  to lastInd (inclusive)
 	 * @param firstInd
 	 * @param lastInd
 	 * @return
 	 */
-	public SimpleTokenStream subStream(int firstInd, int lastInd){
+	public SimpleTokenStream subStream(int firstInd, int lastInd){	
+		
+		if (firstInd > lastInd){
+			int temp = firstInd;
+			firstInd = lastInd;
+			lastInd = temp;
+		}
+		if (lastInd >= this.length())
+			lastInd = this.length()-1;
+		if (firstInd < 0)
+			firstInd = 0;
+		
 		SimpleTokenStream out = new SimpleTokenStream();
+
+		boolean makePart = this.partition != null;
+		
 		double[] newPartition = new double[lastInd - firstInd + 2];
 
 		for (String q : quantities()){
 			TokenList oldList = stream.get(q);
 			ArrayList<SimpleToken> list = new ArrayList<SimpleToken>();
-			if (firstInd > lastInd){
-				int temp = firstInd;
-				firstInd = lastInd;
-				lastInd = temp;
-			}
+
 			SimpleToken st=null;
 			int partInd = 0;		//Redoes a lot of work
 			for (int i=firstInd; i<=lastInd; i++){
 				st = oldList.getTokens().get(i);
 				list.add( st );
-				newPartition[partInd++] = st.getChunk().getStart();
+				if (makePart)
+					newPartition[partInd++] = st.getChunk().getStart();
 			}
-			newPartition[partInd] = st.getChunk().getEnd();
+			if (makePart)
+				newPartition[partInd] = st.getChunk().getEnd();
+			
 			out.add(q, list);
+			
+			if (!list.isEmpty()){
+				out.timeOfEarliest = list.get(0).getTime();
+				out.timeOfLatest = list.get(list.size()-1).getTime();
+			}
 		}
-		out.setPartition(newPartition);
+		
+		if (makePart)
+			out.setPartition(newPartition);
+		
+		//out.timeOfEarliest = 
 		return out;
 	}
 	
@@ -119,14 +156,41 @@ public class SimpleTokenStream {
 	public double[] getPartition() {
 		return partition;
 	}
+	
 
+	public int getTimeOfEarliest() {
+		return timeOfEarliest;
+	}
 
-	public SimpleTokenStream(double[] partition){
-		stream = new HashMap<String, TokenList>();
-		this.partition = partition;
+	public int getTimeOfLatest() {
+		return timeOfLatest;
 	}
 	
+	public boolean isEmpty(){
+		return stream.isEmpty();
+	}
+
+	
+	//TODO check consistency of times
 	public void add( String quantID, ArrayList<SimpleToken> tokens ){
+//		if (this.isEmpty()){
+//			int n = tokens.size();
+//			if (n != 0){
+//				timeOfEarliest = tokens.get(0).time;
+//				timeOfLatest = tokens.get(n-1).time;
+//			}
+//		}else{
+//			int n = tokens.size();
+//			
+//		}
+		
+		if (this.isEmpty()){
+			int n = tokens.size();
+			if (n != 0){
+				timeOfEarliest = tokens.get(0).time;
+				timeOfLatest = tokens.get(n-1).time;
+			}
+		}
 		stream.put(quantID, new TokenList(tokens));
 	}
 	
@@ -140,6 +204,18 @@ public class SimpleTokenStream {
 	
 	public ArrayList<SimpleToken> filter(SimpleClause c){
 		return stream.get(c.quantID).filter(c.behavior);
+	}
+	
+	/**
+	 * Returns the UNK tokens of type quant
+	 * @param quant
+	 * @return
+	 */
+	public ArrayList<SimpleToken> filterUnk(String quant){
+		Pnt.pnt("filtering UNKs");
+		ArrayList<SimpleToken> out =  stream.get(quant).filter(Behavior.UNK);
+		Pnt.pnt(out);
+		return out;
 	}
 	
 	public ArrayList<SimpleToken> getQuant(String quantID){
@@ -163,7 +239,7 @@ public class SimpleTokenStream {
 				layer += temp.behavior.toString() + "   ";
 				//out += getQuant(q).get(i);
 			}
-			layer += ")" + i + "\n";
+			layer += ")" + (this.getTimeOfEarliest()+i) + "\n";
 			out += layer;
 			//out += "\n";
 		}
@@ -225,7 +301,6 @@ public class SimpleTokenStream {
 			for (SimpleToken t : tokens){
 				if (t.behavior == b) out.add(t); 
 			}
-			//System.out.println("Reminder: fix filter");		TODO
 			return out;
 		}
 		

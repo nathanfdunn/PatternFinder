@@ -1,7 +1,0 @@
-(readTable "seasonal.csv")
-(set $table $_)
-
-
-(tokenize $table 20)
-
-(tokenize $table 0.5)
