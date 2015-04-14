@@ -23,7 +23,7 @@ Add only the jcommon and jfreechart jars to your build path. Adding all of the j
 
 
 Demo:
--Run the main() method in ResultsDemo.java within the tests package
+-Run the main() method in CommandAppTest.java within the 'tests' package
 
 
 Contents:
