@@ -212,9 +212,7 @@ public class SimpleTokenStream {
 	 * @return
 	 */
 	public ArrayList<SimpleToken> filterUnk(String quant){
-		Pnt.pnt("filtering UNKs");
 		ArrayList<SimpleToken> out =  stream.get(quant).filter(Behavior.UNK);
-		Pnt.pnt(out);
 		return out;
 	}
 	

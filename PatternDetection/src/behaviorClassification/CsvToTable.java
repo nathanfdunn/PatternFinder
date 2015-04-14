@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+import tests.Objs;
+
 //TODO: put in different package
 
 /**
@@ -38,6 +40,10 @@ public class CsvToTable {
 		return readCsv(fileName, -1);		//will use the findTimeInd function
 	}
 	
+	
+	public static RawTimeSeriesTable readCsvWithPath( String partialName ){
+		return readCsv( Objs.DATA_PATH + partialName );
+	}
 	
 	public static RawTimeSeriesTable readCsv( String fileName, double start, double end ){
 		RawTimeSeriesTable table = readCsv(fileName);

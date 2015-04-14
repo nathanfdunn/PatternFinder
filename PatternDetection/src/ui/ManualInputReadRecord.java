@@ -14,7 +14,8 @@ import java.util.Scanner;
  */
 public class ManualInputReadRecord extends ManualInputReader {
 	
-	private static final String DEF_FILE = null;
+//	private static final String DEF_FILE = null;
+	private static final String DEF_FILE = "gisp2_smoo_record.txt";
 //	private static final String DEF_FILE = "record.txt";
 	
 //	private Scanner scanner;

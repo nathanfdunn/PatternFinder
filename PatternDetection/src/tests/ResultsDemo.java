@@ -16,8 +16,8 @@ import ui.PatternParser;
 public class ResultsDemo {
 
 	public static void main(String[] args) {
-		examine();
-		/*
+//		examine();
+		//*
 		ItaseSeasonal.main(null);
 		Pnt.pause();
 //	Objs.setEvalSettings(2, 0.2, 2);
@@ -42,7 +42,7 @@ public class ResultsDemo {
 //		Pnt.pause();
 		Gisp2Test.main(null);
 		Pnt.pause();
-		ItaseSeasonal.longItase();
+//		ItaseSeasonal.longItase();
 		//*/
 	}
 	

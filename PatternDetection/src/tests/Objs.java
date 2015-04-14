@@ -22,16 +22,27 @@ public class Objs {
 	
 	public static final Tokenizer tokenizer = createTokenizer();
 	
-	public static final Tokenizer createTokenizer(){
+	public static Tokenizer createTokenizer(){
 		Tokenizer out = 
 		new Tokenizer((ModelClassifier)Serializer
 				.deserialize("GISP2_ModelClassifier"));
+
+//				new Tokenizer((ModelClassifier)Serializer
+//						.deserialize("GISP2_Smoothed_ModelClassifier"));
+		
+		
 		KnnModel knn = out.getModel().getModel();
 //		knn.setGamma(0.5);
 //		knn.setK(9);
 //		knn.setMaxWeight(Double.POSITIVE_INFINITY);
 		return out;
 	}
+	
+	//Uses the smoothed GISP data
+	public static Tokenizer createTokenizer2(){
+		return null;
+	}
+	
 	
 //	public static final Tokenizer tokenizer = new Tokenizer((ModelClassifier)Serializer
 //			.deserialize("GISP2_ModelClassifier_2"));
